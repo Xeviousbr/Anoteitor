@@ -1,0 +1,13 @@
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.csprojAssemblyReference.cache
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.About.resources
+D:\Prog\Anoteitor\obj\x86\Debug\FileDialogExtenders.FileDialogControlBase.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.FindDialog.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.GoToLinePrompt.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.Main.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.SaveOpenDialog.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.PageSetupHeaderFooter.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.Properties.Resources.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.ReplaceDialog.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.SaveChangesPrompt.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.csproj.GenerateResource.cache
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.csproj.CoreCompileInputs.cache
