@@ -1133,7 +1133,7 @@ namespace Anoteitor
             }
         }
 
-        private void AtuComboProj()
+        private void AtuArqASerMostrado()
         {
             if (this.Carregado)
             {
@@ -1149,12 +1149,12 @@ namespace Anoteitor
 
         private void cbArquivos_DropDownClosed(object sender, EventArgs e)
         {
-            AtuComboProj();
+            AtuArqASerMostrado();
         }
 
         private void cbProjetos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AtuComboProj();
+            AtuArqASerMostrado();
         }
 
         private void cbProjetos_KeyUp(object sender, KeyEventArgs e)
@@ -1162,8 +1162,13 @@ namespace Anoteitor
             if ((e.KeyCode == Keys.Down) || (e.KeyCode == Keys.Up))
             {
                 Atual = cbProjetos.Text;
-                AtuComboProj();
+                AtuArqASerMostrado();
             }                
+        }
+
+        private void cbArquivos_KeyUp(object sender, KeyEventArgs e)
+        {
+            AtuArqASerMostrado();
         }
 
         #endregion

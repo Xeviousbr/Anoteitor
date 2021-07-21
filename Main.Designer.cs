@@ -419,6 +419,7 @@
             this.cbArquivos.Size = new System.Drawing.Size(90, 24);
             this.cbArquivos.Visible = false;
             this.cbArquivos.DropDownClosed += new System.EventHandler(this.cbArquivos_DropDownClosed);
+            this.cbArquivos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbArquivos_KeyUp);
             // 
             // controlStatusBar
             // 
