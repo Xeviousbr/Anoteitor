@@ -11,8 +11,7 @@ namespace Anoteitor {
     public partial class SaveChangesPrompt : Form {
         public SaveChangesPrompt(string Filename) {
             InitializeComponent();
-
-            labelMessage.Text = labelMessage.Text.FormatUsingObject(new { Filename = Filename ?? "Untitled" });
+            lbNome.Text = Filename;
         }
 
         private void buttonSave_Click(object sender, EventArgs e) {

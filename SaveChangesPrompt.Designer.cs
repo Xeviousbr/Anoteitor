@@ -28,6 +28,7 @@
             this.buttonDontSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelMessage = new System.Windows.Forms.Label();
+            this.lbNome = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -69,9 +70,17 @@
             this.labelMessage.AutoSize = true;
             this.labelMessage.Location = new System.Drawing.Point(12, 12);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(220, 13);
+            this.labelMessage.Size = new System.Drawing.Size(195, 13);
             this.labelMessage.TabIndex = 2;
-            this.labelMessage.Text = "Tem certeza que quer salvar o arquivo {Filename}?";
+            this.labelMessage.Text = "Tem certeza que quer salvar o arquivo?";
+            // 
+            // lbNome
+            // 
+            this.lbNome.Location = new System.Drawing.Point(13, 38);
+            this.lbNome.Name = "lbNome";
+            this.lbNome.Size = new System.Drawing.Size(329, 41);
+            this.lbNome.TabIndex = 3;
+            this.lbNome.Text = "Tem certeza que quer salvar o arquivo {Filename}?";
             // 
             // SaveChangesPrompt
             // 
@@ -79,6 +88,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(354, 117);
+            this.Controls.Add(this.lbNome);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonDontSave);
@@ -102,5 +112,6 @@
         private System.Windows.Forms.Button buttonDontSave;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.Label lbNome;
     }
 }
