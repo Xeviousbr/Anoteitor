@@ -31,6 +31,8 @@ namespace Anoteitor
         private Encoding _encoding = Encoding.ASCII;
         private PageSettings _PageSettings;
         private INI cIni;
+        private int DataSalva;
+
         private class ContentPosition
         {
             public int LineIndex;
@@ -67,6 +69,7 @@ namespace Anoteitor
             this.cbProjetos.Text = Atual;
             this.Segundos = cIni.ReadInt("Projetos", "Segundos", 2);
             this.Carregado = true;
+            this.DataSalva = DateTime.Now.Day;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -85,7 +88,15 @@ namespace Anoteitor
                 toolStripStatusLabel1.Text = "Cópia de : " + sCopia.Substring(0, sCopia.Length - 12);
             } else
             {
+                int DataAgora= DateTime.Now.Day;
+                if (DataAgora> this.DataSalva)
+                {
+                    string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
+                    this.NomeArq = Atual + "^" + Data + ".txt";
+                    this.Text = this.NomeArq + " - Anoteitor";
+                }
                 this.Save();
+                this.DataSalva = DataAgora;
             }            
         }
 
@@ -1068,7 +1079,7 @@ namespace Anoteitor
             this.Carregado = false;
             controlContentTextBox.Clear();
             string Pasta = cIni.ReadString("Projetos", "Pasta", "");
-            this.Filename = Pasta + @"\" + Atual + @"\" + this.NomeArq;
+            this.Filename = Pasta + @"\" + this.Atual + @"\" + this.NomeArq;
             this.Open(this.Filename);
             this.Text = this.NomeArq + " - Anoteitor";
             if (controlContentTextBox.Text.Length == 0)
