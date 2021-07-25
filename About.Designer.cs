@@ -57,7 +57,7 @@
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonOk.Location = new System.Drawing.Point(542, 207);
+            this.buttonOk.Location = new System.Drawing.Point(566, 207);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 2;
@@ -88,10 +88,10 @@
             this.controlSimplyGoodCodeLinkLabel.AutoSize = true;
             this.controlSimplyGoodCodeLinkLabel.Location = new System.Drawing.Point(274, 212);
             this.controlSimplyGoodCodeLinkLabel.Name = "controlSimplyGoodCodeLinkLabel";
-            this.controlSimplyGoodCodeLinkLabel.Size = new System.Drawing.Size(164, 13);
+            this.controlSimplyGoodCodeLinkLabel.Size = new System.Drawing.Size(284, 13);
             this.controlSimplyGoodCodeLinkLabel.TabIndex = 5;
             this.controlSimplyGoodCodeLinkLabel.TabStop = true;
-            this.controlSimplyGoodCodeLinkLabel.Text = "http://www.simplygoodcode.com";
+            this.controlSimplyGoodCodeLinkLabel.Text = "http://forum.intonses.com.br/viewtopic.php?f=43&t=292840";
             this.controlSimplyGoodCodeLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.controlSimplyGoodCodeLinkLabel_LinkClicked);
             // 
             // label4
@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonOk;
-            this.ClientSize = new System.Drawing.Size(629, 242);
+            this.ClientSize = new System.Drawing.Size(653, 242);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.controlSimplyGoodCodeLinkLabel);
             this.Controls.Add(this.label3);

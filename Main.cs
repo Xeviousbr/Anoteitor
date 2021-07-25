@@ -91,12 +91,15 @@ namespace Anoteitor
                 int DataAgora= DateTime.Now.Day;
                 if (DataAgora> this.DataSalva)
                 {
-                    string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
+                    string sData = DateTime.Now.ToShortDateString();
+                    string Data = sData.Replace(@"/", "-");
+                    cbArquivos.Items.Add(sData);
+                    cbArquivos.Text = sData;
                     this.NomeArq = Atual + "^" + Data + ".txt";
                     this.Text = this.NomeArq + " - Anoteitor";
+                    this.DataSalva = DataAgora;
                 }
-                this.Save();
-                this.DataSalva = DataAgora;
+                this.Save();                
             }            
         }
 
@@ -502,6 +505,7 @@ namespace Anoteitor
             SelectionStart = 0;
             this.Filename = Filename;
             IsDirty = false;
+            toolStripStatusLabel1.Text = "";
         }
 
         private static string ReadAllText(string pFilename, Encoding encoding)
