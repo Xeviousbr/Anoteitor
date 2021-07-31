@@ -9,6 +9,8 @@ using System.Windows.Forms;
 
 // TODO: In order to mimic Notepad exactly the status bar should be hidden if Word Wrap is turned off and the option should be disabled. Setting should be restored if Word Wrap is turned back off.
 
+// https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects
+
 namespace Anoteitor
 {
     public partial class Main : Form

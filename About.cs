@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
-namespace Anoteitor {
+namespace Anoteitor
+{
     public partial class About : Form {
         public About() {
             InitializeComponent();
@@ -18,7 +13,7 @@ namespace Anoteitor {
         }
 
         private void controlSimplyGoodCodeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            System.Diagnostics.Process.Start("http://simplygoodcode.com");
+            System.Diagnostics.Process.Start("http://forum.intonses.com.br/viewtopic.php?f=43&t=292840");
         }
 
         private void About_Load(object sender, EventArgs e)
