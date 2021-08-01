@@ -34,6 +34,7 @@ namespace Anoteitor
         private PageSettings _PageSettings;
         private INI cIni;
         private int DataSalva;
+        private int QtdCarac = 0;
 
         private class ContentPosition
         {
@@ -860,27 +861,29 @@ namespace Anoteitor
 
         private void UpdateStatusBar()
         {
-            if (controlCaretPositionLabel.Tag == null)
+            long x = DateTime.Now.Ticks;
+            long inter = x - this.Tick;
+            this.Text = inter.ToString();
+            if (inter > 10000000)
             {
-                controlCaretPositionLabel.Tag = controlCaretPositionLabel.Text;
-            }
-
-            controlCaretPositionLabel.Text = ((string)controlCaretPositionLabel.Tag).FormatUsingObject(new
-            {
-                LineNumber = CaretPosition.LineIndex + 1,
-                ColumnNumber = CaretPosition.ColumnIndex + 1,
-            });
-            if ((CaretPosition.LineIndex > 0) || (CaretPosition.ColumnIndex>0))
-            {
-                long x = DateTime.Now.Ticks;
-                long inter = x - this.Tick;
-                if (inter > 10000000)
+                if (this.QtdCarac<1000)
                 {
-                    int QtdCarac = controlContentTextBox.Text.Length;
-                    toolStripStatusLabel1.Text = QtdCarac.ToString() + " Caracteres";
-                    this.Tick = x;
+                    if (controlCaretPositionLabel.Tag == null)
+                    {
+                        controlCaretPositionLabel.Tag = controlCaretPositionLabel.Text;
+                    }
+                    controlCaretPositionLabel.Text = ((string)controlCaretPositionLabel.Tag).FormatUsingObject(new
+                    {
+                        LineNumber = CaretPosition.LineIndex + 1,
+                        ColumnNumber = CaretPosition.ColumnIndex + 1,
+                    });
+                    controlCaretPositionLabel.Visible = true;
+                } else {
+                    controlCaretPositionLabel.Visible = false;
                 }
-                string xs = inter.ToString();
+                this.QtdCarac = controlContentTextBox.Text.Length;
+                toolStripStatusLabel1.Text = this.QtdCarac.ToString() + " Caracteres";
+                this.Tick = x;
             }
         }
 
