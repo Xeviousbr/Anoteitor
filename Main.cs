@@ -863,7 +863,7 @@ namespace Anoteitor
         {
             long x = DateTime.Now.Ticks;
             long inter = x - this.Tick;
-            this.Text = inter.ToString();
+            //this.Text = inter.ToString();
             if (inter > 10000000)
             {
                 if (this.QtdCarac<1000)
