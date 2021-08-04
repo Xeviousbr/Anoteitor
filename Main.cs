@@ -1111,14 +1111,79 @@ namespace Anoteitor
             this.Escolhido = "";
             try
             {
-                string[] arquivo = Directory.GetFiles(Pasta, "*.txt");
                 cbArquivos.Items.Clear();
-                DateTime MaisRecente = DateTime.Parse("01/01/2000");                
+                DateTime MaisRecente = DateTime.Parse("01/01/2000");
+                DirectoryInfo info = new DirectoryInfo(Pasta);
+                FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                foreach (FileInfo arquivo in arquivos)
+                {
+                    string nome = arquivo.Name;
+                    DateTime DtCriacao = arquivo.CreationTime.Date;
+                    string data = DtCriacao.ToShortDateString();
+                    this.cbArquivos.Items.Add(data);
+                    if (this.HojeVazio)
+                    {
+                        if (DtCriacao > MaisRecente)
+                        {
+                            MaisRecente = DtCriacao;
+                            this.Escolhido = arquivo.FullName;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string Erro = ex.TargetSite.Name;
+                switch (Erro)
+                {
+                    case "WinIOError":
+                        Directory.CreateDirectory(Pasta);
+                        break;
+                    case "Parse":
+                        int x = 0;
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            cbArquivos.Visible = true;
+            string Data = DateTime.Now.ToShortDateString();
+            int Pos = cbArquivos.Items.IndexOf(Data);
+            if (Pos > -1)
+            {
+                cbArquivos.SelectedIndex = Pos;
+            }
+            else
+            {
+                cbArquivos.Items.Add(Data);
+                cbArquivos.Text = Data;
+            }
+            if (Escolhido.Length > 0)
+            {
+                this.timer1.Interval = 100;
+                this.timer1.Enabled = true;
+            }
+        }
+
+        /* private void MostraArquivosDoProjeto()
+        {
+            string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Atual;
+            this.Escolhido = "";
+            try
+            {
+                string[] arquivo = Directory.GetFiles(Pasta, "*.txt");
+                // IOrderedEnumerable<string> arquivo = Directory.GetFiles(Pasta, "*.txt").OrderBy(formatFileNumberForSort);
+
+                string[] arqs = ProcessaArquivos(arquivo);
+
+                cbArquivos.Items.Clear();
+                DateTime MaisRecente = DateTime.Parse("01/01/2000");
                 for (int i = 0; i < arquivo.Length; i++)
                 {
                     string Nome = arquivo[i];
                     int Tam = Nome.Length;
-                    string nmCb = Nome.Substring(Tam - 14, 10).Replace("-", "/");
+                    string nmCb = Nome.Substring(Tam - 14, 10).Replace("-", "/''");
                     cbArquivos.Items.Add(nmCb);
                     if (this.HojeVazio)
                     {
@@ -1151,7 +1216,28 @@ namespace Anoteitor
                 this.timer1.Interval = 100;
                 this.timer1.Enabled = true;
             }
+        } */
+
+        private string[] ProcessaArquivos(string[] arquivo)
+        {
+            // Fazer Loop pelos itens
+            // Compor a string com o nr da data no incio da string
+            // Ordenar
+            return arquivo;
         }
+
+        private string formatFileNumberForSort(string inVal)
+        {
+            int o;
+            if (int.TryParse(Path.GetFileName(inVal), out o))
+            {
+                Console.WriteLine(string.Format("{0:0000000000}", o));
+                return string.Format("{0:0000000000}", o);
+            }
+            else
+                return inVal;
+        }
+
 
         private void AtuArqASerMostrado()
         {
