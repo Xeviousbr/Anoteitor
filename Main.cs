@@ -61,8 +61,8 @@ namespace Anoteitor
             UpdateStatusBar();
             controlContentTextBox.BringToFront(); // in order to docking to respond correctly to the status bar being turned off and on
             cIni = new INI();
-            this.PreencheCombo();
             Atual = cIni.ReadString("Projetos", "Atual", "");
+            this.PreencheCombo(Atual); 
             if (Atual.Length > 0)
             {
                 this.CarregaArquivoDoProjeto();
@@ -1059,19 +1059,22 @@ namespace Anoteitor
             }
             Projeto cPro = new Projeto();
             cPro.ShowDialog();
-            if (cPro.DialogResult == DialogResult.OK)
-            {
-                PreencheCombo();
-            }
             Atual = cIni.ReadString("Projetos", "Atual", "");
+            if (cPro.DialogResult == DialogResult.OK) {
+                PreencheCombo(Atual);
+                if (cbProjetos.SelectedText!= Atual)
+                {
+                    int pos = cbProjetos.FindString(Atual);
+                    cbProjetos.SelectedIndex = pos;
+                }
+            }                
             this.CarregaArquivoDoProjeto();
         }
 
-        private void PreencheCombo()
+        private void PreencheCombo(string Atual)
         {
             cbProjetos.Items.Clear();
             int Qtd = cIni.ReadInt("Projetos", "Qtd", 0);
-            Atual = cIni.ReadString("Projetos", "Atual", "");
             for (int i = 0; i < Qtd; i++)
             {
                 string nmProjeto = "Pro" + (i + 1).ToString();
@@ -1079,7 +1082,7 @@ namespace Anoteitor
                 cbProjetos.Items.Add(Nome);
                 if (Nome == Atual)
                     cbProjetos.SelectedIndex = i;
-            }
+            }            
         }
 
         private void CarregaArquivoDoProjeto()
@@ -1165,79 +1168,6 @@ namespace Anoteitor
                 this.timer1.Enabled = true;
             }
         }
-
-        /* private void MostraArquivosDoProjeto()
-        {
-            string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Atual;
-            this.Escolhido = "";
-            try
-            {
-                string[] arquivo = Directory.GetFiles(Pasta, "*.txt");
-                // IOrderedEnumerable<string> arquivo = Directory.GetFiles(Pasta, "*.txt").OrderBy(formatFileNumberForSort);
-
-                string[] arqs = ProcessaArquivos(arquivo);
-
-                cbArquivos.Items.Clear();
-                DateTime MaisRecente = DateTime.Parse("01/01/2000");
-                for (int i = 0; i < arquivo.Length; i++)
-                {
-                    string Nome = arquivo[i];
-                    int Tam = Nome.Length;
-                    string nmCb = Nome.Substring(Tam - 14, 10).Replace("-", "/''");
-                    cbArquivos.Items.Add(nmCb);
-                    if (this.HojeVazio)
-                    {
-                        DateTime Esse = DateTime.Parse(nmCb);
-                        if (Esse > MaisRecente)
-                        {
-                            MaisRecente = Esse;
-                            this.Escolhido = Nome;
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                Directory.CreateDirectory(Pasta);
-            }
-            cbArquivos.Visible = true;
-            string Data = DateTime.Now.ToShortDateString();            
-            int Pos = cbArquivos.Items.IndexOf(Data);
-            if (Pos>-1)
-            {
-                cbArquivos.SelectedIndex = Pos;
-            } else
-            {
-                cbArquivos.Items.Add(Data);
-                cbArquivos.Text = Data;
-            }
-            if (Escolhido.Length > 0)
-            {
-                this.timer1.Interval = 100;
-                this.timer1.Enabled = true;
-            }
-        } */
-
-        private string[] ProcessaArquivos(string[] arquivo)
-        {
-            // Fazer Loop pelos itens
-            // Compor a string com o nr da data no incio da string
-            // Ordenar
-            return arquivo;
-        }
-
-        private string formatFileNumberForSort(string inVal)
-        {
-            int o;
-            if (int.TryParse(Path.GetFileName(inVal), out o))
-            {
-                Console.WriteLine(string.Format("{0:0000000000}", o));
-                return string.Format("{0:0000000000}", o);
-            }
-            else
-                return inVal;
-        }
-
 
         private void AtuArqASerMostrado()
         {
