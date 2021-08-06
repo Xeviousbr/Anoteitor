@@ -11,6 +11,8 @@ namespace Anoteitor {
     public partial class FindDialog : Form {
         private readonly Main _Main;
 
+        public string SelText { get; internal set; }
+
         public FindDialog(Main pMain) {
             InitializeComponent();
             _Main = pMain;
@@ -35,6 +37,8 @@ namespace Anoteitor {
 
         private void FindDialog_Load(object sender, EventArgs e) {
             UpdateFindNextButton();
+            this.controlTextBox.Text = this.SelText;
+
         }
 
         private void buttonFindNext_Click(object sender, EventArgs e) {

@@ -998,6 +998,8 @@ namespace Anoteitor
             _FindDialog.Left = this.Left + 56;
             _FindDialog.Top = this.Top + 160;
 
+            _FindDialog.SelText = controlContentTextBox.SelectedText;
+
             if (!_FindDialog.Visible)
             {
                 _FindDialog.Show(this);

@@ -5,6 +5,6 @@ using System.Text;
 
 namespace Anoteitor {
     public static class CONST {
-        public const string CannotFindMessage = "Cannot find \"{SearchText}\"";
+        public const string CannotFindMessage = "Não achei \"{SearchText}\"";
     }
 }
