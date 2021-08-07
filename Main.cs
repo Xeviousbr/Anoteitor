@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 // https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects
 
+// https://dividirsilabas.blogspot.com
+
 namespace Anoteitor
 {
     public partial class Main : Form
@@ -19,22 +21,24 @@ namespace Anoteitor
         private bool _LastSearchDown;
         private bool SalvarAutom = false;
         private bool HojeVazio = false;
+        private int DataSalva;
+        private int QtdCarac = 0;
+        private int Segundos = 2;
+        private long Tick = 0;
+        private bool _IsDirty;
+        private bool Carregado = false;
         private string _LastSearchText;
         private string _Filename;
         private string _NomeArq;
         private string Atual;
         private string Escolhido = "";
-        private long Tick = 0;
-        private bool _IsDirty;
-        private bool Carregado = false;
-        private int Segundos = 2;
+        private string cbArquivosOld = "";
+
         private FindDialog _FindDialog;
         private ReplaceDialog _ReplaceDialog;
         private Encoding _encoding = Encoding.ASCII;
         private PageSettings _PageSettings;
         private INI cIni;
-        private int DataSalva;
-        private int QtdCarac = 0;
 
         private class ContentPosition
         {
@@ -1174,15 +1178,15 @@ namespace Anoteitor
         private void AtuArqASerMostrado()
         {
             if (this.Carregado)
-            {
                 if (cbArquivos.Text.Length > 0)
-                {
-                    string Pasta = cIni.ReadString("Projetos", "Pasta", "");
-                    this.NomeArq = Atual + "^" + cbArquivos.Text.Replace("/", "-") + ".txt";
-                    this.Filename = Pasta + @"\" + Atual + @"\" + this.NomeArq;
-                    this.Open(this.Filename);
-                }
-            }
+                    if (cbArquivos.Text != this.cbArquivosOld)
+                    {
+                        string Pasta = cIni.ReadString("Projetos", "Pasta", "");
+                        this.NomeArq = Atual + "^" + cbArquivos.Text.Replace("/", "-") + ".txt";
+                        this.Filename = Pasta + @"\" + Atual + @"\" + this.NomeArq;
+                        this.Open(this.Filename);
+                        this.cbArquivosOld = cbArquivos.Text;
+                    }
         }
 
         private void cbArquivos_DropDownClosed(object sender, EventArgs e)
