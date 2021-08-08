@@ -140,7 +140,6 @@
     <Compile Include="SaveChangesPrompt.Designer.cs">
       <DependentUpon>SaveChangesPrompt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Silaba.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projeto.resx">
+      <DependentUpon>Projeto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SaveOpenDialog.resx">
       <DependentUpon>SaveOpenDialog.cs</DependentUpon>

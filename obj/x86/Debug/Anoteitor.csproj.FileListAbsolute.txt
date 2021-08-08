@@ -17,3 +17,4 @@ D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.csproj.CoreCompileInputs.cache
 D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.exe
 D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.pdb
 D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.ConfigProjeto.resources
+D:\Prog\Anoteitor\obj\x86\Debug\Anoteitor.Projeto.resources
