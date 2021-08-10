@@ -857,31 +857,28 @@ namespace Anoteitor
 
         private void UpdateStatusBar()
         {
-            if (controlContentTextBox.SelectedText.Length==0)
+            long x = DateTime.Now.Ticks;
+            long inter = x - this.Tick;
+            if (inter > 10000000)
             {
-                long x = DateTime.Now.Ticks;
-                long inter = x - this.Tick;
-                if (inter > 10000000)
+                if (this.QtdCarac < 1000)
                 {
-                    if (this.QtdCarac < 1000)
+                    if (controlCaretPositionLabel.Tag == null)
                     {
-                        if (controlCaretPositionLabel.Tag == null)
-                        {
-                            controlCaretPositionLabel.Tag = controlCaretPositionLabel.Text;
-                        }
-                        controlCaretPositionLabel.Text = ((string)controlCaretPositionLabel.Tag).FormatUsingObject(new
-                        {
-                            LineNumber = CaretPosition.LineIndex + 1,
-                            ColumnNumber = CaretPosition.ColumnIndex + 1,
-                        });
-                        controlCaretPositionLabel.Visible = true;
+                        controlCaretPositionLabel.Tag = controlCaretPositionLabel.Text;
                     }
-                    else
-                        controlCaretPositionLabel.Visible = false;
-                    this.QtdCarac = controlContentTextBox.Text.Length;
-                    toolStripStatusLabel1.Text = this.QtdCarac.ToString() + " Caracteres";
-                    this.Tick = x;
+                    controlCaretPositionLabel.Text = ((string)controlCaretPositionLabel.Tag).FormatUsingObject(new
+                    {
+                        LineNumber = CaretPosition.LineIndex + 1,
+                        ColumnNumber = CaretPosition.ColumnIndex + 1,
+                    });
+                    controlCaretPositionLabel.Visible = true;
                 }
+                else
+                    controlCaretPositionLabel.Visible = false;
+                this.QtdCarac = controlContentTextBox.Text.Length;
+                toolStripStatusLabel1.Text = this.QtdCarac.ToString() + " Caracteres";
+                this.Tick = x;
             }
         }
 
@@ -943,9 +940,8 @@ namespace Anoteitor
         {
             int LetrasSel = controlContentTextBox.SelectedText.Length;
             if (LetrasSel > 0)
-            {
-                controlCaretPositionLabel.Visible = true;
-                controlCaretPositionLabel.Text = LetrasSel.ToString() + " Caractres Selecionados";
+            {               
+                toolStripStatusLabel1.Text = LetrasSel.ToString() + " Caractres Selecionados";
             }
         }
 
