@@ -17,3 +17,4 @@ D:\Prog\Anoteitor\obj\x86\Release\Anoteitor.exe
 D:\Prog\Anoteitor\obj\x86\Release\Anoteitor.pdb
 D:\Prog\Anoteitor\obj\x86\Release\Anoteitor.csprojAssemblyReference.cache
 D:\Prog\Anoteitor\obj\x86\Release\Anoteitor.ConfigProjeto.resources
+D:\Prog\Anoteitor\obj\x86\Release\Anoteitor.Projeto.resources

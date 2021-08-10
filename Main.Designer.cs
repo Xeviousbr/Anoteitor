@@ -97,6 +97,7 @@
             this.controlContentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.controlContentTextBox_KeyDown);
             this.controlContentTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.controlContentTextBox_KeyUp);
             this.controlContentTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.controlContentTextBox_MouseDown);
+            this.controlContentTextBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.controlContentTextBox_MouseMove);
             // 
             // menubarMain
             // 
@@ -339,7 +340,7 @@
             // menuitemFormatWordWrap
             // 
             this.menuitemFormatWordWrap.Name = "menuitemFormatWordWrap";
-            this.menuitemFormatWordWrap.Size = new System.Drawing.Size(180, 22);
+            this.menuitemFormatWordWrap.Size = new System.Drawing.Size(134, 22);
             this.menuitemFormatWordWrap.Text = "&Word Wrap";
             this.menuitemFormatWordWrap.CheckedChanged += new System.EventHandler(this.menuitemFormatWordWrap_CheckedChanged);
             this.menuitemFormatWordWrap.Click += new System.EventHandler(this.menuitemFormatWordWrap_Click);
@@ -347,7 +348,7 @@
             // menuitemFormatFont
             // 
             this.menuitemFormatFont.Name = "menuitemFormatFont";
-            this.menuitemFormatFont.Size = new System.Drawing.Size(180, 22);
+            this.menuitemFormatFont.Size = new System.Drawing.Size(134, 22);
             this.menuitemFormatFont.Text = "Fonte";
             this.menuitemFormatFont.Click += new System.EventHandler(this.menuitemFormatFont_Click);
             // 
@@ -364,14 +365,14 @@
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // configurarToolStripMenuItem
             // 
             this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
-            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.configurarToolStripMenuItem.Text = "Configurar";
             this.configurarToolStripMenuItem.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
             // 
@@ -379,7 +380,7 @@
             // 
             this.mostrarSóDoDiaToolStripMenuItem.Enabled = false;
             this.mostrarSóDoDiaToolStripMenuItem.Name = "mostrarSóDoDiaToolStripMenuItem";
-            this.mostrarSóDoDiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mostrarSóDoDiaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.mostrarSóDoDiaToolStripMenuItem.Text = "Mostrar só do dia";
             // 
             // helpToolStripMenuItem

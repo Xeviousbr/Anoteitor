@@ -833,91 +833,71 @@ namespace Anoteitor
 
         private ContentPosition CaretPosition
         {
-            get
-            {
-                return CharIndexToPosition(SelectionStart);
-            }
+            get { return CharIndexToPosition(SelectionStart); }
         }
 
         private ContentPosition CharIndexToPosition(int pCharIndex)
         {
             var CurrentCharIndex = 0;
-
             if (controlContentTextBox.Lines.Length == 0 && CurrentCharIndex == 0) return new ContentPosition { LineIndex = 0, ColumnIndex = 0 };
-
             for (var CurrentLineIndex = 0; CurrentLineIndex < controlContentTextBox.Lines.Length; CurrentLineIndex++)
             {
                 var LineStartCharIndex = CurrentCharIndex;
                 var Line = controlContentTextBox.Lines[CurrentLineIndex];
                 var LineEndCharIndex = LineStartCharIndex + Line.Length + 1;
-
                 if (pCharIndex >= LineStartCharIndex && pCharIndex <= LineEndCharIndex)
                 {
                     var ColumnIndex = pCharIndex - LineStartCharIndex;
                     return new ContentPosition { LineIndex = CurrentLineIndex, ColumnIndex = ColumnIndex };
                 }
-
                 CurrentCharIndex += controlContentTextBox.Lines[CurrentLineIndex].Length + Environment.NewLine.Length;
             }
-
             return null;
         }
 
         private void UpdateStatusBar()
         {
-            long x = DateTime.Now.Ticks;
-            long inter = x - this.Tick;
-            //this.Text = inter.ToString();
-            if (inter > 10000000)
+            if (controlContentTextBox.SelectedText.Length==0)
             {
-                if (this.QtdCarac<1000)
+                long x = DateTime.Now.Ticks;
+                long inter = x - this.Tick;
+                if (inter > 10000000)
                 {
-                    if (controlCaretPositionLabel.Tag == null)
+                    if (this.QtdCarac < 1000)
                     {
-                        controlCaretPositionLabel.Tag = controlCaretPositionLabel.Text;
+                        if (controlCaretPositionLabel.Tag == null)
+                        {
+                            controlCaretPositionLabel.Tag = controlCaretPositionLabel.Text;
+                        }
+                        controlCaretPositionLabel.Text = ((string)controlCaretPositionLabel.Tag).FormatUsingObject(new
+                        {
+                            LineNumber = CaretPosition.LineIndex + 1,
+                            ColumnNumber = CaretPosition.ColumnIndex + 1,
+                        });
+                        controlCaretPositionLabel.Visible = true;
                     }
-                    controlCaretPositionLabel.Text = ((string)controlCaretPositionLabel.Tag).FormatUsingObject(new
-                    {
-                        LineNumber = CaretPosition.LineIndex + 1,
-                        ColumnNumber = CaretPosition.ColumnIndex + 1,
-                    });
-                    controlCaretPositionLabel.Visible = true;
-                } else {
-                    controlCaretPositionLabel.Visible = false;
+                    else
+                        controlCaretPositionLabel.Visible = false;
+                    this.QtdCarac = controlContentTextBox.Text.Length;
+                    toolStripStatusLabel1.Text = this.QtdCarac.ToString() + " Caracteres";
+                    this.Tick = x;
                 }
-                this.QtdCarac = controlContentTextBox.Text.Length;
-                toolStripStatusLabel1.Text = this.QtdCarac.ToString() + " Caracteres";
-                this.Tick = x;
             }
         }
 
         private int LineIndex
         {
-            get
-            {
-                return CaretPosition.LineIndex;
-            }
+            get { return CaretPosition.LineIndex; }
             set
             {
                 var TargetLineIndex = value;
-
                 if (TargetLineIndex < 0)
-                {
                     TargetLineIndex = 0;
-                }
-
                 if (TargetLineIndex >= controlContentTextBox.Lines.Length)
-                {
                     TargetLineIndex = controlContentTextBox.Lines.Length - 1;
-                }
-
                 var CharIndex = 0;
-
                 for (var CurrentLineIndex = 0; CurrentLineIndex < TargetLineIndex; CurrentLineIndex++)
-                {
                     CharIndex += controlContentTextBox.Lines[CurrentLineIndex].Length + Environment.NewLine.Length;
-                }
-
                 SelectionStart = CharIndex;
                 controlContentTextBox.ScrollToCaret();
             }
@@ -957,6 +937,16 @@ namespace Anoteitor
         private void controlContentTextBox_MouseDown(object sender, MouseEventArgs e)
         {
             UpdateStatusBar();
+        }
+
+        private void controlContentTextBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            int LetrasSel = controlContentTextBox.SelectedText.Length;
+            if (LetrasSel > 0)
+            {
+                controlCaretPositionLabel.Visible = true;
+                controlCaretPositionLabel.Text = LetrasSel.ToString() + " Caractres Selecionados";
+            }
         }
 
         #endregion
