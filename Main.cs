@@ -49,12 +49,22 @@ namespace Anoteitor
         public Main()
         {
             InitializeComponent();
-
-            if (!Settings.WindowPosition.IsEmpty)
+            cIni = new INI();
+            int X = cIni.ReadInt("Config", "X", 0);
+            Rectangle ret;
+            if (X == 0)
             {
-                Bounds = Settings.WindowPosition;
+                ret = new Rectangle(465, 185, 745, 500);
+                StartPosition = FormStartPosition.CenterScreen;
+            }
+            {
+                int Y = cIni.ReadInt("Config", "Y", 0);
+                int W = cIni.ReadInt("Config", "W", 0);
+                int H = cIni.ReadInt("Config", "H", 0);
+                ret = new Rectangle(X, Y, W, H);
                 StartPosition = FormStartPosition.Manual;
             }
+            Bounds = ret;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -63,10 +73,9 @@ namespace Anoteitor
             menuitemFormatWordWrap.Checked = controlContentTextBox.WordWrap;
             CurrentFont = Settings.CurrentFont;
             UpdateStatusBar();
-            controlContentTextBox.BringToFront(); // in order to docking to respond correctly to the status bar being turned off and on
-            cIni = new INI();
+            controlContentTextBox.BringToFront(); // in order to docking to respond correctly to the status bar being turned off and on            
             Atual = cIni.ReadString("Projetos", "Atual", "");
-            this.PreencheCombo(Atual); 
+            this.PreencheCombo(Atual);
             if (Atual.Length > 0)
             {
                 this.CarregaArquivoDoProjeto();
@@ -82,21 +91,22 @@ namespace Anoteitor
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.timer1.Enabled = false;
-            if (this.Escolhido.Length>0)
+            if (this.Escolhido.Length > 0)
             {
                 string Arquivo = this.Filename;
                 string Titulo = this.Text;
-                this.Open(this.Escolhido);               
+                this.Open(this.Escolhido);
                 this.Escolhido = "";
                 this.timer1.Interval = this.Segundos * 1000;
                 string sCopia = this.Text;
                 this.Text = Titulo;
                 this.Filename = Arquivo;
                 toolStripStatusLabel1.Text = "Cópia de : " + sCopia.Substring(0, sCopia.Length - 12);
-            } else
+            }
+            else
             {
-                int DataAgora= DateTime.Now.Day;
-                if (DataAgora> this.DataSalva)
+                int DataAgora = DateTime.Now.Day;
+                if (DataAgora > this.DataSalva)
                 {
                     string sData = DateTime.Now.ToShortDateString();
                     string Data = sData.Replace(@"/", "-");
@@ -106,8 +116,8 @@ namespace Anoteitor
                     this.Text = this.NomeArq + " - Anoteitor";
                     this.DataSalva = DataAgora;
                 }
-                this.Save();                
-            }            
+                this.Save();
+            }
         }
 
         #region Menus
@@ -338,8 +348,12 @@ namespace Anoteitor
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Settings.WindowPosition = Bounds;
-            Settings.Save();
+            cIni.WriteInt("Config", "X", Bounds.X);
+            cIni.WriteInt("Config", "Y", Bounds.Y);
+            cIni.WriteInt("Config", "W", Bounds.Width);
+            cIni.WriteInt("Config", "H", Bounds.Height);
+            //Settings.WindowPosition = Bounds;
+            //Settings.Save();
         }
 
         private void menuitemFileHeaderAndFooter_Click(object sender, EventArgs e)
@@ -576,7 +590,8 @@ namespace Anoteitor
         public string Content
         {
             get { return controlContentTextBox.Text; }
-            set {
+            set
+            {
                 controlContentTextBox.Text = value;
             }
         }
@@ -586,7 +601,7 @@ namespace Anoteitor
             IsDirty = true;
             if (this.Carregado)
                 if (this.SalvarAutom)
-                    if (controlContentTextBox.Text.Length>0) 
+                    if (controlContentTextBox.Text.Length > 0)
                         if (timer1.Enabled == false)
                             timer1.Enabled = true;
         }
@@ -940,7 +955,7 @@ namespace Anoteitor
         {
             int LetrasSel = controlContentTextBox.SelectedText.Length;
             if (LetrasSel > 0)
-            {               
+            {
                 toolStripStatusLabel1.Text = LetrasSel.ToString() + " Caractres Selecionados";
             }
         }
@@ -1035,7 +1050,7 @@ namespace Anoteitor
                 this.SalvarAutom = cIni.ReadBool("Projetos", "SalvarAut", false);
                 this.timer1.Interval = this.Segundos * 1000;
             }
-                
+
         }
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1052,14 +1067,15 @@ namespace Anoteitor
             Projeto cPro = new Projeto();
             cPro.ShowDialog();
             Atual = cIni.ReadString("Projetos", "Atual", "");
-            if (cPro.DialogResult == DialogResult.OK) {
+            if (cPro.DialogResult == DialogResult.OK)
+            {
                 PreencheCombo(Atual);
-                if (cbProjetos.SelectedText!= Atual)
+                if (cbProjetos.SelectedText != Atual)
                 {
                     int pos = cbProjetos.FindString(Atual);
                     cbProjetos.SelectedIndex = pos;
                 }
-            }                
+            }
             this.CarregaArquivoDoProjeto();
         }
 
@@ -1074,7 +1090,7 @@ namespace Anoteitor
                 cbProjetos.Items.Add(Nome);
                 if (Nome == Atual)
                     cbProjetos.SelectedIndex = i;
-            }            
+            }
         }
 
         private void CarregaArquivoDoProjeto()
@@ -1140,7 +1156,7 @@ namespace Anoteitor
                     default:
                         break;
                 }
-                
+
             }
             cbArquivos.Visible = true;
             string Data = DateTime.Now.ToShortDateString();
@@ -1191,12 +1207,36 @@ namespace Anoteitor
             {
                 Atual = cbProjetos.Text;
                 AtuArqASerMostrado();
-            }                
+            }
         }
 
         private void cbArquivos_KeyUp(object sender, KeyEventArgs e)
         {
             AtuArqASerMostrado();
+        }
+
+        private void mostrarSóDoDiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //    [x] Loop pelos projetos
+            cbProjetos.Items.Clear();
+            int Qtd = cIni.ReadInt("Projetos", "Qtd", 0);
+            for (int i = 0; i < Qtd; i++)
+            {
+                string nmProjeto = "Pro" + (i + 1).ToString();
+                string Nome = cIni.ReadString("NmProjetos", nmProjeto, "");
+
+                //    [] Loop pelos arquivos do projeto, em ordem
+                //   [] Examinar se tem do dia
+                //  [] Incluir no combo do dia
+
+                //cbProjetos.Items.Add(Nome);
+                //if (Nome == Atual)
+                //    cbProjetos.SelectedIndex = i;
+            }
+
+
+            // [] Colocar uma flag para mostrar só do dia
+            //[] Atender a flag
         }
 
         #endregion
