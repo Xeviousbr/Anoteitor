@@ -56,7 +56,7 @@ namespace Anoteitor
             {
                 ret = new Rectangle(465, 185, 745, 500);
                 StartPosition = FormStartPosition.CenterScreen;
-            }
+            } else 
             {
                 int Y = cIni.ReadInt("Config", "Y", 0);
                 int W = cIni.ReadInt("Config", "W", 0);
