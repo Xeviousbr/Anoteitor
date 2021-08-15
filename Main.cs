@@ -1087,9 +1087,12 @@ namespace Anoteitor
             {
                 string nmProjeto = "Pro" + (i + 1).ToString();
                 string Nome = cIni.ReadString("NmProjetos", nmProjeto, "");
-                cbProjetos.Items.Add(Nome);
-                if (Nome == Atual)
-                    cbProjetos.SelectedIndex = i;
+                if (Nome.Length>0)
+                {
+                    cbProjetos.Items.Add(Nome);
+                    if (Nome == Atual)
+                        cbProjetos.SelectedIndex = i;
+                }
             }
         }
 
@@ -1118,7 +1121,7 @@ namespace Anoteitor
 
         private void MostraArquivosDoProjeto()
         {        
-            if (this.mostrarSóDoDiaToolStripMenuItem.Enabled) {
+            if (this.mostrarSóDoDiaToolStripMenuItem.Checked==false) {
                 string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Atual;
                 this.Escolhido = "";
                 try
@@ -1134,13 +1137,11 @@ namespace Anoteitor
                         string data = DtCriacao.ToShortDateString();
                         this.cbArquivos.Items.Add(data);
                         if (this.HojeVazio)
-                        {
                             if (DtCriacao > MaisRecente)
                             {
                                 MaisRecente = DtCriacao;
                                 this.Escolhido = arquivo.FullName;
                             }
-                        }
                     }
                 }
                 catch (Exception ex)
@@ -1163,9 +1164,7 @@ namespace Anoteitor
                 string Data = DateTime.Now.ToShortDateString();
                 int Pos = cbArquivos.Items.IndexOf(Data);
                 if (Pos > -1)
-                {
                     cbArquivos.SelectedIndex = Pos;
-                }
                 else
                 {
                     cbArquivos.Items.Add(Data);
@@ -1219,48 +1218,58 @@ namespace Anoteitor
 
         private void mostrarSóDoDiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string DtHoje = DateTime.Now.ToShortDateString();
-            cbProjetos.Items.Clear();
-            int Qtd = cIni.ReadInt("Projetos", "Qtd", 0);
-            int a = 0;
-            for (int i = 0; i < Qtd; i++)
+            if (this.mostrarSóDoDiaToolStripMenuItem.Checked)
             {
-                string nmProjeto = "Pro" + (i + 1).ToString();
-                string Nome = cIni.ReadString("NmProjetos", nmProjeto, "");
-                if (Nome.Length>0)
+                this.mostrarSóDoDiaToolStripMenuItem.Checked = false;
+                cbArquivos.Enabled = true;
+                this.PreencheCombo(Atual);
+            } else
+            {
+                string DtHoje = DateTime.Now.ToShortDateString();
+                cbProjetos.Items.Clear();
+                int Qtd = cIni.ReadInt("Projetos", "Qtd", 0);
+                int a = 0;
+                for (int i = 0; i < Qtd; i++)
                 {
-                    string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Nome;
-                    DirectoryInfo info = new DirectoryInfo(Pasta);
-                    if (info.Exists)
+                    string nmProjeto = "Pro" + (i + 1).ToString();
+                    string Nome = cIni.ReadString("NmProjetos", nmProjeto, "");
+                    if (Nome.Length > 0)
                     {
-                        FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
-                        foreach (FileInfo arquivo in arquivos)
+                        string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Nome;
+                        DirectoryInfo info = new DirectoryInfo(Pasta);
+                        if (info.Exists)
                         {
-                            string sCriacao = arquivo.CreationTime.Date.ToShortDateString();
-                            if (DtHoje == sCriacao)
+                            FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                            foreach (FileInfo arquivo in arquivos)
                             {
-                                cbProjetos.Items.Add(Nome);
-                                if (Nome == Atual)
-                                    cbProjetos.SelectedIndex = a;
-                                a++;
+                                string sCriacao = arquivo.CreationTime.Date.ToShortDateString();
+                                if (DtHoje == sCriacao)
+                                {
+                                    cbProjetos.Items.Add(Nome);
+                                    if (Nome == Atual)
+                                        cbProjetos.SelectedIndex = a;
+                                    a++;
+                                }
                             }
                         }
                     }
                 }
-            }
-            if (a==0)
-            {
-                MessageBox.Show(this, "Não há arquivos gravador no dia", "Anoteitor");
-                this.PreencheCombo(Atual);
-            } else
-            {
-                cbArquivos.Items.Clear();
-                cbArquivos.Items.Add(DtHoje);
-                cbArquivos.SelectedIndex = 0;
-                cbArquivos.Enabled = false;
-                this.mostrarSóDoDiaToolStripMenuItem.Enabled = false;
+                if (a == 0)
+                {
+                    MessageBox.Show(this, "Não há arquivos gravador no dia", "Anoteitor");
+                    this.PreencheCombo(Atual);
+                }
+                else
+                {
+                    cbArquivos.Items.Clear();
+                    cbArquivos.Items.Add(DtHoje);
+                    cbArquivos.SelectedIndex = 0;
+                    cbArquivos.Enabled = false;
+                    this.mostrarSóDoDiaToolStripMenuItem.Checked = true;
+                }
             }
         }
+        
         #endregion
     }
 }
