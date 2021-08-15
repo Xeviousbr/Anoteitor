@@ -1,6 +1,5 @@
 D:\Prog\Anoteitor\bin\x64\Release\Anoteitor.exe.config
 D:\Prog\Anoteitor\bin\x64\Release\Anoteitor.exe
-D:\Prog\Anoteitor\bin\x64\Release\Anoteitor.pdb
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.About.resources
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.ConfigProjeto.resources
 D:\Prog\Anoteitor\obj\x64\Release\FileDialogExtenders.FileDialogControlBase.resources
@@ -16,4 +15,3 @@ D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.SaveChangesPrompt.resources
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.csproj.GenerateResource.cache
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.csproj.CoreCompileInputs.cache
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.exe
-D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.pdb

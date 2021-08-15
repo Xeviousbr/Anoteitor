@@ -38,7 +38,7 @@ namespace Anoteitor
         private ReplaceDialog _ReplaceDialog;
         private Encoding _encoding = Encoding.ASCII;
         private PageSettings _PageSettings;
-        private INI cIni;
+        private INI cIni;        
 
         private class ContentPosition
         {
@@ -1117,58 +1117,60 @@ namespace Anoteitor
         }
 
         private void MostraArquivosDoProjeto()
-        {
-            string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Atual;
-            this.Escolhido = "";
-            try
-            {
-                cbArquivos.Items.Clear();
-                DateTime MaisRecente = DateTime.Parse("01/01/2000");
-                DirectoryInfo info = new DirectoryInfo(Pasta);
-                FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
-                foreach (FileInfo arquivo in arquivos)
+        {        
+            if (this.mostrarSóDoDiaToolStripMenuItem.Enabled == false) {
+                string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Atual;
+                this.Escolhido = "";
+                try
                 {
-                    string nome = arquivo.Name;
-                    DateTime DtCriacao = arquivo.CreationTime.Date;
-                    string data = DtCriacao.ToShortDateString();
-                    this.cbArquivos.Items.Add(data);
-                    if (this.HojeVazio)
+                    cbArquivos.Items.Clear();
+                    DateTime MaisRecente = DateTime.Parse("01/01/2000");
+                    DirectoryInfo info = new DirectoryInfo(Pasta);
+                    FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                    foreach (FileInfo arquivo in arquivos)
                     {
-                        if (DtCriacao > MaisRecente)
+                        string nome = arquivo.Name;
+                        DateTime DtCriacao = arquivo.CreationTime.Date;
+                        string data = DtCriacao.ToShortDateString();
+                        this.cbArquivos.Items.Add(data);
+                        if (this.HojeVazio)
                         {
-                            MaisRecente = DtCriacao;
-                            this.Escolhido = arquivo.FullName;
+                            if (DtCriacao > MaisRecente)
+                            {
+                                MaisRecente = DtCriacao;
+                                this.Escolhido = arquivo.FullName;
+                            }
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                string Erro = ex.TargetSite.Name;
-                switch (Erro)
+                catch (Exception ex)
                 {
-                    case "WinIOError":
-                        Directory.CreateDirectory(Pasta);
-                        break;
-                    case "Parse":
-                        int x = 0;
-                        break;
-                    default:
-                        break;
-                }
+                    string Erro = ex.TargetSite.Name;
+                    switch (Erro)
+                    {
+                        case "WinIOError":
+                            Directory.CreateDirectory(Pasta);
+                            break;
+                        case "Parse":
+                            int x = 0;
+                            break;
+                        default:
+                            break;
+                    }
 
-            }
-            cbArquivos.Visible = true;
-            string Data = DateTime.Now.ToShortDateString();
-            int Pos = cbArquivos.Items.IndexOf(Data);
-            if (Pos > -1)
-            {
-                cbArquivos.SelectedIndex = Pos;
-            }
-            else
-            {
-                cbArquivos.Items.Add(Data);
-                cbArquivos.Text = Data;
+                }
+                cbArquivos.Visible = true;
+                string Data = DateTime.Now.ToShortDateString();
+                int Pos = cbArquivos.Items.IndexOf(Data);
+                if (Pos > -1)
+                {
+                    cbArquivos.SelectedIndex = Pos;
+                }
+                else
+                {
+                    cbArquivos.Items.Add(Data);
+                    cbArquivos.Text = Data;
+                }
             }
             if (Escolhido.Length > 0)
             {
@@ -1217,29 +1219,38 @@ namespace Anoteitor
 
         private void mostrarSóDoDiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //    [x] Loop pelos projetos
+            string DtHoje = DateTime.Now.ToShortDateString();
             cbProjetos.Items.Clear();
             int Qtd = cIni.ReadInt("Projetos", "Qtd", 0);
+            int a = 0;
             for (int i = 0; i < Qtd; i++)
             {
                 string nmProjeto = "Pro" + (i + 1).ToString();
                 string Nome = cIni.ReadString("NmProjetos", nmProjeto, "");
-
-                //    [] Loop pelos arquivos do projeto, em ordem
-                //   [] Examinar se tem do dia
-                //  [] Incluir no combo do dia
-
-                //cbProjetos.Items.Add(Nome);
-                //if (Nome == Atual)
-                //    cbProjetos.SelectedIndex = i;
+                string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Nome;
+                DirectoryInfo info = new DirectoryInfo(Pasta);
+                if (info.Exists)
+                {
+                    FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                    foreach (FileInfo arquivo in arquivos)
+                    {
+                        string sCriacao = arquivo.CreationTime.Date.ToShortDateString();
+                        if (DtHoje == sCriacao)
+                        {
+                            cbProjetos.Items.Add(Nome);
+                            if (Nome == Atual)
+                                cbProjetos.SelectedIndex = a;
+                            a++;
+                        }
+                    }
+                }
             }
-
-
-            // [] Colocar uma flag para mostrar só do dia
-            //[] Atender a flag
+            cbArquivos.Items.Clear();
+            cbArquivos.Items.Add(DtHoje);
+            cbArquivos.SelectedIndex = 0;
+            cbArquivos.Enabled = false;
+            this.mostrarSóDoDiaToolStripMenuItem.Enabled = false;
         }
-
         #endregion
-
     }
 }
