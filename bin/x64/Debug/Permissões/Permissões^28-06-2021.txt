@@ -1,0 +1,76 @@
+O que foi feito
+Trabalhei na gravação.
+E também fiz um aperfeiçoamento no Layout.
+Estou trabalhando numa nova Proc para Gravação.
+
+Como foi feito
+Notei que dependendo da quantidade de registros, retornados, o botão de gravação não aparecia.
+Alterei a sistemática de gravação, porque a que estava usando não ia dar certo.
+Mas esta ocorrendo algum erro que ainda não percebi como resolver, parece ser no lado do C#, testei a nova Proc que criei a SP_SETO_USUA_DEL pelo PL/SQL e funciona.
+Também tem opção de fazer diferente, mas na outra Proc com mais parametros e se ta dando erro nessa deve dar na outra tb.
+
+Fontes Alterados
+fepam.configuracoes.bll\permissaomodulo.cs
+fepam.configuracoes.dal\permissoesmodulos.cs
+UI\Configuracoes\CONTPermissoespormodulos.aspx
+UI\Configuracoes\CONTPermissoespormodulos.aspx.cs
+
+[x] Ver como estão os dados na tabela que guarda os dados por funcionários
+[x] Deduzir qual é a maneira ideal de passar os parametros
+[ ] Montar a informação pra passagems dos parametros
+[0] Apagar as permissões antes
+[ ] Criar uma Proc pra receber os parametros
+[ ] Passar os parametros
+[ ] Programar a Proc pra realizar os updates
+[ ] Testar
+[ ] Terminar
+
+Permissões
+651
+841 - Visualizar
+842 - Editar
+843 - Linbera tudo
+
+Abaixo de 57
+colocar o botão dentro
+
+se não, fora
+
+CONTPermissoespormodulos.aspx
+
+ANA JULLIA TORRES DUTRA
+Permissão só de visualização no Aprovar Documentos
+
+USUA_ID = "2102"
+reg = "2102|1"
+
+Select * From fep_permissoes 
+         Where perm_id in (
+               select distinct pf.perm_id
+               From v_rhu_funcionarios     rf, 
+                    fep_usuarios                us, 
+                    fep_permissoes              pf 
+                where rf.Seto_id in (2028)
+         and us.pess_id = rf.pess_id                            
+         and pf.usua_id = us.usua_id )
+
+setores = "2028"
+
+
+  PROCEDURE SP_SETO_USUA_DEL(vListaSetor IN varchar2) AS
+  BEGIN
+    Delete From fep_permissoes 
+         Where perm_id in (
+               select distinct pf.perm_id
+               From v_rhu_funcionarios     rf, 
+                    fep_usuarios                us, 
+                    fep_permissoes              pf 
+                where rf.Seto_id in (' || vListaSetor || ')
+         and us.pess_id = rf.pess_id                            
+         and pf.usua_id = us.usua_id );
+       COMMIT;
+  END SP_SETO_USUA_DEL;  
+
+
+VER UM EXEMPLO DE PROC QUE TENHA UMA DELEÇÃO
+COM O COMANDO SQL FORMADO POR 

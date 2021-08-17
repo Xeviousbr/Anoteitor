@@ -1,0 +1,44 @@
+O que foi feito
+Examinei o caso mas não tenho os dados de acordo com o que preciso para testar.
+
+
+
+Como foi feito
+Mas vi que a pagina interpreta erroneamente valores com ponto no lugar de virgula.
+Então coloquei um tratamento para prevenir uma digiação errada.
+
+
+Fontes Alterados
+
+UI\SINAFLOR\SOLIIntegracaoSINAFLOR.aspx.cs
+
+
+
+ASIN_ID
+
+2.30
+123.45
+
+2,30
+
+#ctl00_ConteudoPrincipal_tcNavegacao_tplProdutosEspecies
+fvProdutos
+btnSalvarEditadotblctrlbtnclick
+
+====
+
+"{\n  \"token\" : \"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTT0wgLSBSU18yMDAuMTk4LjEzNy4xOTQiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaXAiOiIyMDAuMTk4LjEzNy4xOTQiLCJjb2RpZ29TaXN0ZW1hIjoyLCJleHAiOjE2MjY3Mjk2MjZ9.J2BBpuYQipAwoitKRSTe5EomC6WG-2pdzIMTx2gzv9wfv0QcC7nvbO9yXs8Do4UQ9L6sCK_4R7SwShZzDuIlyA\"\n}"
+
+Token recebido
+"token\" :"5a8abe1e382b01a501554ac9c1f69b8e"
+
+"{\"atividades\":[\"AEROPORTO/ HELIPORTO\"],\"centroideLatitude\":-28.242559,\"centroideLongitude\":-52.329767,\"municipio\":4314100,\"nome\":\"TERMINAL AEROVIARIO PASSO FUNDO\",\"proprietario\":8838143000189,\"shapePRJ\":{\"nome\":\"1171_3703.prj\",\"conteudo\":\"UFJPSkNTWyJTSVJHQVNfMjAwMF9VVE1fWm9uZV8yMlMiLEdFT0dDU1siR0NTX1NJUkdBU18yMDAwIixEQVRVTVsiRF9TSVJHQVNfMjAwMCIsU1BIRVJPSURbIkdSU18xOTgwIiw2Mzc4MTM3LjAsMjk4LjI1NzIyMjEwMV1dLFBSSU1FTVsiR3JlZW53aWNoIiwwLjBdLFVOSVRbIkRlZ3JlZSIsMC4wMTc0NTMyOTI1MTk5NDMzXV0sUFJPSkVDVElPTlsiVHJhbnN2ZXJzZV9NZXJjYXRvciJdLFBBUkFNRVRFUlsiRmFsc2VfRWFzdGluZyIsNTAwMDAwLjBdLFBBUkFNRVRFUlsiRmFsc2VfTm9ydGhpbmciLDEwMDAwMDAwLjBdLFBBUkFNRVRFUlsiQ2VudHJhbF9NZXJpZGlhbiIsLTUxLjBdLFBBUkFNRVRFUlsiU2NhbGVfRmFjdG9yIiwwLjk5OTZdLFBBUkFNRVRFUlsiTGF0aXR1ZGVfT2ZfT3JpZ2luIiwwLjBdLFVOSVRbIk1ldGVyIiwxLjBdXQ==\"},\"shapeSHP\":{\"nome\":\"1171_3702.shp\",\"conteudo\":\"AAAnCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQugDAAAFAAAAsNb6+DSAFkHBmGdzZTlaQWBlB7+9mRZB876xpFU6WkEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABABQAAAKDq/d6FjRZBFjN4OSU6WkGASua055EWQfO+saRVOlpBAQAAAAUAAAAAAAAAoOr93oWNFkE4eWz4TTpaQeABIc4TjxZB876xpFU6WkGASua055EWQV/faSA6OlpBIPCIRZ2OFkEWM3g5JTpaQaDq/d6FjRZBOHls+E06WkEAAAACAAAAQAUAAACwxrBLGYwWQbRb8g32OVpB4GlPT6yNFkHGsdFOGzpaQQEAAAAFAAAAAAAAABBOHKHCjBZBxrHRThs6WkHgaU9PrI0WQYCX5dwWOlpBYMPvbfWMFkG0W/IN9jlaQbDGsEsZjBZB7redWPs5WkEQThyhwowWQcax0U4bOlpBAAAAAwAAAEAFAAAAAL6o47mTFkGLBGCU3TlaQWBlB7+9mRZBCfu8yRc6WkEBAAAABQAAAAAAAACAzc5vSpQWQYsEYJTdOVpBAL6o47mTFkHMPDhW9TlaQUCnsLT8mBZBCfu8yRc6WkFgZQe/vZkWQdUQg5n+OVpBgM3Ob0qUFkGLBGCU3TlaQQAAAAQAAABABQAAALDW+vg0gBZBwZhnc2U5WkGgQeO4A4YWQec/CKiYOVpBAQAAAAUAAAAAAAAAMCt4rqOAFkHBmGdzZTlaQbDW+vg0gBZB4dRcJXc5WkEAjne7goUWQec/CKiYOVpBoEHjuAOGFkGJir5xhzlaQTAreK6jgBZBwZhnc2U5WkE=\"},\"unidadeIbama\":54984}"
+
+"{\n  \"codigoErro\" : 1626727978057,\n  \"message\" : \"ParÃ¢metro(s) de entrada invÃ¡lido(s)\",\n  \"subErrors\" : [ {\n    \"campo\" : \"proprietario\",\n    \"message\" : \"O cÃ³digo informado referente ao ProprietÃ¡rio nÃ£o consta na base de dados.\"\n  } ],\n  \"timestamp\" : \"19/07/2021 17:52:58\"\n}"
+
+não é inserido na base porque tem uma informação de erro
+
+O primeiro JSON é enviado para this.ApiUrl = "https://apisinaflor.ibama.gov.br/api/"
+e o segundo para this.ApiUrl = "https://apisinaflor.ibama.gov.br/api/"
+
+São pa

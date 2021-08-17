@@ -1,0 +1,34 @@
+ -- Deu um erro que não da em produção
+[ ] 23220 Cadastro no empreendimento
+
+
+
+--- Necessário adaptar pagina para debugar
+
+[ ] 23303 - Vinculaçao de RT
+
+--- Problema grave de incompatibilidade no meu PC
+[ ] 23219 erro em gerar parecer
+
+
+
+--- TRABALHANDO
+[ ] 23218 - Audiências
+    [ ] Visualização Conteúdo
+    [ ] Edição Conteúdo
+    [ ] Tratar erro de item sem detalhe
+    [ ] erro de registro com arquivo
+    [ ] Mostrar lista de arquivos
+    [ ] Permitir excluir arquivos
+--- MAIS DEMORADO
+[ ] 23217 Impressão de Frota
+
+A BOLA TA COM O GUERRA
+[ ] 23221 Problema na pesquisa
+[ ] 23223 Permissões
+
+[ ] 23216 Recuperação de senha
+    Se os campos não utilizados para a pesquisa devo passar uma string contendo 'null'
+    como devo fazer com os campos numericos?
+    
+

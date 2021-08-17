@@ -1,0 +1,11 @@
+SP_AUCN_AUTT_GET 
+
+O que foi feito
+Tratei de analisar que mudanças seriam necessárias na Proc
+ PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+ 
+Como foi feito
+Mas acabei descobrindo que a Proc não existe mais.
+Foi feita a cópia da base de produção para homologação e essa Proc não existia na Produção, então sumiu.
+Já vi que eu  não tenho um Backup desta Proc.
+Pretendo fazer uma busca por arquivos em rede no computador do Renato para ver se ele tem um Backup desta Proc.

@@ -1,0 +1,63 @@
+O que foi feito
+Verificar o problema relacionado a consistência do pagamento.
+
+Como foi feito
+Ao testar a pagina, deu uma mensagem de que não hávia a pagina.
+Enviei a pagina e passou a apresentar um erro indicando que reconhecia o método que consistia o pagamento
+
+
+Fontes Alterados
+SolicitacoesPendentes.aspx
+AprovacaoSolicitacao.aspx
+
+Atualizado em produção
+
+Caso para teste solicitação 59262 empreendimento 231878
+ao solicitar aprovação da a mensagem abaixo, que é a informação esperada
+
+
+"Você não pode aprovar essa solicitação pois consta que ela possui 1 problema(s). 
+Volte na tela de listagem de solicitações e marque como resolvido os problemas."
+
+------------------------------------------------
+
+IS: caso para teste solicitação 59262 empreendimento 231878
+
+C:\2020Site\cargasperigosas\Mobile\Bin
+
+FEPAM.SEMABMOB.BLL
+
+usa para testar username : tatianefs / HIDRA
+
+FTP:/fepam/wwwroot/cargasperigosas
+
+odsFrota
+TodaFrotaPorEmpreendimento
+id
+
+string ret = obj.Consiste_Pgto(Proc_id, Atan_id, Tido_id);
+
+04-03
+
+C:\Repo2020\CARGASPERIGOSAS\UI\AprovacaoSolicitacao.aspx.cs
+
+
+
+    private string Consiste_Pgto(string Proc_id, string Atan_id, string Tido_id)
+    {
+        FEPAM.DAL.IDAL db = new FEPAM.DAL.DataAccessLayer().CreateDAL(FEPAM.DAL.DalDbType.Oracle);
+        string sqlCommand = "PCK_NET_PROCESSOS.SP_ARR_CONSISTE_PGTO";
+        db.AddInParameter("SEL", "p_proc_id", Proc_id, FEPAM.DAL.DalTypes.Integer);
+        db.AddInParameter("SEL", "p_atan_id", Atan_id, FEPAM.DAL.DalTypes.Integer);
+        db.AddInParameter("SEL", "p_tido_id", Tido_id, FEPAM.DAL.DalTypes.Integer);
+        System.Data.DataSet ds = db.ExecuteDataSet(sqlCommand, System.Data.CommandType.StoredProcedure);
+        return ds.Tables[0].Rows[0][0].ToString();
+    }	
+
+
+FEPAM.EMERGENCIAAMBIENTAL.BLL
+FEPAM.EMERGENCIAAMBIENTAL.BLL.FrotaTransporte
+FEPAM.EMERGENCIAAMBIENTAL.BLL.FrotaTransporte.TotalFrotaPorEmpreendimento(long)
+public long TotalFrotaPorEmpreendimento(long id)
+
+

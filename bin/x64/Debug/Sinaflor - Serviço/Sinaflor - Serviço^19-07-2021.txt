@@ -1,0 +1,31 @@
+O que foi feito
+Guerre me pediu o JSON utilizado para trazer a informação
+
+Como foi feito
+Executei o serviço em modo debug (console) e consegui a informação.
+
+empreendimento 194779
+
+
+Campo 'proprietario': O cÃ³digo informado referente ao ProprietÃ¡rio nÃ£o consta na base de dados.
+Fim dos processamentos em CadastrarEmpreendimentos
+
+[ ] Verificar o JSON que esta sendo enviado
+
+Antes do Loop de Empreeendimentos
+
+Faz uma e obtem 375 registros
+
+this.ApiUrl = "https://apisinaflor.ibama.gov.br/api/"
+
+"{\n  \"token\" : \"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTT0wgLSBSU18yMDAuMTk4LjEzNy4xOTQiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaXAiOiIyMDAuMTk4LjEzNy4xOTQiLCJjb2RpZ29TaXN0ZW1hIjoyLCJleHAiOjE2MjY3MjM2NTh9.-ap3biLOn2PgA349MEQkIGrIUspfOnQ4nypuzayCaob3qfHxABLsCujEGo1PtVjCaHgUryBsEiaHZ2IhvFjlUw\"\n}"
+
+token = "8d0b4fced3216318922fa9d2b795ceed"
+
+r = {[{"atividades":["SUPRESSÃO DE VEGETAÇÃO NATIVA NO BIOMA PAMPA PARA USO ALTERNATIVO DO SOLO EM ZONA RURAL"],"centroideLatitude":-30.948538,"centroideLongitude":-53.492137,"municipio":4302808,"nome":"SUPR VEG NAT BIOMA PAMPA P/USO ALT SOLO","proprietario":10...
+
+r.Value.Sucesso = false
+
+
+
+"{\"atividades\":[\"AEROPORTO/ HELIPORTO\"],\"centroideLatitude\":-28.242559,\"centroideLongitude\":-52.329767,\"municipio\":4314100,\"nome\":\"TERMINAL AEROVIARIO PASSO FUNDO\",\"proprietario\":8838143000189,\"shapePRJ\":{\"nome\":\"1171_3703.prj\",\"conteudo\":\"UFJPSkNTWyJTSVJHQVNfMjAwMF9VVE1fWm9uZV8yMlMiLEdFT0dDU1siR0NTX1NJUkdBU18yMDAwIixEQVRVTVsiRF9TSVJHQVNfMjAwMCIsU1BIRVJPSURbIkdSU18xOTgwIiw2Mzc4MTM3LjAsMjk4LjI1NzIyMjEwMV1dLFBSSU1FTVsiR3JlZW53aWNoIiwwLjBdLFVOSVRbIkRlZ3JlZSIsMC4wMTc0NTMyOTI1MTk5NDMzXV0sUFJPSkVDVElPTlsiVHJhbnN2ZXJzZV9NZXJjYXRvciJdLFBBUkFNRVRFUlsiRmFsc2VfRWFzdGluZyIsNTAwMDAwLjBdLFBBUkFNRVRFUlsiRmFsc2VfTm9ydGhpbmciLDEwMDAwMDAwLjBdLFBBUkFNRVRFUlsiQ2VudHJhbF9NZXJpZGlhbiIsLTUxLjBdLFBBUkFNRVRFUlsiU2NhbGVfRmFjdG9yIiwwLjk5OTZdLFBBUkFNRVRFUlsiTGF0aXR1ZGVfT2ZfT3JpZ2luIiwwLjBdLFVOSVRbIk1ldGVyIiwxLjBdXQ==\"},\"shapeSHP\":{\"nome\":\"1171_3702.shp\",\"conteudo\":\"AAAnCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQugDAAAFAAAAsNb6+DSAFkHBmGdzZTlaQWBlB7+9mRZB876xpFU6WkEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABABQAAAKDq/d6FjRZBFjN4OSU6WkGASua055EWQfO+saRVOlpBAQAAAAUAAAAAAAAAoOr93oWNFkE4eWz4TTpaQeABIc4TjxZB876xpFU6WkGASua055EWQV/faSA6OlpBIPCIRZ2OFkEWM3g5JTpaQaDq/d6FjRZBOHls+E06WkEAAAACAAAAQAUAAACwxrBLGYwWQbRb8g32OVpB4GlPT6yNFkHGsdFOGzpaQQEAAAAFAAAAAAAAABBOHKHCjBZBxrHRThs6WkHgaU9PrI0WQYCX5dwWOlpBYMPvbfWMFkG0W/IN9jlaQbDGsEsZjBZB7redWPs5WkEQThyhwowWQcax0U4bOlpBAAAAAwAAAEAFAAAAAL6o47mTFkGLBGCU3TlaQWBlB7+9mRZBCfu8yRc6WkEBAAAABQAAAAAAAACAzc5vSpQWQYsEYJTdOVpBAL6o47mTFkHMPDhW9TlaQUCnsLT8mBZBCfu8yRc6WkFgZQe/vZkWQdUQg5n+OVpBgM3Ob0qUFkGLBGCU3TlaQQAAAAQAAABABQAAALDW+vg0gBZBwZhnc2U5WkGgQeO4A4YWQec/CKiYOVpBAQAAAAUAAAAAAAAAMCt4rqOAFkHBmGdzZTlaQbDW+vg0gBZB4dRcJXc5WkEAjne7goUWQec/CKiYOVpBoEHjuAOGFkGJir5xhzlaQTAreK6jgBZBwZhnc2U5WkE=\"},\"unidadeIbama\":54984}"

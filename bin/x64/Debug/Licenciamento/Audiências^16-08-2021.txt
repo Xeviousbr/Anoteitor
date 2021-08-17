@@ -1,0 +1,39 @@
+23217
+
+
+
+
+O que foi feito
+
+
+
+Como foi feito
+
+
+
+------------------------------------------------------------------------------
+
+
+http://localhost:37789/AnexoWeb.aspx?doc_id=1149161&proc=437265
+
+
+http://www.fepam.rs.gov.br/SISAUTOH/AnexoWeb.aspx?doc_id=1149161&proc=437265
+
+
+http://ww3.fepam.rs.gov.br/anexoseamb/DownloadFile.aspx?procid=437265&frtrid=51572
+
+
+
+
+[ ] Criar recurso de Post
+    [ ] Opção para todos os carros
+    [ ] Carros selecionados
+[ ] Intrerpretar a informação na outra pagina
+[ ] Selecionar as placas
+
+https://www.devmedia.com.br/simulando-um-post-http-em-asp-net/24952
+
+Envio de informação de todos registros feito
+falta a recepção
+
+Reclamou da FEPAM.EMERGENCIAAMBIENTALS3I.BLL;

@@ -1,0 +1,69 @@
+23164
+14:55 - 17:05
+O que foi feito
+
+Analisei o problema
+
+Como foi feito
+Cheguei a conclusão que o erro deve ter sido originado na Proc PCK_NET_CADASTROS.SP_PESS_SRC2.
+Mas para confirmar precisava debugar.
+Como não é o FrameWork que funciona corretamente no meu computador estava adaptando ainda os fontes para poder debugar.
+QUando Guerra falou comigo informei para ele qual Proc deveria ser o problema
+E ele testou ela e verificou que ela não estava retornando dados.
+O campo que recebe a informação é o ncpf que recebe um valor inteiro longo
+
+==========================================================================================
+
+
+nessa página:
+http://ww3.fepam.rs.gov.br/CargasPerigosas/LembrarLogin.aspx
+ao consultar o CPF 01861545002, ele informa não encontrado. 
+mas o CPF está lá (está onde deveria... mas será que está olhando algum oputro lugar?)
+
+01861545002
+
+
+
+http://ww3.fepam.rs.gov.br/CargasPerigosas/LembrarLogin.aspx
+
+LembrarLogin.aspx
+
+http://localhost:37789/LembrarLogin.aspx
+
+#ctl00_ContentPlaceHolder1_txtCPF
+
+FEPAM.EMERGENCIAAMBIENTAL.DAL
+
+PCK_NET_CADASTROS.SP_PESS_SRC2
+
+[x] Resolver incompatibilidades do fonte
+[ ] Colocar metodo do BLL
+[ ] Colocar metodo da DAL
+[ ] Debugar
+
+1861545002
+ncpf
+
+Confirmado o campo que é utilizado é o "ncpf""
+é passado um valor numero longo 1861545002
+a consulta não retorna nada
+aguardo orientações
+
+==========================================================================================
+
+
+ao aprovar (gerar parecer de licença) para empreendedor DANIEL VIEIRA SOCA, CNPJ 24407845000164, 
+empreendimento 224664. 
+
+O sistema gerou parecer e licença no oracle, mas a solicitação 59647, 
+não saiu da pilha de analise (primeira pilha).
+
+NÃO ACHOU, deve ser só em produção
+
+O que foi feito
+Analisei o problema
+
+
+Como foi feito
+Tentei debugar para ver bem o caso mas encontrei problemas.
+Talvez tenha que criar outro projeto pra poder trabalhar com esse caso

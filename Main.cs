@@ -1240,16 +1240,19 @@ namespace Anoteitor
                         if (info.Exists)
                         {
                             FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                            string UltAdic = "";
                             foreach (FileInfo arquivo in arquivos)
                             {
                                 string sCriacao = arquivo.CreationTime.Date.ToShortDateString();
                                 if (DtHoje == sCriacao)
-                                {
-                                    cbProjetos.Items.Add(Nome);
-                                    if (Nome == Atual)
-                                        cbProjetos.SelectedIndex = a;
-                                    a++;
-                                }
+                                    if (UltAdic!= Nome)
+                                    {
+                                        UltAdic = Nome;
+                                        cbProjetos.Items.Add(Nome);
+                                        if (Nome == Atual)
+                                            cbProjetos.SelectedIndex = a;
+                                        a++;
+                                    }
                             }
                         }
                     }

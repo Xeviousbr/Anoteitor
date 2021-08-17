@@ -1,0 +1,5 @@
+empreendimento 194779
+
+
+Campo 'proprietario': O cÃ³digo informado referente ao ProprietÃ¡rio nÃ£o consta na base de dados.
+Fim dos processamentos em CadastrarEmpreendimentos

@@ -1,0 +1,44 @@
+22155
+17:05 - 
+O que foi feito
+
+Retornei o campo de ramos de atividade para Combo
+
+Como foi feito
+
+Estava assim antes, por instrução do Renato passei para entrada livre.
+Mas depois pediu pra colocar de volta, coloquei mas tem um problema na Proc 
+
+PCK_NET_COMUNICACAO.SP_RAMOS_ATIVIDADES, não esta me trazendo dados
+quando passo nulo então pedi para ele fazer retornar tudo quando eu passar o valor 0
+Ele ficou de ajustar na segunda
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+UI\Comunicacao\AGENAudiencias.aspx.cs
+
+=============================================================================
+
+
+obj.GetAUCN_AUTT(vautt_id);
+
+odsConteudo
+FEPAM.COMUNICACAO.BLL
+AudienciaDetalhe
+
+
+[ ] Recolocar o combo do ramo
+[ ] Ta dando erro no primeiro registro 
+    detalhe foi apagado
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+[ ] SP_RAMOS_ATIVIDADES
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+SP_RAMOS_ATIVIDADES
+AGENAudiencias.aspx
+
+PCK_NET_COMUNICACAO.SP_RAMOS_ATIVIDADES
+nraat_id = 0

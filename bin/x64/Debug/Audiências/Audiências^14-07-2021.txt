@@ -1,0 +1,8 @@
+DLLs compiladas
+pronto para colocar em homologação
+
+O que foi feito
+Fiz testes e atualizei em homologação
+
+Como foi feito
+Copei as DLLs FEPAM.COMUNICACAO.BLL.dll, FEPAM.COMUNICACAO.DAL.dll e a pagina AGENAudiencias.aspx e cs.

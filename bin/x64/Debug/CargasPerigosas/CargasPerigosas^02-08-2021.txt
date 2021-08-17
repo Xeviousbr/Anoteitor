@@ -1,0 +1,9 @@
+23349
+
+1) Entrar no Fepam.net, homologação => http://intranet.fepam.rs.gov.br/HFEPAM.NET
+2) Emergência Ambiental
+3) Pesquisar (exemplo  10466983000100)
+4) Clicar na razão social
+
+5) Clicar em Empreendimentos
+É nesse ponto que entre outros procedimentos, tb aciona aquela Proc

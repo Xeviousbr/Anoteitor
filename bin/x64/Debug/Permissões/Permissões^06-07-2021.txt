@@ -1,0 +1,42 @@
+O que foi feito
+Criei uma nova Proc para conter o critério sem a situacao=2 e coloquei para chamar ela na operação de troca.
+
+Como foi feito
+Criei a Proc SP_VFUNC_SRC_TROCA.
+Criei um metodo SetaUsuarioTroca para chamar esta Proc.
+Também fiz testes para verificar se essa alteração poderia trazer algum bug correlacionado.
+
+Fontes Alterados
+UI\FLogonUsers.aspx.cs
+fepam.configuracoes.bll\usuario.cs
+FEPAM.CONFIGURACOES.DAL\vfuncionarios.cs
+
+
+22155 - Parado porque Renato tem que alterar uma Proc
+22159 - Pronto para ser avaliado pelo Renato, em homologação
+22171 - Atualizei ontem em homologação a ser avaliado por Werner
+22165 - Preciso de um caso de testes
+22154 - É a tela de permissões por modulos, a bola ta contigo
+
+Então vou trabalhar na 22484, Verificação do Usuário
+
+Para dar proceguimento na tarefa 22165
+Preciso de um exemplo que retorne a palavra "Atenção" da Proc
+
+PCK_NET_CONFIGURACOES.SP_VFUNC_SRC que só prevê trazer dados só para usuários que não estejam de férias. Situacao = 1.
+De férias é Situacao = 2.
+
+System.Web.HttpContext.Current.Session["SETO_ID"] = st[0].Seto_id.ToString();
+
+SetaUsuario
+
+UI\FLogonUsers.aspx.cs
+	FEPAM.CONFIGURACOES.BLL\Usuario.cs - SetaUsuario
+		PCK_NET_CONFIGURACOES.SP_USUA_GET
+	SortableList<vfuncionarios> st = vfuncionarios.SearchFuncionariosEstagiarios(null, null, null, null, null, id, null);
+	st não tem registros
+
+Solução trocar a Proc neste ponto
+
+Função "SearchFuncionariosEstagiarios" que chama essa proc Nessa situação
+[ ] Ver onde essa função é chamada

@@ -1,0 +1,47 @@
+O que foi feito
+
+
+Anal
+ise do problema.
+
+Como foi feito
+Minha conclusão até o momento é que houve um erro esporádico.
+No momento exato que a DLL FEPAM.CONFIGURACOES.BLL foi atualizada por mim.
+Se é isto, ocorreu dia 02/08 depois das 18hs.
+Guerra irá retornar com a informação.
+Mas se não é isto, então vou precisar saber com o usupario que operação que estava sendo feita na hora.
+Porque na minha conclusão, foi quando foi clicado no menu irrigação.
+
+na DLL FEPAM.CONFIGURACOES.BLL
+Exception information: 
+    Exception type: TargetInvocationException 
+    Exception message: Exception has been thrown by the target of an invocation.
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Web.UI.WebControls.ObjectDataSourceView.InvokeMethod(ObjectDataSourceMethod method, Boolean disposeInstance, Object& instance)
+   at System.Web.UI.WebControls.ObjectDataSourceView.ExecuteSelect(DataSourceSelectArguments arguments)
+   at System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   at System.Web.UI.WebControls.BaseDataBoundControl.EnsureDataBound()
+   at System.Web.UI.WebControls.CompositeDataBoundControl.CreateChildControls()
+   at System.Web.UI.Control.EnsureChildControls()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Control.PreRenderRecursiveInternal()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+Object reference not set to an instance of an object.
+   at FEPAM.CONFIGURACOES.BLL.Menu.MontaMenuAcessoRapido(Int64 menu)
+
+ 
+ 
+Request information: 
+    Request URL: http://intranet.fepam.rs.gov.br/FEPAM.NET/Irrigacao/Default.aspx 
+    Request path: /FEPAM.NET/Irrigacao/Default.aspx 
+    User host address: 10.92.32.213 
+    User: E_LAURAFG 

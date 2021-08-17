@@ -1,0 +1,89 @@
+23221
+14:00 - 
+O que foi feito
+
+Me dediquei a resolver o problema da pesquisa.
+
+
+Como foi feito
+Localizei um SQL que retornava um registro só.
+Enviei a Karina para ela dar uma olhada e ela me retornou um SQl que trazia dois registros.
+Mas eles tinham o mesmo ATAN_ID e resultava em dois empreendimentso iguais na pagina.
+Então informei a Karina e ela irá resolver em outro momento.
+
+C:\2020Site\licenciamento\src\empreendimentos.asp
+
+10655578000130
+
+APARECE CERTO
+http://www.fepam.rs.gov.br/licenciamento_antigo/area3/lista1.asp?buscar=2&tipoBusca=cpfcnpj&cpfcnpj=10655578000130
+
+ERRADO
+http://ww3.fepam.rs.gov.br/licenciamento_antigo/area2/listapaginada.asp?cpfcnpj=10655578000130
+
+O ERRO ESTA NO SQL QUE COMEÇA NA LINHA 1013
+C:\2020Site\licenciamento\area2\listapaginada.asp
+
+WHERE resp.pess_id = pess.pess_id
+			AND ata1.atan_id = resp.atan_id
+			AND ata1.atan_id = atde.atan_id(+)
+			AND ata1.muni_id = muni.muni_id(+)
+			AND ata1.raat_id = raat.raat_id
+			AND ata1.tilo_id = tilo.tilo_id(+)
+			AND ata1.situacao = 1
+      AND resp.tipa_id NOT IN ( 3, 4 ,9 )
+			AND resp.data_fim IS NULL
+			AND ata1.pess_id = 201243
+
+
+185417 Aparece
+
+181501
+
+23221
+
+
+================================================================================================
+23217
+
+O que foi feito
+
+Continuação do trabalho de compreensão da impressão do relatório.
+
+
+Como foi feito
+Desta vez localizei o fonte que cria o relatório.
+Ele fica num WebService.
+Irei continuar a investigação amanhã.
+
+
+http://localhost:37789/AnexoWeb.aspx?doc_id=1149161&proc=437265
+
+AnexoWeb.aspx
+
+"http://ww3.fepam.rs.gov.br/anexoseamb/DownloadFile.aspx?procid=437265&frtrid=51572"
+
+DownloadFile.aspx
+
+http://ww3.fepam.rs.gov.br/anexoseamb/DownloadFile.aspx?procid=437265&frtrid=51572
+
+http://localhost:37789/DownloadFile.aspx?procid=437265&frtrid=51572
+
+
+------------------------------------------------------------------------------
+
+AnexoWeb.aspx
+Seleciona os registros a serem impressos
+
+anexoseamb/DownloadFile.aspx
+Mostra a impressão
+
+[ ] Ver como que essa pagina aciona o Crystal Reports
+
+LicencaReport.cs
+
+C:\temp\FepamNet.Olde\WebService\ANEXOSEAMB\FEPAM.CARGASPERIGOSAS.BLL\LicencaReport.cs
+
+C:\Repo2020\WebService
+
+C:\Repo2020\WebService\ANEXOSEAMB

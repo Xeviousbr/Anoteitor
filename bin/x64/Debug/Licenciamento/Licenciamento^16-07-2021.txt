@@ -1,0 +1,10 @@
+O que foi feito
+Fiz testes e não achei erro
+
+Como foi feito
+Fiz testes diversos e funcionou em todas as situações.
+Suponho que houve algum erro local relacionado a cookies ou alguma outra forma de memória temporária.
+Uma limpesa de cooxies pode resolver.
+Caso o problema persista, preciso de mais orientações para poder observar o problema.
+
+Fontes Alterados

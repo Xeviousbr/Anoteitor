@@ -1,0 +1,34 @@
+
+[x] 23040 Pesquisa
+[x] Sinafor
+[x] Permissões
+
+[-] CargasPerigosas 23164 Login no CargasPerigosas
+[ ] CargasPerigosas Nulo em AprovacaoSolicitacaoAlteracao.aspx
+[ ] Licenciamento/CargasPerigosas/AnexoSeamb 22948 Impressão da Frota
+[ ] CargasPerigosas 23168 Parecer
+
+
+[ ] 22155 Audiências
+
+
+
+==========
+
+
+além disso, no event viewer temos esse erro:
+Exception information: 
+    Exception type: NullReferenceException 
+    Exception message: Object reference not set to an instance of an object.
+   at AprovacaoSolicitacaoAlteracao.btnVisuParecer_Click(Object sender, EventArgs e) in d:\CargasPerigosas\AprovacaoSolicitacaoAlteracao.aspx.cs:line 207
+   at System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   at System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+ 
+ 
+Request information: 
+    Request URL: http://intranet.fepam.rs.gov.br/CargasPerigosas/AprovacaoSolicitacaoAlteracao.aspx 
+    Request path: /CargasPerigosas/AprovacaoSolicitacaoAlteracao.aspx 
+    User: SEMARS\TatianeFS 
+

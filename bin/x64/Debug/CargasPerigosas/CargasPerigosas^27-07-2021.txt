@@ -1,0 +1,117 @@
+23215
+O que foi feito
+
+Analise das novas tarefas recebidas para ver qual teria mais condições de terminar
+
+
+
+2)Investigação do caso.
+
+==========================================================================================
+
+
+23219
+
+
+Até 18:10
+O que foi feito
+
+
+Adap
+tei o projeto para testar um caso.
+
+Como foi feito
+Ao durante o teste houve um erro que não ocorre em produçao.
+Ao acionar uma function Oracle, retorna "erro CARACTER INVÁLIDO"
+E o SQl utilizado foi este
+"select pck_net_processos.fc_valida_lic_vencida(231060,3) from dual;"
+Mas no PL/SQL não da erro
+
+==========================================================================================
+
+23216
+
+O que foi feito
+
+
+Tratei de implementar uma solução.
+
+Como foi feito
+Mas fiquei em dúvida.
+Se os campos não utilizados para a pesquisa devo passar uma string contendo 'null'
+como devo fazer com os campos numericos?
+
+==========================================================================================
+
+
+
+23219 erro em gerar parecer
+
+
+
+
+
+
+ao aprovar (gerar parecer de licença) para empreendedor DANIEL VIEIRA SOCA, 
+CNPJ 24407845000164, empreendimento 224664. 
+
+O sistema gerou parecer e licença no oracle, 
+mas a solicitação 59647, não saiu da pilha de analise (primeira pilha).
+
+Quanto a tarefa 23219
+Erro ao aprovar
+
+Creio que seja a aprovação do CargasPerigosas
+entrei com o usuário TATIANEFS
+e em SolicitacoesPendentes.aspx não foi localizado o empreendimento 224664
+tanto em homologação quanto em produção
+
+==========================================================================================
+
+23220
+
+
+PesquisaEmpreendimento.aspx
+
+
+31.617.668/0001-06
+
+
+31617668000106
+
+
+AprovacaoSolicitacaoAlteracao.aspx
+TodaFrotaPorEmpreendimento
+odsFrota
+
+AprovacaoSolicitacao.aspx
+
+WsUploadReference
+
+btnAprovar
+
+btnAprovar_Click
+
+"select pck_net_processos.fc_valida_lic_vencida(231060,3) from dual;"
+erro CARACTER INVÁLIDO
+
+23220
+==========================================================================================
+
+
+23216
+
+FEPAM.EMERGENCIAAMBIENTAL.DAL
+
+PCK_NET_CADASTROS.SP_PESS_SRC2
+
+[ ] Ver a classe
+FEPAM.EMERGENCIAAMBIENTAL.DAL\Pessoas.cs
+Linha 1145
+
+01861545002
+
+PCK_NET_CADASTROS.SP_PESS_SRC
+
+
+Tem duas tarefas relacionadas ao PARECER 23215 e 23219

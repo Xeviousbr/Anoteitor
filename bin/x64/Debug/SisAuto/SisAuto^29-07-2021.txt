@@ -1,0 +1,25 @@
+http://intranet.fepam.rs.gov.br/SisAutoHomologa/Default.aspx?ReturnUrl=%2fSisAutoHomologa%2f
+
+
+[ ] Verificar o login
+
+user: CORSAN.SISAUTO
+senha fepam842
+
+[x] Copiar o CargasPerigosasHomologação para local
+
+[ ] Localizar um outro site para o CargasPerigosas
+[ ] Colocar o CargasPerigosasHomologação no outro site
+[ ] Atualizar no site dos sites
+[x] Copiar o SisAuto de produção para o local
+[x] Passar ele para o site SISAUTOH
+[x] Ajutar o BD
+
+teste_page
+
+
+SisAutoHomologa/
+
+Peguei todo o site do SisAuto do FTP e coloquei no SisAutoH
+ajustei o BD pra homologação
+Tentei esse login e deu O MESMO erro . . .

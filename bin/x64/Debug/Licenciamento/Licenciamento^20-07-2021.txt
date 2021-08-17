@@ -1,0 +1,125 @@
+22948 - 16:40
+O que foi feito
+Investiguei a situação.
+
+
+Como foi feito
+
+Fiz um teste com 2 registros selecionados e só foi impresso um registro.
+Precisaria de um exemplo que funcionasse com pelo menos dois registros.
+Para ver alguma diferença entre os casos.
+Depois Guerra informou um caso para usar
+
+Fontes Alterados
+
+============
+
+O que foi feito
+Investiguei a situação.
+
+
+
+Como foi feito
+
+Minha primeira conclusão é que havia uma diferença nas duas consultas.
+Mas quando vi a consulta que era utilizada nas duas paginas, é a mesma, inclusive é composta no mesmo lugar.
+A consulta esta salva neste arquivo da rede : E:\CTZ\Arnaldo\Temp\23040\Consulta da pagina Lista1.txt
+
+Fontes Alterados
+
+============
+
+
+sobre a pesquisa que funciona nas 2 áreas:
+cnpj - 18.810.538/0001-27
+
+
+http://www.fepam.rs.gov.br/licenciamento/area3/detalheDocProc.asp?area=3&buscar=2&tipoBusca=processo&processo=0711390567175
+
+Botão IMPRIMIR LICENÇAS PLACAS
+só imprimir uma pagina
+
+o erro acontece na outra pagina
+
+http://www.fepam.rs.gov.br/licenciamento/area3/detalheDocProc.asp
+
+
+http://www.fepam.rs.gov.br/licenciamento_antigo/area3/detalheDocProc.asp?area=3&buscar=2&tipoBusca=processo&processo=0711390567175
+
+http://ww3.fepam.rs.gov.br/cargasperigosas/anexoweb.aspx?doc_id=1149161&proc=437265
+
+pegar a função RetornaDocu_id_parecer do Fepam.DAL
+e colocar para ser executado localmente
+
+btnVisualizar
+
+ver se descubro o motivo da mudança
+antes o processamento era por dentro e não na DLL
+mas agora tb ta
+
+testar com 2
+nem coi 2 funciona
+
+http://localhost:37789/AnexoWeb.aspx?doc_id=1149161&proc=437265
+
+22948
+===================================================================================================
+23040
+
+http://www.fepam.rs.gov.br/licenciamento/Area1/default.asp
+10.655.578/0001-30
+ 
+Quando a pesquisa é realizada especificamente pelo CNPJ 10.655.578/0001-30 
+na aba "Consulta Genérica", 
+o resultado da pesquisa é diferente do executado 
+na aba "Empreendedor Cadastrado". 
+
+Além disso, nessas 2 pesquisas, 
+não é mostrado o processo 73640/19-4, 
+o qual refere-se a uma LO em vigor, 
+o que só é mostrado quando da pesquisa pelo número do processo.
+
+[ ] Problema 1 'Area''
+ [ ] Verificar os resultados
+[ ] Problema 2 'Empreendedor Cadastrado'
+
+Processo
+736400567194
+
+[ ] Verificar as consultas
+  [ ] lista1.asp
+  [ ] listapaginada.asp
+
+Consultas Genericas - Numero Processo, resultado em : area3/detalheDocProc.asp
+
+strTipoBusca = cpfcnpj
+
+PASSOS
+1) http://www.fepam.rs.gov.br/licenciamento_antigo/Area1/default.asp
+2) CONSULTAS GENERICAS
+3) CPF/CNPJ
+4) 10.655.578/0001-30
+5) PROCEGUIR
+
+http://www.fepam.rs.gov.br/licenciamento_antigo/area3/lista1.asp?buscar=2&tipoBusca=cpfcnpj&cpfcnpj=10655578000130
+
+161
+Set rstEmp = objEmp.getEmpreendimento()
+
+objEmp
+
+Set objEmp = new Empreendimentos
+
+<!--#include file="../src/empreendimentos.asp" -->
+
+C:\2020Site\licenciamento\src\empreendimentos.asp
+
+getEmpreendimento
+
+E:\CTZ\Arnaldo\Temp\23040\Consulta da pagina Lista1.txt
+
+
+
+listapaginada.asp
+
+http://www.fepam.rs.gov.br/licenciamento_antigo/area2/listapaginada.asp?cpfcnpj=10655578000130

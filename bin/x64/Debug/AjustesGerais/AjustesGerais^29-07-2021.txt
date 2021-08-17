@@ -1,0 +1,48 @@
+23349
+É necessário ajustar a Proc
+
+--- Necessário adaptar pagina para debugar
+
+[ ] 23303 - Vinculaçao de RT
+
+--- Problema grave de incompatibilidade no meu PC
+[ ] 23219 erro em gerar parecer
+
+
+
+--- TRABALHANDO
+[ ] 23218 - Audiências
+    [ ] Visualização Conteúdo
+    [ ] Edição Conteúdo
+    [ ] Tratar erro de item sem detalhe
+    [ ] erro de registro com arquivo
+    [ ] Mostrar lista de arquivos
+    [ ] Permitir excluir arquivos
+
+--- MAIS DEMORADO
+[ ] 23217 Impressão de Frota
+
+
+A BOLA TA COM O GUERRA
+[ ] 23221 Problema na pesquisa
+[ ] 23223 Permissões
+
+    
+
+====================================
+Pretendo tocar aquela tarefa do Login, mas preciso de uma nova alteração naquela Proc.
+
+Depois tocar a tarefa das consultas que vem resultados diferentes.
+Primeiro procurar um exemplo de uso de Proc no Asp Classico.
+Depois informar ao Guerra para que ela seja passada para uma Proc.
+Ou altero o SQL diretamente, conforme o caso.
+
+Depois a questão daquelas consulta que vem duas informações diferentes.
+Que da pra colocar numa Proc mas por enquanto não vi como se faz isso no ASP classico.
+
+
+Depois pretendo colocar a tela de permissões em produção.
+
+Depois lidar com a tarefa das placas
+
+Caso acabe conseguindo concluir ela rapidamente, vou então dar continuidade na Audiências

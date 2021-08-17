@@ -1,0 +1,172 @@
+O que foi feito
+Analise do problema
+
+Como foi feito
+Depois de um bocado de tempo tentando compreender o problema, eu e Guerra
+deduzimos que esta ocorrendo é um erro operacional ou talvez não
+Mas precisamos de mais informações do usuário
+------------------------------------------------------------------------------
+
+
+[ ] Obter um passo a passo
+[ ] Ver quais foram as últimas alterações nos fontes relacionados
+
+01861545002
+
+C:\ATC\INTRANTET\Cargas no Fepam\fepam.net mexido\UI\LembrarLogin.aspx
+
+31.617.668/0001-06
+
+
+rubemctn
+FHI1234
+
+[ ] Ver que consulta é realizada
+[ ] Ver as alterações recentes
+[ ] Ver que frameWork que a DLL FEPAM.EMERGENCIAAMBIENTAL.BLL esta
+
+
+Principal.aspx
+
+btnLocalizarEmp
+btnLocalizarEmp_Click
+
+Login Homolog não entra!
+btnLogin_Click
+
+FEPAM.EMERGENCIAAMBIENTAL.BLL.dll
+tem data de 01/03/2021
+
+
+
+<a id="ctl00_ContentPlaceHolder1_lbListaTodos" 
+title="Lista todos os empreendedores/empreendimentos vinculados ao responsável técnico." 
+href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$lbListaTodos&#39;,&#39;&#39;)">Listar Todos</a>
+
+GridView1
+odsAtividadesAntropicas
+
+FEPAM.EMERGENCIAAMBIENTAL.BLL.AtividadeAntropica
+
+26-07-2021
+
+06/12/19	C:\2020Site\Sistemas\MTR\Principal.aspx.cs
+
+23220
+==============================================================================
+23216
+O que foi feito
+Analise do problema
+
+Como foi feito
+Karina arrumou a Proc PCK_NET_CADASTROS.SP_PESS_SRC2 e agora esta retornando dados.
+Mas para o caso em questão há agora outra Proc que de acordo com o retorno dela
+informa para fazer um cadastro em vez de enviar o email de revalidação de senha.
+É a PCK_NET_CADASTROS.SP_ACPI_SRC ela recebe como parametro o valor 16706
+no campo nacinid
+Retorna um registro mas no campo Acpr_id tem o valor 99 e precisaria ser 7
+para poder enviar o email
+-------------------------------------------------------------------------------
+
+
+PCK_NET_CADASTROS.SP_PESS_SRC2
+
+
+FEPAM.EMERGENCIAAMBIENTAL.DAL\Pessoas.cs
+Linha 1145
+
+01861545002
+
+PCK_NET_CADASTROS.SP_PESS_SRC
+
+http://localhost:37789/LembrarLogin.aspx
+
+Pess_id = 227137
+
+
+
+PCK_NET_CADASTROS.SP_ACPI_SRC
+nacinid = 16706
+
+Esta dando uma mensagem dizendo para o usuário fazer um cadastro.
+Porque, apesar de ter trazido dados.
+Numa outra Proc a PCK_NET_CADASTROS.SP_ACPI_SRC é realizada uma consulta
+Com nacinid = 16706
+E retorna um registro
+Mas este registro não tem no campo Acpr_id = 7 (tem com Acpr_id = 99)
+E então não cria um elemento num objeto que é utilizado posteriormente.
+E sem itens neste objeto redireciona para a mensagem 
+
+23216
+==============================================================================
+23337
+
+O que foi feito
+
+Analise do problema
+
+
+Como foi feito
+Existe uma Proc que esta com retorno inadequado
+PCK_NET_CADASTROS.SP_RESP_SRC com os parametros
+ntipaid = 9
+npessid = 237220
+Da erro de sintaxe ao executar pelo PL/SQL
+e mostra a mensagem 
+"ORA-20001:Sem responsáveis técnicos retornados na pesquisa.'
+
+Solução proposta, ajustar a Proc para retornar dados corretamente
+que neste caso seria um retorno nulo
+-------------------------------------------------------------------------------
+
+RT com problemas para acessar o sistema especialista, quando faz o login da erro.
+
+CPF 80476325072
+
+usuário: ANDREIASAFE
+
+senha: FURG0025
+
+
+aparecem 2 mensagens...
+
+Sem responsáveis técnicos retornados na pesquisa (mas existe o RT)
+
+MessageBox.Show("Não há nenhum empreendedor vinculado a este 
+Responsável Técnico (que é mais provável, mas deveria redirecionar 
+para página de cadastro/seleção de empdor/empto).
+
+http://localhost:37789/LoginInterno.aspx
+
+PCK_NET_CADASTROS.SP_RESP_SRC
+ntipaid = 9
+npessid = 237220
+
+Ao rodar essa Proc pelo PL/SQL me mostrou um erro
+mas também apareceu a mensagem "ORA-20001:Sem responsáveis técnicos retornados na pesquisa.'
+Creio que a solução seja retornar a informação de forma adecuada
+que neste caso seria um retorno sem dados
+
+23337
+==============================================================================
+23221
+
+O que foi feito
+Debug para analise do problema
+
+Como foi feito
+Passei os SQLs para a Karina o correto e o errado e ela forneceu uma solução para o que não esta funcionado.
+Agora que sabemos a solução temos que ver ainda se vamos colcoar numa Proc ou manter como consulta SQL.
+
+23221
+==============================================================================
+
+23349
+
+PCK_NET_CADASTROS.SP_RESP_SRC
+
+http://localhost:37789/LoginInterno.aspx
+
+ANDREIASAFE
+
+FURG0025

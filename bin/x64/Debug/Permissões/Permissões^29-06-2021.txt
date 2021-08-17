@@ -1,0 +1,63 @@
+O que foi feito
+Trabalhei na gravação
+
+Como foi feito
+O problema da proc de deleção se setores era só que o apontamento estava errado.
+Trabalhei na Proc de Gravação, mas estou também trabalhando numa Function que faça a função de Slipt.
+
+Fontes Alterados
+PROC SP_PERM_SETO_INS_
+FUNCTION SPLIT (mas talvez ainda fala ela como uma Proc)
+
+where apli_id = to_number( strApliId);
+
+delete
+update
+Observado procs até a "AS_PDF_MINI"
+
+SP_PERM_INS
+
+sdatainclusao
+sdataatualizacao
+soperadorinclusao
+soperadoratualizacao
+nusuaid
+nmofuid
+
+
+1. ter uma procedure população parâmetro Out
+2. fazer um simples SELECT dentro do código packaged que já faça o split
+3. trabalhar com arrays
+
+15:35 - 16:45
+
+[ ] Ver como se popula um cursor
+    Para ele ser retornado pela function
+[ ] Terminar a proc SP_PERM_SETO_INS_
+
+FUNCTION SPLIT(p_list VARCHAR2, p_del VARCHAR2 := ',') 
+RETURN SYS_REFCURSOR IS
+    l_idx    pls_integer;
+    l_list    varchar2(32767) := p_list;
+    l_value    varchar2(32767);
+begin
+    loop
+        l_idx := instr(l_list,p_del);
+        if l_idx > 0 then
+            pipe row(substr(l_list,1,l_idx-1));
+            l_list := substr(l_list,l_idx+length(p_del));
+
+        else
+            pipe row(l_list);
+            exit;
+        end if;
+    end loop;
+    return; 
+	
+   /* type array_t is varray(3) of varchar2(10);
+   array array_t := array_t('Matt', 'Joanne', 'Robert');
+begin
+   for i in 1..array.count loop
+       dbms_output.put_line(array(i));
+   end loop;	* /
+end SPLIT; */

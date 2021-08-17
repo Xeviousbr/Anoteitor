@@ -1,0 +1,30 @@
+23479
+03:30
+O que foi feito
+Coloquei o Cargas Perigosas Homologação pra funcionar no SisAutoH da Procergs.
+
+
+Como foi feito
+Também fiz backup do SisAutoH, testes e também ajustes foram necessários.
+
+
+Fontes Alterados
+Principal.aspx.cs
+
+
+-----------
+--------------------------------------------
+
+no cargas perigosas a conferência do valor pago não está em produção, 
+eu pensava que estava, tem como botar em produção? 
+
+sol.SolicitacaoAlteracaoRT(atan, 0);
+Linha 611 do principal.aspx.cs
+
+SolicitacaoAlteracaoRT contem 2 parametros
+mas em FEPAM.CARGAS.BLL\SolicitacaoSeamb2.cs
+esse metodo espera 4 parametros
+
+Int64 atanid, Int64 medida_porte_calc, string operador, Int64 pess_id
+
+http://www.fepam.rs.gov.br/SISAUTOH

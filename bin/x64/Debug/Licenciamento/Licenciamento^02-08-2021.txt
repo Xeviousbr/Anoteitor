@@ -1,0 +1,38 @@
+23221
+- 17:00
+O que foi feito
+Debug na pesquisa com erro
+
+Como foi feito
+Localizei um terceiro SQL que traz os mesmos dados.
+Se encontra na linha 1013
+Do fonte C:\2020Site\licenciamento\area2\listapaginada.asp
+
+
+Veio dados de objEmp.getEmpreendimentoComDoc()
+
+C:\2020Site\licenciamento\src\empreendimentos.asp
+
+10655578000130
+
+APARECE CERTO
+http://www.fepam.rs.gov.br/licenciamento_antigo/area3/lista1.asp?buscar=2&tipoBusca=cpfcnpj&cpfcnpj=10655578000130
+
+ERRADO
+http://ww3.fepam.rs.gov.br/licenciamento_antigo/area2/listapaginada.asp?cpfcnpj=10655578000130
+
+
+
+http://ww3.fepam.rs.gov.br/licenciamento_antigo/imagens/grupo3.gif
+
+IMPRIMIR RELATÓRIO
+
+botao_imprimirRelatorio.gif
+
+
+C:\2020Site\licenciamento\area2\listapaginada.asp
+
+1169
+
+O ERRO ESTA NO SQL QUE COMEÇA NA LINHA 1013
+C:\2020Site\licenciamento\area2\listapaginada.asp

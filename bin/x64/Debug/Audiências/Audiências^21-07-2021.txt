@@ -1,0 +1,35 @@
+22155
+O que foi feito
+Continuidade do trabalho
+
+
+Como foi feito
+Alterei a gravação do ramo para ser como entrada livre.
+Fiz a gravação do conteúdo, mas tenho ainda dúvidas do restante a ser feito.
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+FEPAM.COMUNICACAO.BLL\AudienciaDetalhe.cs
+
+=============================================================================
+
+
+obj.GetAUCN_AUTT(vautt_id);
+GetAUCN_AUTT vem de FEPAM.COMUNICACAO.BLL
+AudienciaDetalhe
+no fonte tem tudo
+
+
+
+[ ] RAMO DEVE ENTRAR CÓDIGO
+[ ] Gravar
+
+Ramo de Atividade
+
+FormViewConteudo
+<asp:FormView
+NÃO TEM DataSourceID
+
+odsConteudo
+FEPAM.COMUNICACAO.BLL
+AudienciaDetalhe

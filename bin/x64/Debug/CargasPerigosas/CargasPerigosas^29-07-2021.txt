@@ -1,0 +1,85 @@
+O que foi feito
+
+
+Analise do problema
+
+Como foi feito
+A consulta que trazia a informação para trazer as permissõs de acesso a internet do usuário, vinha dois registros.
+Guerra me ajudou na analise do problema, mas não encontramos uma alternativa real de solução do problema.
+Ao final ele apagou um registro e passou a funcionar.
+
+------------------------------------------------------------------------------
+
+
+http://localhost:37789/LembrarLogin.aspx
+
+01861545002
+
+PCK_NET_CADASTROS.SP_PESS_SRC2
+
+retorna pessid = 227137
+
+SortableList<DAL.AcessosPessoasInternet> objsACPI = DAL.AcessosPessoasInternet.Search(pessid = 227137
+
+));
+
+
+PCK_NET_CADASTROS.SP_ACPI_SRC
+
+objsACPI[0].Acin_id = 16706
+SortableList<DAL.AcessosInternet> objs = DAL.AcessosInternet.Search(Acin_id = 16706);
+PCK_SOLICITACAO_LICENCA.SP_ACIN_SRC
+
+FEPAM.EMERGENCIAAMBIENTAL.DAL.AcessosPessoasInternet.cs
+Search
+
+xxxxxxxxxxxxxxxx
+
+
+Primeiro é populada a classe objsACPI
+a partir da Proc PCK_SOLICITACAO_LICENCA.SP_ACIN_SRC
+ela recebe como parametro de entrada pessid = 227137
+retorna dois registros
+
+é utilizado o primeiro registro para a próxima consulta
+Acin_id = 16706
+
+O segundo registro tem o Acin_id = 16723
+
+E a próximo consulta é na MESMA PROC
+PCK_SOLICITACAO_LICENCA.SP_ACIN_SRC
+
+Se ela recebe como parametro 
+Acin_id = 16706
+retorna um registro com ACPR_ID = 99
+
+Já se ela recebe como parametro o segundo registro retornado Acin_id = 16723
+então retorna um registro com ACPR_ID = 7
+
+Muito curioso tb é realizar duas consultas na mesma Proc..
+
+xxxxxxxxxxxxxxxx
+
+Agora já fiquei muito mais confuso
+Debugando, acionando a PCK_NET_CADASTROS.SP_ACPI_SRC com pess_id = 227137
+retorna 2 registros
+
+Mas se testo a PCK_NET_CADASTROS.SP_ACPI_SRC, pelo PL
+passando só pess_id = 227137
+não me retorna nada
+
+
+
+23216
+==============================================================================
+
+23349
+
+PCK_NET_CADASTROS.SP_RESP_SRC
+
+http://localhost:37789/LoginInterno.aspx
+
+ANDREIASAFE
+
+FURG0025
+

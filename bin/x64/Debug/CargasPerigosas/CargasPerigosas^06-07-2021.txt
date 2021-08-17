@@ -1,0 +1,38 @@
+O que foi feito
+Me dediquei a resolver a tarefa.
+
+Como foi feito
+Levantei informações.
+Mas me falta um caso para o teste.
+O caso para o teste que havia na tarefa, quando ela foi realizada num outro momento, hoje, não esta no status adecudo para o teste.
+Guerra falou para Werner conseguir essa informação.
+
+consistência/validação para pagamentos
+http://centraldeservicos.sema.rs.gov.br/front/ticket.form.php?id=22165
+
+[ ] Ver as anotações anteriore para pegar dados de teste
+	22/01/21
+	22/02/21
+	26/02/21
+	01/03/21
+	02/03/21
+	05/03/21
+08/03/21
+10/03/21
+01/04/21
+18/06/21
+19/06/21
+20/05/21
+
+02/06/21
+04/06/21
+
+Proc_id = 474330
+Atan_id = 223439
+Tido_id = 340
+
+A solicitação 57818
+ta mostrando o botão detalhes, que tem a operaçao ALTERAR FROTA
+
+PCK_NET_PROCESSOS
+SP_ARR_CONSISTE_PGTO

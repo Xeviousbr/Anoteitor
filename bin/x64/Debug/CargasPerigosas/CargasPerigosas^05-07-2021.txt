@@ -1,0 +1,35 @@
+22165
+Manter a criação do documento
+
+15:35
+
+Criar outra DLL para ter a funcionalidade da aprovação de documentos seamb
+
+devo criar documentos com RAAT 4710.11 ?
+SIM
+
+No fonte descompilado tem uma referência para criar um documento
+quando entra no critério "ValidaExplosivos"
+
+Situações em que é criado documentos com o fonte de produção
+
+TotalFrotaPorEmpreendimento > 50
+
+ValidaExplosivos(ATAN_ID)
+
+Adaptação para utilizar a nova DLL 
+FEPAM.CARGASPERIGOSAS.BLL
+
+O que foi feito
+Atualização em homologação das alterações do CargasPerigosas.
+
+Como foi feito
+Criei uma nova DLL a FEPAM.CARGASPERIGOSAS.BLL para conter uma copia da SolicitacaoSeamb. 
+Fiz isso porque não localizei o fonte correto da esta classe.
+Então direcionei o processamento a esta nova DLL com essa classe que pude então ajustar confg
+
+
+Fontes Alterados
+C:\Repo2020\CARGASPERIGOSAS\UI\CadLicencas.aspx.cs
+c:\repo2020\cargasperigosas\fepam.cargasperigosas.bll\solicitacaoseamb2.cs
+C:\Repo2020\CARGASPERIGOSAS\FEPAM.CARGASPERIGOSAS.BLL\FEPAM.CARGASPERIGOSAS.BLL.csproj

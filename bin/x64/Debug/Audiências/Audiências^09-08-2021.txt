@@ -1,0 +1,104 @@
+23218
+
+O que foi feito
+
+
+Continuidade do desenvolvimento
+
+Como foi feito
+
+Renato fez o ajuste na Proc e pude dar continuidade nos Conteudos.
+Criação do objeto de retorno de dados e metodos relacionados.
+Resolvi o problema que não tava acionando a aba certa da visualição
+do conteúdo
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+UI\Comunicacao\AGENAudiencias.aspx.cs
+FEPAM.COMUNICACAO.BLL\AudienciaDetalhe.cs
+FEPAM.COMUNICACAO.DAL\AudienciasDetalhes.cs
+
+=============================================================================
+
+
+
+[ ] Ta dando erro no primeiro registro 
+    detalhe foi apagado
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+[ ] Mostrar os dados do conteúdo com SP_AUCN_GET
+
+PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+Autt_id = 11
+
+AUTT_ID, 
+AUCN_ID, 
+TEXTO, 
+RAAT_ID, 
+MUNICIPIO, 
+RAZAO_SOCIAL, 
+CNPJ, 
+DATA_INCLUSAO, 
+OPERADOR_INCLUSAO, 
+DATA_ATUALIZACAO, 
+OPERADOR_ATUALIZACAO
+
+[ ] SVN
+[ ] Homologa
+FEPAM.COMUNICACAO.DAL
+
+OnItemUpdated="FormView1_ItemUpdated"
+
+btnConteudo
+
+"PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+vautt_id = 11
+
+SP_RAMOS_ATIVIDADES
+
+UCButton5
+
+[ ] Mostrar o conteudo gravado
+[ ] Mostrar o arquivo enviado
+
+btnConteudo
+
+
+TabContainerAud.ActiveTabIndex = 3
+
+[ ] Porque não esta passando para o modo certo
+
+Em FormView não tem nada
+
+No ObjectDataSource
+SelectMethod="GetQualificacao"
+
+Esta faltando o DataSourceID="ods
+
+
+[ ] Criar o ObjectDataSource, odsConteudo
+FormViewConteudo
+
+[ ] Ver se o retorno da consulta dos detalhes
+    vem a quantidade de conteúdos
+
+FEPAM.COMUNICACAO.BLL.AudienciaTitulo
+Lista
+
+CodTitulo = 11
+PCK_NET_COMUNICACAO.SP_AUDT_SRC
+nauttid
+
+
+odsListaGridDetalhe
+FEPAM.COMUNICACAO.DAL.AudienciasDetalhes
+Lista
+
+GridViewAudDetalhes
+
+btnNovo_Click

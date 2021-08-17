@@ -1,0 +1,29 @@
+O que foi feito
+Investiguação do problema e testes
+
+Como foi feito
+Primeiro procurei por exemplos de Asp classico acionando alguma Proc 
+e não foi encontrado, então mantive o padrão, alterei direto no ASP.
+Coloquei pra testar e não deu certo.
+Há uma parte que antes indicava um empreendimento e agora indica dois.
+Mas a parte que lista ainda esta mostrando um só empreendimento.
+Então vou continuar a investigação do problema nesta pesquisa
+
+C:\2020Site\licenciamento\src\empreendimentos.asp
+
+
+antes era a 22831 e antes era 23040
+
+23221
+Pesquisei e deduzi que
+Não tem nenhum exemplo de acionamento e Stored Procedures no ASP
+então só tratei de apenas alterar o SQL da consulta que vinha errado
+de acordo com as alterações da Karina
+
+Veio dados de objEmp.getEmpreendimentoComDoc()
+
+C:\2020Site\licenciamento\src\empreendimentos.asp
+
+10655578000130
+
+ ' pq foi alterado de 3, 4, 9, 12, 13 para 3,4,9 ?

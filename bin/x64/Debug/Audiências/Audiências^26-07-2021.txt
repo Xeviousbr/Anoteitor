@@ -1,0 +1,31 @@
+22155
+
+O que foi feito
+
+
+
+Como foi feito
+
+
+Fontes Alterados
+
+=============================================================================
+
+
+
+[ ] Ta dando erro no primeiro registro 
+    detalhe foi apagado
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+[ ] Mostrar os dados do conteúdo com SP_AUCN_GET
+
+SP_RAMOS_ATIVIDADES
+AGENAudiencias.aspx
+
+PCK_NET_COMUNICACAO.SP_RAMOS_ATIVIDADES
+nraat_id = 0

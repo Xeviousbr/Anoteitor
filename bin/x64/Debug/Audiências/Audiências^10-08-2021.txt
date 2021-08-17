@@ -1,0 +1,114 @@
+23218
+
+O que foi feito
+
+
+Continuidade do desenvolvimento
+
+Como foi feito
+
+Teriminei a visualização e também a edição mas a parte da interface.
+Renato me informou a proc para ser utilizada na edição.
+Expliquei que a Proc que ele criou para a inserção tinha problema e ele arrumou.
+Mas ao testar continua dando o mesmo erro, só mudou a linha.
+
+ORA-01858: foi localizado um caractere não numérico onde se esperava um numérico
+ORA-06512: em "FEPAM.PCK_NET_COMUNICACAO", line 1874
+ORA-06512: em line 1
+
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+UI\Comunicacao\AGENAudiencias.aspx.cs
+
+FEPAM.COMUNICACAO.DAL\AudienciasDetalhes.cs
+
+=============================================================================
+
+
+
+[ ] Ta dando erro no primeiro registro 
+    detalhe foi apagado
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+[ ] Mostrar os dados do conteúdo com SP_AUCN_GET
+
+PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+Autt_id = 11
+
+AUTT_ID, 
+AUCN_ID, 
+TEXTO, 
+RAAT_ID, 
+MUNICIPIO, 
+RAZAO_SOCIAL, 
+CNPJ, 
+DATA_INCLUSAO, 
+OPERADOR_INCLUSAO, 
+DATA_ATUALIZACAO, 
+OPERADOR_ATUALIZACAO
+
+[ ] SVN
+[ ] Homologa
+FEPAM.COMUNICACAO.DAL
+
+OnItemUpdated="FormView1_ItemUpdated"
+
+btnConteudo
+
+"PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+vautt_id = 11
+
+SP_RAMOS_ATIVIDADES
+
+UCButton5
+
+[ ] Mostrar o conteudo gravado
+[ ] Mostrar o arquivo enviado
+
+btnConteudo
+
+
+TabContainerAud.ActiveTabIndex = 3
+
+
+
+
+
+[ ] Criar o ObjectDataSource, odsConteudo
+FormViewConteudo
+
+[ ] Ver se o retorno da consulta dos detalhes
+    vem a quantidade de conteúdos
+
+FEPAM.COMUNICACAO.BLL.AudienciaTitulo
+Lista
+
+CodTitulo = 11
+PCK_NET_COMUNICACAO.SP_AUDT_SRC
+nauttid
+
+
+odsListaGridDetalhe
+FEPAM.COMUNICACAO.DAL.AudienciasDetalhes
+Lista
+
+GridViewAudDetalhes
+
+Exclusão
+SP_AUCN_DEL
+
+UCButton5
+CommandName="Cancel"
+
+ID = 31
+
+btnNovo
+
+btnConteudo_Submit
+	Chama FormViewConteudo.ChangeMode(FormViewMode.Insert);

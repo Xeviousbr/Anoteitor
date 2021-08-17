@@ -1,0 +1,68 @@
+O que foi feito
+1) Recolhi informações para ver como deveria ser a Proc PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+2) Ajustes visuais
+3) Examinei o problema da exclusão da audiência
+
+Como foi feito
+1) Não consegui chegar a alguma conclusão, mas pedi a Guerra que me passasse as informações que ele passou ao Renato, para ele fazer a parte dele da tarefa.
+3) Deveria dar certo porque  ela é uma tabela de detalhe e não a principal.
+mas poderia ser feita uma exclusão lógica, aí no cao queria ver qual é a finalidade do campo DM_ATIVO
+PCK_NET_COMUNICACAO.
+SP_AUDT_DEL
+
+
+Nome da Proc : SP_AUCN_AUTT_GET
+
+Qual é a finalidade?
+Chamada pela DAL GetAUCN_AUTT
+
+É acionada na pagina em btnConteudo_Submit
+sendo passado um parametro
+
+vautt_id
+
+vautt_id, vem de hdnAUTT_ID
+
+Contem o Session["LASTID"]
+
+[x] Colocar a imagem embaixo, na edição
+já tem imagem
+
+<img src="/FEPAM.NET/WebResource.axd?d=uZqJfnNrwOno_U6ZfB0YBvUyRvdYLoNxscCMGQPw6XneSahJiX6MwfxNYgQTf6yRnBPE3fRMUP7swHElhObxm_CNSYOsYUn8FGRAtxABbKvkhug9N77bj3kBPJH8oD-qpwWIW4F4s-PZD-8eZnNYHg2&amp;t=635688628839602605" alt="Design Mode" style="float:left;margin-left:2px;margin-top:1px;">
+
+<cc3:HtmlEditor
+
+Ver outros lugares que é utilizado o <cc3:HtmlEditor
+só no AUdiências é usado no S3I
+
+Procurar por todos os fontes
+Não existem outros fontes
+
+Procurar alguma dica no componente asp.net
+
+<%@ Register Assembly="FEPAM.HTMLEDITOR" Namespace="FEPAM.HTMLEDITOR" TagPrefix="cc3" %>
+
+C:\2019\Fepam.Net\UI\Comunicacao\AGENAvisos.aspx.cs
+AGENAvisos.aspx sem imagem
+
+C:\2019\Fepam.Net\UI\Comunicacao\AGENMural.aspx.cs
+C:\2019\Fepam.Net\UI\Comunicacao\AGENNoticias.aspx.cs
+C:\2019\Fepam.Net\UI\Procedimentos\PROCProcedimentos.aspx.cs
+C:\2019\inetpub\wwwroot\CadastroMural.aspx.cs
+
+
+Este registro não pode ser excluído pois é utilizado pelo Sistema. Restrição de integridade, erro Oracle ORA-02292.
+[ ] Erro a excluir audiência
+
+UCButton4
+
+FEPAM.COMUNICACAO.BLL.AudienciaDetalhe
+Excluir
+
+PCK_NET_COMUNICACAO.SP_AUAR_DOCS_UPLOAD_DEL
+
+
+Excluir
+
+PCK_NET_COMUNICACAO.
+SP_AUDT_DEL

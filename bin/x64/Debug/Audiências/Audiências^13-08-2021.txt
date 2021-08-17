@@ -1,0 +1,87 @@
+23218
+
+
+O que foi feito
+
+
+Continuidade do desenvolvimento
+
+
+
+Como foi feito
+
+Renato ajustou a Proc PCK_NET_COMUNICACAO.
+SP_AUAR_LIST_DOCS_UPLOAD_GET
+ para mostrar os arquivos.
+
+
+Fontes Alterados
+	UI\Comunicacao\AGENAudiencias.aspx
+	UI\Comunicacao\AGENAudiencias.aspx.cs
+	fepam.comunicacao.bll\audienciadetalhe.cs
+
+	FEPAM.COMUNICACAO.DAL\AudienciasDetalhes.cs
+
+
+
+	Atualizado em Homologação
+
+=============================================================================
+
+Problemas
+1) SP_AUAR_LIST_DOCS_UPLOAD_GET
+precisa aceitar 0 como nulo
+
+2) O delete exige AUAR_ID e AUCN_ID
+Onde pego AUAR_ID pra passar pro Delete
+
+
+
+
+
+        Pesquisa = 0, 
+        Dados = 1 
+	Detalhes = 2 
+	Conteudo = 3
+
+98479314000113
+
+
+PCK_NET_COMUNICACAO
+SP_AUAR_LIST_DOCS_UPLOAD_GET
+
+
+DELETE CONTEÚDO
+SP_AUCN_DEL(nAutt_id in number, nAucn_id in number)
+
+
+DELETE ARQUIVO
+PROCEDURE SP_AUAR_DOCS_UPLOAD_DEL(nauar_id  in number,
+                                    naucn_id  IN NUMBER,
+                                    voperador_atualizacao in varchar2,
+                                    vdata_atualizacao     in varchar2) 
+
+[X] Mostrar o conteudo gravado
+[-] Mostrar o arquivo enviado
+    [x] Renato vai criar a Proc
+    [ ] Não ta localizando os arquivos
+[X] Depois de editar ir pros arquivos
+[ ] Permitir clicar no arquivo se ir ao conteúdo
+[ ] Testar mais de um conteúdo
+[ ] Deleção de conteúdo
+[ ] Deleção de arquivo
+
+[ ] Novo é para ser novo detalhe
+[ ] Conteúdo vai para o conteúdo
+
+NomeArq = "12082021_1.txt"
+
+grdArquivo_PreRender
+
+SP_AUAR_LIST_DOCS_CAMINHO_GET
+
+ver os dados do carregamento do Detalhe
+GridViewAudDetalhes
+odsListaGridDetalhe
+FEPAM.COMUNICACAO.BLL.AudienciaDetalhe
+Lista

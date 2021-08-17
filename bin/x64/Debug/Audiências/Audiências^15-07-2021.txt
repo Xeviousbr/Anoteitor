@@ -1,0 +1,39 @@
+O que foi feito
+Com a chegada do Renato pude dar continuidade ao desenvolvimento.
+
+Como foi feito
+Ele atualizou na base de homologação a Proc SP_AUCN_AUTT_GET.
+Fui ver com ele também uma operação exclusão que tava com problema.
+E concluí que precisava alterar a forma como a exclusão deve ser feita até chegar na Proc.
+Esta operação não foi concluída ainda.
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+UI\Comunicacao\AGENAudiencias.aspx.cs
+
+#ctl00_ConteudoPrincipal_TabContainerAud_TabPanel2_FormViewAudTitulos_UCButton4_lnkSubmit
+
+UCButton4
+
+ctl02
+
+#ctl00_ConteudoPrincipal_TabContainerAud_TabPanel1
+GridViewTitulos
+ctl02
+
+Session["LASTID"]
+
+FEPAM.COMUNICACAO.BLL.AudienciaTitulo
+Lista
+
+
+PCK_NET_COMUNICACAO
+SP_AUDT_DEL
+
+[ ] Colocar a mensagem de confirmação na exclusão
+[ ] Ver o ID que esta sendo passado para a Proc de deleção
+    [ ] Alterar o modo de acionamento do metodo
+
+[ ] Ver o caso da Proc SP_AUCN_AUTT_GET
+
+Excluir334

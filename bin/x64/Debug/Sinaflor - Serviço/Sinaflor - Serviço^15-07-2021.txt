@@ -1,0 +1,35 @@
+O que foi feito
+Me dediquei a achar o problema.
+
+Como foi feito
+Debuguei um acionamento por duas vezes, na primeira houve um erro, mas pensei que era um erro 'normal' e deixei passar e era na veradade o erro a ser observado.
+Debuguei uma segunda vez e fez tudo sem erros.
+Mas no serviço parece que ainda ocorre o mesmo erro naquele empreendimento.
+Creio que deva aumentar o log na interpretação dos dados recebidos pra poder chegar a alguma conclusão.
+
+
+Fontes Alterados
+
+
+
+empreendimento 194779
+
+SOLIIntegracaoSINAFLOR.aspx.cs
+
+FeedSinaflorService
+
+FEPAM.SinaflorAPI
+
+C:\Repo2020\FeedSinaflorService
+
+C:\Repo2020\_FEPAM.SinaflorAPI\Logs\20210714.txt
+
+
+O que foi feito
+De acordo com o Log, ocorreu uma situação imprevista, uma variavel estava nula inesperadamente.
+
+
+Como foi feito
+Ocorreu exatamente depois do processamento do empreendimento que foi indicado para observar o que aconteceu.
+Preparei o projeto para trabalhar localmente para ver qual foi o caso que ocorreu o erro.
+Ele ainda esta processando, debugando o processo é muito demorado.

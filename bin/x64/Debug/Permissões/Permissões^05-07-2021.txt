@@ -1,0 +1,15 @@
+DadosArvoreSemCheck
+
+O que foi feito
+Atualização do Permissões por modulos em Homologação.
+
+Como foi feito
+Também reparei no sumiço de um metodo no processo mas que restaurei.
+Arquivos atualizados
+FEPAM.CONFIGURACOES.BLL
+FEPAM.CONFIGURACOES.DAL
+CONTPermissoespormodulos.aspx
+CONTPermissoespormodulos.aspx.cs
+
+
+Fontes Alterados

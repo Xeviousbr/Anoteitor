@@ -1,0 +1,167 @@
+O que foi feito
+Trabalhei na gravação
+
+Como foi feito
+Estava querendo adaptar uma função de Split pra usar na Proc e não estava conseguindo.
+Então conversei com a Karine e ela acabou fazendo uma função de Split.
+Então continuei o trabalho na Proc que precisava desta função.
+Ainda falta uma parte mas ta bem encaminhada já.
+
+Fontes Alterados
+FEPAM.CONFIGURACOES.BLL\PermissaoModulo.cs
+UI\Configuracoes\CONTPermissoespormodulos.aspx.cs
+
+
+Oracle
+function split
+Proc SP_PERM_SETO_INS
+
+
+[ ] Ver como se popula um cursor
+    Para ele ser retornado pela function
+[ ] Terminar a proc SP_PERM_SETO_INS_
+
+FUNCTION SPLIT(p_list VARCHAR2, p_del VARCHAR2 := ',') 
+RETURN SYS_REFCURSOR IS
+    l_idx    pls_integer;
+    l_list    varchar2(32767) := p_list;
+    l_value    varchar2(32767);
+begin
+    loop
+        l_idx := instr(l_list,p_del);
+        if l_idx > 0 then
+            pipe row(substr(l_list,1,l_idx-1));
+            l_list := substr(l_list,l_idx+length(p_del));
+
+        else
+            pipe row(l_list);
+            exit;
+        end if;
+    end loop;
+    return; 
+	
+   /* type array_t is varray(3) of varchar2(10);
+   array array_t := array_t('Matt', 'Joanne', 'Robert');
+begin
+   for i in 1..array.count loop
+       dbms_output.put_line(array(i));
+   end loop;	* /
+end SPLIT; */
+
+
+
+
+/* function split2(
+  list in varchar2,
+  delimiter in varchar2 default ','
+) return split_tbl as
+  splitted split_tbl := split_tbl();
+  i pls_integer := 0;
+  list_ varchar2(32767) := list;
+begin
+  loop
+    i := instr(list_, delimiter);
+    if i > 0 then
+      splitted.extend(1);
+      splitted(splitted.last) := substr(list_, 1, i - 1);
+      list_ := substr(list_, i + length(delimiter));
+    else
+      splitted.extend(1);
+      splitted(splitted.last) := list_;
+      return splitted;
+    end if;
+  end loop;
+end;  */
+
+/* FUNCTION SPLIT (p_list VARCHAR2, p_del VARCHAR2 := ',')
+   RETURN split_tbl
+   PIPELINED IS
+   l_idx PLS_INTEGER;
+   l_list VARCHAR2 (32767) := p_list;
+   l_value VARCHAR2 (32767);
+BEGIN
+   LOOP
+      l_idx := INSTR (l_list, p_del);
+
+      IF l_idx > 0 THEN
+         PIPE ROW (SUBSTR (l_list, 1, l_idx - 1));
+         l_list := SUBSTR (l_list, l_idx + LENGTH (p_del));
+      ELSE
+         PIPE ROW (l_list);
+         EXIT;
+      END IF;
+   END LOOP;
+
+   RETURN;
+END; */
+  
+FUNCTION SPLIT(p_list VARCHAR2, p_del VARCHAR2 := ',') 
+RETURN SYS_REFCURSOR IS
+    l_idx    pls_integer;
+    l_list    varchar2(32767) := p_list;
+    l_value    varchar2(32767);
+begin
+    loop
+        l_idx := instr(l_list,p_del);
+        if l_idx > 0 then
+            pipe row(substr(l_list,1,l_idx-1));
+            l_list := substr(l_list,l_idx+length(p_del));
+
+        else
+            pipe row(l_list);
+            exit;
+        end if;
+    end loop;
+    return; 
+	
+   /* type array_t is varray(3) of varchar2(10);
+   array array_t := array_t('Matt', 'Joanne', 'Robert');
+begin
+   for i in 1..array.count loop
+       dbms_output.put_line(array(i));
+   end loop;	* /
+end SPLIT;
+
+
+select initcap(column_value) as name,
+       length(column_value) as name_length
+from   table(split('paris,london,rome,madrid'))
+order  by column_value
+
+No PCK_NET_CONFIGURACOES mesmo?
+
+
+
+select Substr(column_value, 1, InStr(column_value, '|')-1) as Usuario,
+       Substr(column_value, InStr(column_value, '|')+1) as Permissao,
+       initcap(column_value) as Usuario_permissao
+from   table(split('1964|111^960|111^959|111^1693|11^1503|11^80|111^1087|11^1289|11^423|10^1799|10^1524|10^1576|100^1922|101^300|101^', '^'))
+
+order  by column_value
+
+^separa entre registros
+|separa entre IDUsuario e Permissões
+:separa entre permissões
+
+Usuário ID 181
+tem estes MODU_ID
+762  Funs_ID = 3
+763  Funs_ID = 3
+40   Funs_ID = 1
+41   Funs_ID = 2
+34   Funs_ID = 1
+32   Funs_ID = 1	
+272  Funs_ID = 1
+265  Funs_ID = 1
+
+FEP_MODULOS_FUNCIONALIDADES
+
+FEP_FUNCIONALIDADES
+
+1	Visualizar
+2	Editar
+3	IMPRIMIR
+4	Libera lista completa
+
+		
+

@@ -1,0 +1,102 @@
+
+O que foi feito
+
+Analise do problema, Debug
+
+
+Como foi feito
+
+É acionada uma requisição que aciona o report numa pagina e é feito isso com Redirecionamento de pagina.
+E depois um redirecionamento para uma outra pagina, que simplesmente não é acionada porque quando se faz
+o redirect não ocorre mais processamentos nesta pagina.
+Deve ser feito de forma diferente.
+
+Fontes Alterados
+
+22948 - Impressão da Frota
+============
+23040 - Pesquisa errada
+1:00
+O que foi feito
+Analise do problema, Debug
+
+
+
+Como foi feito
+
+Estava debugando para compreender o problema e só posso debugar na hospedagem da Procergs
+mas a hospedagem deixou se ser acessivel  
+ 
+
+
+Fontes Alterados
+
+============================================================================================================
+
+
+sobre a pesquisa que funciona nas 2 áreas:
+cnpj - 18.810.538/0001-27
+
+
+testar com 2
+nem coi 2 funciona
+
+http://localhost:37789/AnexoWeb.aspx?doc_id=1149161&proc=437265
+
+url = "http://ww3.fepam.rs.gov.br/anexoseamb/DownloadFile.aspx?procid=437265&frtrid=51572"
+
+22948
+===================================================================================================
+23040
+
+Area1/default.asp DA CERTO
+aparece um registro a mais, é um registro que não tem processo
+
+
+
+http://www.fepam.rs.gov.br/licenciamento/Area1/default.asp
+10.655.578/0001-30
+ 
+Quando a pesquisa é realizada especificamente pelo CNPJ 10.655.578/0001-30 
+na aba "Consulta Genérica", 
+o resultado da pesquisa é diferente do executado 
+na aba "Empreendedor Cadastrado". 
+
+Além disso, nessas 2 pesquisas, 
+não é mostrado o processo 73640/19-4, 
+o qual refere-se a uma LO em vigor, 
+o que só é mostrado quando da pesquisa pelo número do processo.
+
+[ ] Problema 1 'Area''
+ [ ] Verificar os resultados
+[ ] Problema 2 'Empreendedor Cadastrado'
+
+Processo
+736400567194
+
+[ ] Verificar as consultas
+  [ ] lista1.asp
+  [ ] listapaginada.asp
+
+Consultas Genericas - Numero Processo, resultado em : area3/detalheDocProc.asp
+
+strTipoBusca = cpfcnpj
+
+PASSOS
+1) http://www.fepam.rs.gov.br/licenciamento_antigo/Area1/default.asp
+2) CONSULTAS GENERICAS
+3) CPF/CNPJ
+4) 10.655.578/0001-30
+5) PROCEGUIR
+
+
+
+getEmpreendimento
+
+E:\CTZ\Arnaldo\Temp\23040\Consulta da pagina Lista1.txt
+
+
+
+listapaginada.asp
+
+http://www.fepam.rs.gov.br/licenciamento_antigo/area2/listapaginada.asp?cpfcnpj=10655578000130

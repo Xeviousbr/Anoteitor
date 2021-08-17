@@ -1,0 +1,70 @@
+23337
+O que foi feito
+Testes a respeito da solução aplicada.
+
+Como foi feito
+Karina fez uma nova adaptação a Proc.
+Testei e deu certo.
+Tratei de procurar nos fontes e apesar de existirem vários metodos 
+que acionam a Proc pck_net_cadastros.SP_RESP_SRC
+mas só encontrei uma aplicação real
+que é na Situação cadastral, quando se clica no Empreendimento
+testei a operação e deu certo, sem erros e trazendo dados
+
+------------------------------------------------------------------------------------------------------
+
+23337
+80476325072
+
+usuário: ANDREIASAFE
+
+senha: FURG0025
+
+pck_net_cadastros.SP_RESP_SRC
+
+FEPAM.EMERGENCIAAMBIENTAL.DAL\Responsabilidades.cs
+	Search
+
+==================================================
+
+FEPAM.EMERGENCIAAMBIENTALS3I.BLL\Responsabilidade.cs
+	PesquisaResponsabilidade
+		RetornaResponsabilidade
+		RetIdResponsabilidade
+	PesquisaResponsabilidadeAtiva
+		EmergenciaAmbiental\SITUSituacaoCadastral.aspx.cs - lnkAtanSel_Click
+	RetiraResponsabilidade
+	AssumeResponsabilidade
+	PesquisaPorAtividade
+		FEPAM.EMERGENCIAAMBIENTALS3I.BLL\AtividadeAntropica.cs - ValidarAtividadeByNumeroSEAMB
+		PesquisaPorAtividade
+			FEPAM.EMERGENCIAAMBIENTALS3I.BLL\AtividadeAntropica.cs - ValidarAtividadeByNumeroSEAMB
+		PesquisaPorAtividade
+			FEPAM.EMERGENCIAAMBIENTALS3I.BLL\AtividadeAntropica.cs - ValidarAtividadeByNumeroSEAMB
+	PesquisaPorEmpreendedor
+	PesquisaPorResponsavelTecnico
+		ExisteEmpreendimento
+
+FEPAM.EMERGENCIAAMBIENTALS3I.BLL\Transportadora.cs
+	ListarTrasportadora
+
+FEPAM.EMERGENCIAAMBIENTALS3I.DAL\Factories\AtividadesResponsabilidades.cs	
+	GetByAtan
+	SrcByAtan
+
+1) SITUSituacaoCadastral.aspx.cs - lnkAtanSel_Click
+
+EmergenciaAmbiental\SITUSituacaoCadastral.aspx.cs
+gvEmpreendimento
+lnkAtanSel_Click
+
+protected void lnkAtanSel_Click(object sender, EventArgs e)
+
+23337
+
+====================================================================================================
+23221
+
+http://www.fepam.rs.gov.br/licenciamento
+
+Quando a pesquisa é realizada especificamente pelo CNPJ 10.655.578/0001-30 na aba "Consulta Genérica"

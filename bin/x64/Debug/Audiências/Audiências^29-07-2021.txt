@@ -1,0 +1,47 @@
+23218
+
+O que foi feito
+
+
+Continuidade do desenvolvimento
+
+Como foi feito
+
+Implementei as variaveis para acesso aos dados do contepúdo e testes.
+
+Fontes Alterados
+FEPAM.COMUNICACAO.DAL\AudienciasDetalhes.cs
+
+=============================================================================
+
+
+
+[ ] Ta dando erro no primeiro registro 
+    detalhe foi apagado
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+[ ] Mostrar os dados do conteúdo com SP_AUCN_GET
+
+PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+Autt_id = 11
+
+AUTT_ID, 
+AUCN_ID, 
+TEXTO, 
+RAAT_ID, 
+MUNICIPIO, 
+RAZAO_SOCIAL, 
+CNPJ, 
+DATA_INCLUSAO, 
+OPERADOR_INCLUSAO, 
+DATA_ATUALIZACAO, 
+OPERADOR_ATUALIZACAO
+
+[ ] SVN
+[ ] Homologa
+FEPAM.COMUNICACAO.DAL

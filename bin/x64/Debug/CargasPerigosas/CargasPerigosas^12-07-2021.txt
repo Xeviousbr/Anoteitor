@@ -1,0 +1,76 @@
+O que foi feito
+Corrigi o erro que acontecia na pagina AprovacaoSolicitacao.aspx e AprovacaoSolicitacaoAlteracao.aspx, porque estava dando o mesmo erro.
+
+Como foi feito
+Alterei o nome de um parametro da interface da pagina que na DLL estava outro.
+
+
+
+Fontes Alterados
+C:\2020Site\cargasperigosas\AprovacaoSolicitacao.aspx
+C:\2020Site\cargasperigosas\AprovacaoSolicitacaoAlteracao.aspx
+
+=========================================================
+22660
+O que foi feito
+Corrigi o erro que acontecia na pagina
+
+
+
+Como foi feito
+Alterei o nome de um parametro da interface da pagina que na DLL estava outro.
+
+
+
+
+Fontes Alterados
+C:\2020Site\cargasperigosas\CadLicencas.aspx
+
+=========================================================
+
+Tarefa: 22171
+
+
+AprovacaoSolicitacao
+
+
+caso para teste solicitação 59262 empreendimento 231878
+59262
+
+[x] Verificar se é o mesmo fonte. É o mesmo fonte
+[x] Coloquei um teste na chamada do metodo  na interface e é ele mesmo
+[x] Testar a DLL FEPAM.EMERGENCIAAMBIENTAL.BLL. É a DLL certa.
+[x] Como esta o parametro no metodo? TodaFrotaPorEmpreendimento o parametro é (FrotaTransporte) "id"
+[ ] Descompilar a DLL para ver se na DLL tem o parametro "id" também
+NA DLL É atan_id
+
+[x] Verificar o CadLicensas
+pra ver se ta na última versão em produção
+mesma versão
+
+[ ] Verificar o caso da DLL nova
+onde ela é chamada?
+é chamada do CadLicensas mesmo, SIM
+
+como testar?
+Fazer uma aprovação em homologação
+
+
+AprovacaoSolicitacaoAlteracao.aspx COM ERRO
+AprovacaoSolicitacao.aspx	   SEM ERRO
+
+AprovacaoSolicitacaoAlteracao.aspx
+A versão de 29/03/21 não apresenta erros
+C:\Users\ArnaldoTC\Documents\Bak\30-03\No Projeto
+não existem atualizações do SNV entre essa data a hoje
+
+[ ] Verificar se "AprovacaoSolicitacaoAlteracao" precisa usar a nova DLL
+    [ ] Ver certo o metodo "NovaSolicitacao"
+NÃO É CHAMADO O METODO NA PAGINA
+
+tatianefs
+HIDRA
+
+Em produção tudo funcionando
+
+T:22660:Ajustes referentes a troca do parametro do metodo TodaFrotaPorEmpreendimento, em relação do fonte do SVN e a versão de produção

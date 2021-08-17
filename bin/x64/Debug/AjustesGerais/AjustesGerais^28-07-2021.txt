@@ -1,0 +1,36 @@
+23349
+
+
+1) 23220 Cadastro no empreendimento
+
+Guerra vai ver a operação
+
+2) 23216 Recuperação de senha
+proc PCK_NET_CADASTROS.SP_ACPI_SRC não retorna registro com Acpr_id = 7 só 99
+
+--- Necessário adaptar pagina para debugar
+
+[ ] 23303 - Vinculaçao de RT
+
+--- Problema grave de incompatibilidade no meu PC
+[ ] 23219 erro em gerar parecer
+
+
+
+--- TRABALHANDO
+[ ] 23218 - Audiências
+    [ ] Visualização Conteúdo
+    [ ] Edição Conteúdo
+    [ ] Tratar erro de item sem detalhe
+    [ ] erro de registro com arquivo
+    [ ] Mostrar lista de arquivos
+    [ ] Permitir excluir arquivos
+--- MAIS DEMORADO
+[ ] 23217 Impressão de Frota
+
+A BOLA TA COM O GUERRA
+[ ] 23221 Problema na pesquisa
+[ ] 23223 Permissões
+
+    
+

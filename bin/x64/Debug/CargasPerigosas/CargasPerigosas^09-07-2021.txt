@@ -1,0 +1,77 @@
+22165 : 04:10
+
+
+O que foi feito
+Iniciei trabalho na homologação do CargasPerigosas.
+Trabalhei para tentar compreender porque certo usuário não entra no site e outro entra.
+
+
+Como foi feito
+Encontrei erros de tipos de dados, que acabavam invaliando o login.
+Depois me informaram que deu erro em produção.
+Retornei a versão em produção.
+Passei o site sisautoH na hospedagem da procergs
+
+Fontes Alterados
+
+----------------
+
+
+
+o usuário TATITESTE entra
+
+Retornou 1
+
+contagem de rows do ds deu 1
+
+Colocando os metodos na pagina
+funciona o login
+
+int i = InternetPessoa.VerificaPessoa(Convert.ToInt32(Session["ACIN_ID"].ToString()));
+
+G:\HOMOLOGA\CargasPerigosasExterno
+
+
+Não há nenhum empreendedor vinculado a este empreendimento.
+Cadastre um empreendimento a seguir
+
+Session["USERNAME"].ToString()
+
+FEPAM.EMERGENCIAAMBIENTAL.BLL
+
+22171
+
+
+tatianefs
+HIDRA
+
+
+AprovacaoSolicitacao.aspx
+
+O que foi feito
+
+Retornei a versão do CadLicenças.aspx e .cs
+
+
+Como foi feito
+Apesar te ter testado em homologação houve incompatibilidades.
+
+Como os ambientes de homologação eram diferentes era necessário adaptar os fontes para funcionar em homologação e depois em produção.
+Então reutilizei um site que não tava em uso na hospedagem da Procergs para colocar uma outra homologação para o CargasPerigosas.
+Mas o endereço ficou com o nome do outro site(SisAuto)
+http://www.fepam.rs.gov.br/SISAUTOH/Default.aspx
+
+
+O que foi feito
+
+Retornei a versão do CadLicenças.aspx e .cs
+
+
+
+Como foi feito
+Apesar te ter testado em homologação houve incompatibilidades.
+
+Como os ambientes de homologação eram diferentes era necessário adaptar os fontes para funcionar em homologação e depois em produção.
+Então reutilizei um site que não tava em uso na hospedagem da Procergs para colocar uma outra homologação para o CargasPerigosas.
+Fiz testes neste site de homologação e encontrei um problema em relação a integração da interface com uma assinatura de um método em uma Dll e ainda não encontrei solução para o caso.
+E então tratei de lidar com um problema que surgiu em relação aos parame

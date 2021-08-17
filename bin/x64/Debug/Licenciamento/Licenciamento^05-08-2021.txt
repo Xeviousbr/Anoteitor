@@ -1,0 +1,184 @@
+23217
+
+
+O que foi feito
+
+
+Anal
+ise do processamento envolvido e debug
+
+Como foi feito
+Precisei utilizar um projeto auxiliar e ir adicionando nele os recursos que precisava, metodos dos fontes originais.
+Para poder debugar.
+Mas a forma como estou obtendo os metodos são os que já estão no Fepam.net, que foi o projeto de base que usei para criar este projeto de auxiliar.
+Aí observei um erro numa consulta.
+E vi que era porque o metodo acionava uma Proc que não existe mais PCK_NET_EMERGENCIAAMBIENTAL.SP_SOSE_GET.
+Este fonte com esta DLL inexistente, esta presente no S3I, mas não é utilizado no site.
+Amanhã continuarei o trabalho começando por localizar a Proc certa para este metodo.
+
+------------------------------------------------------------------------------
+
+
+http://localhost:37789/AnexoWeb.aspx?doc_id=1149161&proc=437265
+
+
+http://ww3.fepam.rs.gov.br/anexoseamb/DownloadFile.aspx?procid=437265&frtrid=51572
+
+
+================================================================================
+
+Projetos Envolvidos
+1) Licenciamento, Asp Classico
+http://www.fepam.rs.gov.br/licenciamento/area3/detalheDocProc.asp?area=3&buscar=2&tipoBusca=processo&processo=0711390567175
+É a pagina onde se clica no botão IMPRIMIR LICENSAS PLACAS
+
+2) CargasPerigosas
+http://ww3.fepam.rs.gov.br/cargasperigosas/anexoweb.aspx?doc_id=1149161&proc=437265
+Onde se pode escoher qual placa quer impressa, ou mandar imprimir todas
+
+3) Seamb, Asp.net
+http://ww3.fepam.rs.gov.br/anexoseamb/DownloadFile.aspx
+
+RELATÓRIO
+LicencaVeiculo.rdlc
+
+AnexoWeb.aspx
+Seleciona os registros a serem impressos
+
+anexoseamb/DownloadFile.aspx
+Mostra a impressão
+
+[ ] Ver como que essa pagina aciona o Crystal Reports
+
+LicencaReport.cs
+
+FEPAM.CARGASPERIGOSAS.BLL\LicencaReport.cs
+
+
+C:\Repo2020\WebService
+
+C:\2020Site\AnexoSeamb\DownLoadFile.aspx.cs
+
+lr.GeraRelatorioLicencaVeiculoAnexo(true, null);
+
+GeraRelatorioLicencaVeiculoAnexo
+	visualizaroudownload = true
+	idarquivo	     = null	
+
+
+FEPAM.CARGASPERIGOSAS.BLL.SolicitacaoSeamb.cs
+ListarUltimaSolicitacaoByProces
+
+[ ] Localizar os fontes certos de FEPAM.CARGASPERIGOSAS.BLL
+
+
+C:\Repo2020\CARGASPERIGOSAS\FEPAM.CARGASPERIGOSAS.BLL\bin\Debug\FEPAM.CARGASPERIGOSAS.BLL.dll
+
+[ ] Ver se o fonte esta atualizado
+[ ] Ver quais são os metodos envolvidos
+
+Esse é da DLL que criei
+C:\Repo2020\CARGASPERIGOSAS\FEPAM.CARGASPERIGOSAS.BLL
+
+
+FEPAM.CARGASPERIGOSAS.BLL.dll
+
+SolicitacaoSeamb.cs
+ListarUltimaSolicitacaoByProces
+
+O fonte certo do AnexoSeamb
+C:\Aplicativos\ANEXOSEAMB\FEPAM.CARGASPERIGOSAS.BLL\SolicitacaoSeamb.cs
+NÂO!
+
+[ ] Obter o sose a partir de ListarUltimaSolicitacaoByProces
+
+processo=0711390567175
+
+PCK_NET_PROCESSOS.SP_SOSE_SRC_DOC
+nprocid = 0711390567175
+
+Não vem resultado
+
+Trazendo UM REGISTRO funciona
+437265
+
+Link para 1 caso
+http://ww3.fepam.rs.gov.br/anexoseamb/DownloadFile.aspx?procid=437265&frtrid=50347
+
+Link para TODOS
+http://ww3.fepam.rs.gov.br/licenciamento_antigo/area2/teste.asp?atan_id=12091&proc_id=437265&docu_id=1149161
+
+btnVisualizar
+btnVisualizar_Click
+
+-----
+
+
+Passo 1 após o clique em IMPRIMIR LICENSAS PLACAS
+http://localhost:37789/anexoweb.aspx?doc_id=1149161&proc=437265
+
+Obtem docu_id_parecer
+	Aciona a function select pck_net_cadastros.fc_docu_id_parecer(1149161) from dual
+docu_id_parecer = "1149160"
+
+Passo 2 Aciona o Objeto AnexoReport passando parametros
+	:sose = 58499
+	:Veiculos_selecionados = Count = 20
+FEPAM.EMERGENCIAAMBIENTAL.BLL\AnexoReport.cs
+
+
+_Solic = SolicitacoesSeamb.Get(soseid);
+	FEPAM.EMERGENCIAAMBIENTAL.DAL\SolicitacoesSeamb.cs
+	PCK_NET_PROCESSOS.SP_SOSE_GET	
+		:nSoseid = 58499
+
+SortableList<ProcessosDocumentos> pds = ProcessosDocumentos.Search( _Solic.Proc_id = 437265 )
+	FEPAM.EMERGENCIAAMBIENTAL.DAL\ProcessosDocumentos.cs
+	PCK_NET_PROCESSOS.SP_PRDC_SRC
+		:nprocid = 437265
+
+_Documento = Documentos.Get
+	PCK_NET_PROCESSOS.SP_DOCU_GET
+		:nDocuid = 1149161
+
+Docuid = 1149161
+Soseid = 58499
+
+----
+
+Passo 2 ao enviar um Submit ao endereço
+http://localhost:37789/DownloadFile.aspx?procid=437265&frtrid=51572
+
+Int64 sose = Convert.ToInt64(ListarUltimaSolicitacaoByProces(proc).Sose_id);
+	C:\Repo2020\ANEXOSEAMB\FEPAM.CARGASPERIGOSAS.BLL\SolicitacaoSeamb.cs
+	SortableList<SolicitacoesSeamb> lsoc = SolicitacoesSeamb.Search( proc_id = 437265 )
+	PCK_SOLICITACAO_LICENCA.SP_SOSE_SRC
+		nprocid = 437265 
+sose = 58499
+
+lr.GeraRelatorioLicencaVeiculoAnexo(true, null);
+	FEPAM.CARGASPERIGOSAS.BLL\LicencaReport.cs
+	pdf.Tables.Add(DadosLicenca("DtLicenca", "DsLicenca_DtLicenca"));
+
+
+
+----
+
+O os itens da Frota são usados no metodo DadosFrota
+
+----
+
+Não esta populando a variavel _Documento no meu teste
+
+private Documentos _Documento; 
+em FEPAM.CARGASPERIGOSAS.BLL\LicencaReport.cs
+
+PCK_NET_EMERGENCIAAMBIENTAL.SP_SOSE_GET
+não existe
+
+Metodo Get em
+FEPAM.EMERGENCIAAMBIENTALS3I.DAL\SolicitacoesSeamb.cs
+
+Metodo SelecionaUm em
+FEPAM.EMERGENCIAAMBIENTALS3I.BLL\SolicitacaoSeamb.cs
+Não é utilizado

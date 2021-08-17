@@ -1,0 +1,13 @@
+no cargas perigosas a conferência do valor pago não está em produção, 
+eu pensava que estava, tem como botar em produção? 
+
+AprovacaoSolicitacao.aspx
+AprovacaoSolicitacaoAlteracao.aspx
+
+CadLicencas.aspx.cs
+
+SolicitacoesPendentes.aspx
+
+
+FEPAM.CARGASPERIGOSAS.BLL
+FEPAM.CARGASPERIGOSAS.DAL

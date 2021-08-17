@@ -1,0 +1,62 @@
+        Select Substr(column_value, 1, InStr(column_value, '|')-1) as Usuario,
+                  Substr(column_value, InStr(column_value, '|')+1) as Permissao
+        from table(split(1:2:3:4, ':'))
+
+1:2:3:4:
+
+
+"1964|1:2:3:^960|4:^"
+
+O que foi feito
+Werner relatou que havia um erro ao entrar na pagina de Cadastramento de Motivações 
+e qualificações.
+
+Como foi feito
+Havia uma falta de previsão de valor nulo e foi resolvido.
+
+Fontes Alterados
+UI\CORH\CADACadastrodeQualificacoeseMotivacoes.aspx.cs
+
+O que foi feito
+Trabalhei na Proc de gravação SP_PERM_SETO_INS.
+
+Como foi feito
+Funcionou mas parcialmente gravou certo, mas só o primeiro registro.
+Irei alterar, pra deixar de usar dois loops na proc pra usar um só.
+
+Fontes Alterados
+FEPAM.CONFIGURACOES.BLL\PermissaoModulo.cs
+FEPAM.CONFIGURACOES.DAL\PermissoesModulos.cs
+UI\Configuracoes\CONTPermissoespormodulos.aspx.cs
+
+Oracle
+PCK_NET_CONFIGURACOES.SP_PERM_SETO_INS;
+
+reg = "1964|1:2:3:4"
+
+1:2:3:4
+Select COLUMN_VALUE as Perm 
+              from table(split(dataLoop.Permissoes, ':'))
+              order  by column_value
+
+quer que te ajude no lance dos numeros lá?
+
+se quiser, me passa tres casos
+que tu calculou e que foi calculado por eles
+
+http://intranet.fepam.rs.gov.br/FEPAM.NET/CORH/CADACadastrodeQualificacoeseMotivacoe
+s.aspx está dan
+
+http://intranet.fepam.rs.gov.br/hfepam.net/Configuracoes/
+CONTPermissoes.aspx
+
+btnSalvar
+
+MODU_ID = 563
+
+
+{1585|1:2:3:^161|4^}
+
+Administração
+   Centro de Custos
+      Centro de Custos

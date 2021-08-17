@@ -1,0 +1,94 @@
+O que foi feito
+Soube que o problema seria que usuários tem colocado o sinal de grao na digitação (º)
+
+Como foi feito
+
+Coloquei o filtro para o "º"
+Mas ainda apresentava erro.
+Para solucionar coloquei no site para trocar de "," para "."
+COnfunde um pouco porque rodando localmente a mudança para funcionar, tem que ser de "." para ",".
+Desconfio que isso aconteça porque as configurações regionais relativas a pontuação de numeros esteja diferente entre o PC de desenvolvimento e o Servidor.
+
+Testei para estes valores
+Latitude -28,1º
+Longitude -51,2º
+E também
+Latitude -28.1º
+Longitude-51.2º
+
+
+Alterações em Fontes
+UI\SINAFLOR\SOLIIntegracaoSINAFLOR.aspx.cs
+
+
+Alterações em Procs
+PCK_NET_CADASTROS_S3I.
+SP_VALIDA_COORD_ILAI
+
+---------------
+
+SINAFLOR/SOLIIntegracaoSINAFLOR.aspx
+
+#ctl00_ConteudoPrincipal_tcNavegacao_tplUploadArquivos_
+fvDocumentos
+btnAtualizarDocumento
+
+problema do grau º ao importar
+
+#ctl00_ConteudoPrincipal_tcNavegacao_tplProdutosEspecies_
+
+
+Se é na importação
+pelo que vi, neste ponto não tem qualquer tipo de leitura e gravação do conteúdo do arquivo.
+Só do arquivo em sí.
+Então creio que esse arquivo é que é o importado pelo Serviço, certo?
+Lá ele é aberto e lido, então seria o lugar ideal pra fazer esse tratamento.
+Só que se quiser, da pra fazer nessa parte, vou ter que abrir ele pra ler o conteúdo e já gravo filtrado.
+Derrepente já mudo a forma de gravação, pra não precisar fazer duas operações, pq tem uma forma difernete quie já faz essa leitura e gravação.
+
+Eu aproveitei e olhei na pagina na área de digitação, lá não da pra digitar o º
+
+
+
+fvProdutos
+txtLatitude
+
+
+#ctl00_ConteudoPrincipal_tcNavegacao_tplProdutosEspecies_
+fvProdutos
+btnInserirLatitude
+
+
+PCK_NET_CADASTROS_S3I
+SP_VALIDA_COORD_ILAI
+nAtan	405474
+vLat	-28,1	
+vLong	-51,2
+
+A Proc esta aceitando virgulas
+
+-28,1º
+-51,2º
+
+-28.1º
+-51.2º
+
+
+    --
+    nLat      := to_number(replace(rtrim(vLat), ',', '.'));
+    nLong     := to_number(replace(rtrim(vLong), ',', '.'));
+   --  nLat      := to_number(replace(rtrim(vLat), '.', ','));
+ --   nLong     := to_number(replace(rtrim(vLong), '.', ','));
+
+
+
+xxxxxx
+
+    nLat      := to_number(rtrim(vLat));
+    nLong     := to_number(rtrim(vLong));    
+    
+    -- nLat      := to_number(replace(rtrim(vLat), ',', '.'));
+    -- nLong     := to_number(replace(rtrim(vLong), ',', '.'));
+    
+   --  nLat      := to_number(replace(rtrim(vLat), '.', ','));
+ --   nLong     := to_number(replace(rtrim(vLong), '.', ','));

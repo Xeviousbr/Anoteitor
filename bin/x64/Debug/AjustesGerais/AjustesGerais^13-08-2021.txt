@@ -1,0 +1,78 @@
+O que foi feito
+Werner me falou que a alteração que consistia os pagamentos não estava em produção.
+
+Como foi feito
+Verifiquei e não esta mesmo.
+Eu havia colocado, mas deu problema, verifiquei e descobri que as DLLs do CargasPerigoss,
+não estavam com os fontes atualizados no SVN.
+Utilizei 4 opções de descompiladores mas nenhum gerou fontes que funcionassem.
+Então eu criei uma nova DLL e dei o nome de FEPAM.CARGASPERIGOSASAS.DLL DAL e BLL
+Mas encontrei problemas no site de homolgação do CargasPerigosas, que era hospedado na Fepam.
+ELe não era totalmente compatível porque os ambientes rodam em FrameWorks diferentes.
+Então coloquei o site do CargasPerigoas em Homologação na Fepam numa numa pasta que estava sendo usada
+pelo SisAuto homologação, mas não no momento.
+Aí Werner entrou em férias e neste meio tempo o Renato precisou usar o Sisauto em homologação.
+Recoloquei o site. E o CargasPerigosas homologação ficou sem site.
+Pedimos a Procergs para criarem o site, e já se passou uma semana e não foi criado.
+Neste meio tempo descobri que já existe uma DLL chamada de Fepam.CargasPerigosas
+e que é usado no AnexoWeb.
+Isto tudo acima é um histórico.
+
+Então agora mudei a DLL para Cargas.dll para diferenciar.
+E tive que alterar os fontes abaixo.
+
+Pretendo colocar em homologação na segunda feira para o Werner poder homologar.
+Já vi duas pastas que funcionam Asp.net (Pasta virtual esta configurada) e tem conteúdos antigos.
+Conversei com o Guerra se daria pra usar enquanto a pasta virtual não é criada na Procergs.
+
+
+
+Fontes Alterados
+c:\2020site\cargasperigosas\principal.aspx.cs
+C:\2020Site\cargasperigosas\AlteracaoCadastral.aspx.cs
+C:\2020Site\cargasperigosas\AlteracaoFrotaTransporte.aspx.cs
+C:\2020Site\cargasperigosas\CadLicencas.aspx.cs
+C:\2020Site\cargasperigosas\Mobile\Default.aspx.cs
+
+Não subi ainda os fontes, porque as mudanças são grandes quero fazer depois de homologado.
+
+
+23479
+
+no cargas perigosas a conferência do valor pago não está em produção, 
+eu pensava que estava, tem como botar em produção? 
+
+AprovacaoSolicitacao.aspx
+AprovacaoSolicitacaoAlteracao.aspx
+
+CadLicencas.aspx.cs
+
+SolicitacoesPendentes.aspx
+
+
+FEPAM.CARGASPERIGOSAS.BLL
+FEPAM.CARGASPERIGOSAS.DAL
+
+Não atualizados
+-> CadLicencas.aspx.cs
+
+[ ] Verificar se os fontes são os mesmos
+NÃO SÃO
+
+
+http://www.fepam.rs.gov.br/sistemas/conferencia/instrucoes_inscricao_online.aspx
+
+http://www.fepam.rs.gov.br/conferencia-internacional-rhra/instrucoes_inscricao_online.asp
+
+Criar a DLL Fepam.Cargas.Dll
+em substituição a outra
+
+
+Fontes que mudam de CargasPerigosas.dll para Cargas.dll
+c:\2020site\cargasperigosas\principal.aspx.cs
+C:\2020Site\cargasperigosas\AlteracaoCadastral.aspx.cs
+C:\2020Site\cargasperigosas\AlteracaoFrotaTransporte.aspx.cs
+C:\2020Site\cargasperigosas\CadLicencas.aspx.cs
+C:\2020Site\cargasperigosas\Mobile\Default.aspx.cs
+
+SolicitacaoSeamb.cs

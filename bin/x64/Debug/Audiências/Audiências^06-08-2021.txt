@@ -1,0 +1,61 @@
+23218
+
+O que foi feito
+
+
+Continuidade do desenvolvimento
+
+Como foi feito
+
+Nos testes vi que não havia carregamento dos ramos de atividades.
+Pensei que a Proc estaria desatualizada e estava.
+Mas o Backup que tinha feito não resolveu.
+Renato precisa fazer a alteralção que ele já havia feito.
+De retornar todos os registros passando o valor o no parametro.
+
+
+Fontes Alterados
+FEPAM.COMUNICACAO.DAL\AudienciasDetalhes.cs
+
+=============================================================================
+
+
+
+[ ] Ta dando erro no primeiro registro 
+    detalhe foi apagado
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+[ ] Mostrar os dados do conteúdo com SP_AUCN_GET
+
+PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+Autt_id = 11
+
+AUTT_ID, 
+AUCN_ID, 
+TEXTO, 
+RAAT_ID, 
+MUNICIPIO, 
+RAZAO_SOCIAL, 
+CNPJ, 
+DATA_INCLUSAO, 
+OPERADOR_INCLUSAO, 
+DATA_ATUALIZACAO, 
+OPERADOR_ATUALIZACAO
+
+[ ] SVN
+[ ] Homologa
+FEPAM.COMUNICACAO.DAL
+
+OnItemUpdated="FormView1_ItemUpdated"
+
+btnConteudo
+
+"PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+vautt_id = 11
+
+SP_RAMOS_ATIVIDADES

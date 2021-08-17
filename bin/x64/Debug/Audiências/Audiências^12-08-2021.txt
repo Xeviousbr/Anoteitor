@@ -1,0 +1,176 @@
+23218
+
+
+O que foi feito
+
+
+Continuidade do desenvolvimento
+
+Como foi feito
+
+Estava trabalhando na edição, mas ela exige dois campos e não tenho como obter um deles.
+Pedi ao Renato para ele arrumar e ficou pior ele não tinha compreendido direito mas depois ficou certo.
+Concluí a edição mas ainda tenho que ver com o Renato o que a pagina deve mostrar depois de gravar a edição.
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+UI\Comunicacao\AGENAudiencias.aspx.cs
+fepam.comunicacao.bll\audienciadetalhe.cs
+
+FEPAM.COMUNICACAO.DAL\AudienciasDetalhes.cs
+
+
+
+Atualizado em Homologação
+
+=============================================================================
+
+
+
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+
+PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+Autt_id = 11
+
+AUTT_ID, 
+AUCN_ID, 
+TEXTO, 
+RAAT_ID, 
+MUNICIPIO, 
+RAZAO_SOCIAL, 
+CNPJ, 
+DATA_INCLUSAO, 
+OPERADOR_INCLUSAO, 
+DATA_ATUALIZACAO, 
+OPERADOR_ATUALIZACAO
+
+[ ] SVN
+[ ] Homologa
+FEPAM.COMUNICACAO.DAL
+
+OnItemUpdated="FormView1_ItemUpdated"
+
+btnConteudo
+
+"PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+vautt_id = 11
+
+UCButton5
+
+[ ] Mostrar o conteudo gravado
+[ ] Mostrar o arquivo enviado
+
+btnConteudo
+
+
+TabContainerAud.ActiveTabIndex = 3
+
+
+
+
+
+[x] Criar o ObjectDataSource, odsConteudo
+FormViewConteudo
+
+[ ] Ver se o retorno da consulta dos detalhes
+    vem a quantidade de conteúdos
+
+
+CodTitulo = 11
+PCK_NET_COMUNICACAO.SP_AUDT_SRC
+nauttid
+
+
+
+Exclusão
+SP_AUCN_DEL
+
+
+
+[ ] Edição
+
+
+        Pesquisa = 0, 
+        Dados = 1 
+	Detalhes = 2 
+	Conteudo = 3
+
+TabContainerAud.ActiveTabIndex = (int)AbaTela.Detalhes;
+
+<asp:FormView ID="FormViewConteudo"
+<asp:ObjectDataSource ID="odsConteudo"
+
+[ ] Quando não tem conteúdo, o botão de conteúdo não deve aparecer
+
+btnNovo
+
+98479314000113
+
+
+vautt_id		31
+vtexto			Texto
+vraat			1.0
+vmunicipio		Viamão
+vRazaoSocial		Teste & Ltda & Cia
+vCNPJ			98479314000113
+vdata_inclusao		11/08/2021
+vOperador		ARNALDOTC
+vdata_atualizacao	11/08/2021
+
+
+número incorreto de tipos de argumentos na chamada para 'SP_AUCN_UPD'
+
+btnConteudoEdit
+btnConteudoEdit_Submit
+
+AUCN_ID
+
+     WHERE aucn_id = nAucn_id
+           and
+           autt_id   = nAutt_id;
+
+ou muda a proc da gravação
+passar a exigir só o nAutt_id
+
+SP_AUCN_AUTT_GET
+SP_AUCN_GET
+11
+
+Registros incluídos em produção
+com AUCD_ID com 1 e 9
+AUTT_ID = 11
+
+Em produção não veio
+
+tem que vir dados em
+Aucn_id
+
+linha 68
+     191
+
+btnConteudo
+
+Aucn_id = 6
+
+FormViewConteudo
+btnConteudoEdit
+
+HiddenField hdnAUCN_IDCont = (HiddenField)FormViewConteudo.FindControl("hdnAUCN_IDCont");
+
+nAucn_id		6
+nAutt_id		11
+stexto			"Conteúdo Alterado"
+nraat_id		2.0
+sMunicipio		"Viamão"
+srazao_social		"Teste & Ltda & Cia"
+ncnpj			98479314000113
+sData_atualizacao	"12/08/2021 07:07:32"
+sOperador_atualizacao	"ARNALDOTC"
+
+[ ] Perguntar ao Renato, depois de gravar vai pra que aba?

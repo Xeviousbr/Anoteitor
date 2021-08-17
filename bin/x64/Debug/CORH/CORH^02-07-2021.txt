@@ -1,0 +1,37 @@
+O que foi feito
+Werner relatou que ainda havia erro no Corh.
+
+Como foi feito
+Primeiro vi que o usuário Rafael não tinha as permissões para acessar a pagina e adicionei elas.
+Verifiquei que o que existia era uma previsão de acesso de acordo com alguns critérios e neste caso estava dando a mensagem que não poderia acessar por falta de requisitos.
+E a pagina passou a não entrar, mas só pro usuário Rafael.
+Verifiquei que é na rotina interna de verificação de permissão.
+Tirei essa verificação por enquanto.
+
+Fontes Alterados
+UI\CORH\CADAAprovacaodeDocumentosdeQualificacoeseMotivacoes.aspx
+
+[x] Erro na Aprovação
+[x] Problema relacionado ao acesso no aprovação
+
+
+ListasSetoresSema
+
+FEPAM.CORH.BLL.Aprovacoes
+
+ Da erro mas consigo trocar mas não consigo entrar na tela com o usuário LEANDROHK , mas coma a usuária CLUDIAAK funciona, consgigo entrar na tela.
+
+Cadastro de Qualificações e Motivações
+
+615 pagina
+772 Visualizar
+773 Editar
+
+SortParameterName="SortExpression"
+
+ListaValoresAnos
+
+ListaSituacoesRH
+
+ListaValoresStatus
+

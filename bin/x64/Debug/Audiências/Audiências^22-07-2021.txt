@@ -1,0 +1,34 @@
+22155
+até 16:55
+O que foi feito
+Renato fez testes e encontrou alguns erros
+
+Como foi feito
+
+Resolvi 
+alguns erros, mas surgiram outros também.
+E houveram ajustes de definições também.
+
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+
+=============================================================================
+
+
+obj.GetAUCN_AUTT(vautt_id);
+
+odsConteudo
+FEPAM.COMUNICACAO.BLL
+AudienciaDetalhe
+
+
+
+[ ] Ta dando erro no primeiro registro 
+    detalhe foi apagado
+[ ] No segundo registro tb
+    foi adicionado arquivo
+[ ] Recolocar o combo do ramo
+[ ] SP_RAMOS_ATIVIDADES
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu

@@ -1,0 +1,83 @@
+
+O que foi feito
+Atualizei o site quanto a tarefa 22171
+
+
+Como foi feito
+Copia do CadLicencas.aspx.cs
+Copia das DLLs FEPAM.CARGASPERIGOSAS.BLL e 
+FEPAM.CARGASPERIGOSAS.DAL 
+
+---------------------------------
+
+O que foi feito
+A pedido do Paulo, tratei de colocar a implamentação que tinha colocado ontem em produção (solução de um erro em produção), para a homologação.
+Mas o usuário que deveria ser utilizado para fazer o teste não estava dando pra se logar(tatianefs) .
+Por outro lado o usuário TATITESTE ta dando para se logar.
+Cheguei a debugar localmente mas no meu debug o usuário tatianefs se loga normalmente.
+Náo consegui encontrar algum motivo para isso.
+
+
+Como foi feito
+
+---------------------------------
+
+
+Fontes Alterados
+
+IS: caso para teste solicitação 59262 empreendimento 231878
+
+usa para testar username : tatianefs / HIDRA
+
+http://intranet.fepam.rs.gov.br/CargasPerigosasHomologa/Default.aspx?ReturnUrl=%2fCargasPerigosasHomologa
+
+G:\HOMOLOGA\CargasPerigosasExterno
+
+22171
+
+C:\Repo2020\CARGASPERIGOSAS\UI\CadLicencas.aspx.cs
+c:\repo2020\cargasperigosas\fepam.cargasperigosas.bll\solicitacaoseamb2.cs
+C:\Repo2020\CARGASPERIGOSAS\FEPAM.CARGASPERIGOSAS.BLL\FEPAM.CARGASPERIGOSAS.BLL.csproj
+
+
+C:\2020Site\cargasperigosas\CadLicencas.aspx.cs
+
+[x] CadLicencas.aspx.cs
+FEPAM.CARGASPERIGOSAS.BLL
+FEPAM.CARGASPERIGOSAS.DAL
+
+#ctl00_ContentPlaceHolder1_btnLogin
+Default.aspx
+
+Error	2	Could not load file or assembly 'System.Web.Mobile' or one of its dependencies. O sistema não pode encontrar o arquivo especificado.	C:\ATC\CargasPerigosasHomologação\Mobile\Default.aspx	2	
+
+
+FEPAM.SEMABMOB.BLL
+
+Erro, Usuário ou senha inválidos.
+
+FEPAM.EMERGENCIAAMBIENTAL.BLL
+AcessoInternet
+.Login
+
+PCK_SOLICITACAO_LICENCA
+SP_ACIN_SRC";
+
+nacinid		N
+sdmliberado
+nacprid		7
+susername	tatianefs
+spassword	HIDRA
+
+
+
+AcessoInternet.Login
+
+btnLogin
+
+tatianefs
+HIDRA
+
+o usuário TATITESTE entra
+
+Retorna 0 do metodo

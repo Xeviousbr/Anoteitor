@@ -1,0 +1,26 @@
+O que foi feito
+Examinei o caso mas não tenho os dados de acordo com o que preciso para testar.
+
+
+
+Como foi feito
+Mas vi que a pagina interpreta erroneamente valores com ponto no lugar de virgula.
+Então coloquei um tratamento para prevenir uma digiação errada.
+
+
+Fontes Alterados
+
+UI\SINAFLOR\SOLIIntegracaoSINAFLOR.aspx.cs
+
+
+
+ASIN_ID
+
+2.30
+123.45
+
+2,30
+
+#ctl00_ConteudoPrincipal_tcNavegacao_tplProdutosEspecies
+fvProdutos
+btnSalvarEditadotblctrlbtnclick

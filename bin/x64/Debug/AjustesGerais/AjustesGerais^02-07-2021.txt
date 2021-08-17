@@ -1,0 +1,46 @@
+O que foi feito
+Problema ao trocar de usuário
+
+Como foi feito
+Verifiquei que é devido a Proc PCK_NET_CONFIGURACOES.SP_VFUNC_SRC que só preve trazer dados só para usuários que não estejam de férias. Situacao = 1.
+De férias é Situacao = 2.
+
+Proposta de solução, alterar a Proc, para que o critério seja passado por parametro e Default a situação que esta.
+E no site prever a situação e dar mensagem para o caso.
+
+
+System.Web.HttpContext.Current.Session["SETO_ID"] = st[0].Seto_id.ToString();
+
+PCK_NET_CONFIGURACOES.SP_USUA_GET
+usua_id = 1220
+
+Nome_Completo = null
+Nome_setor = null
+Sigla_setor = null
+SenhaGerada = null
+Login = null
+Nome_Usuario = null
+
+Proc
+SenhaGerada esta vazia
+
+npess_id	null
+snome		null
+nnro_matricula	null
+nseto_id	null
+nnome_setor	null
+nusua_id	1220
+susername	null
+
+E vem vazio na PCK_NET_CONFIGURACOES.SP_VFUNC_SRC
+
+usua_id = 1656
+
+PCK_NET_CONFIGURACOES.SP_VFUNC_SRC
+
+O problema da troca de usuários 
+acontece mesmo só com o usuário Leandro
+
+Na Proc PCK_NET_CONFIGURACOES.SP_VFUNC_SRC
+Esta previsto pra trazer dados apenas quando a Situcacao for = 1
+e esta = 2

@@ -1,0 +1,54 @@
+16:55 - 20:20
+
+
+23040 - Pesquisa errada
+
+O que foi feito
+
+Analise do problema
+
+
+
+Como foi feito
+
+Ontem havia chegado a conclusão de que a consulta para as duas paginas era a mesma.
+E isso então me levava a considerar que a diferença seria derivada de algum IF, mas não é o caso.
+Existe uma consulta a mais depois "getEmpreendimentoComDoc".
+É ela que traz os dados para a pagina "listapaginada.asp".
+E no caso de teste, essa consulta só retorna um registro, em vez de dois que é o esperado.
+A consulta esta aqui => E:\CTZ\Arnaldo\Temp\23040\getEmpreendimentoComDoc.txt
+E se encontra no fonte "C:\2020Site\licenciamento\src\empreendimentos.asp"
+Gostaria que algum analista analisasse esse SQL para vermos se deve ser assim mesmo ou é necessário alguma mudança.
+
+
+============================================================================================================
+
+FUNCIONA	http://www.fepam.rs.gov.br/licenciamento/Area1/default.asp
+NÃO FUNCIONA	"Empreendedor Cadastrado
+
+
+10.655.578/0001-30
+18.810.538/0001-27
+
+
+
+
+[ ] Ver o Loop que popula o na parte "Empreendedor Cadastrado
+
+http://ww3.fepam.rs.gov.br/licenciamento_antigo/area2/listapaginada.asp?cpfcnpj=10655578000130
+http://ww3.fepam.rs.gov.br/licenciamento/area2/listapaginada.asp?cpfcnpj=10655578000130
+
+listapaginada.asp
+
+getEmpreendimento
+
+Response.Write 224
+Response.End
+
+Atividade1165
+
+rstEmp(raat_ID) = 2310,22
+rstEmp
+
+
+Veio dados de objEmp.getEmpreendimentoComDoc()

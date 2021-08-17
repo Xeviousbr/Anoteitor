@@ -1,0 +1,28 @@
+23223
+17hs em diante
+
+O que foi feito
+
+Tratei de colocar a pagina Permissões por Modulos em produção.
+
+Como foi feito
+Fiz um Backup das DLLs relacionadas em produção.
+Adicionei o CONTPermissoespormodulos.aspx e .cs
+Configurei nos modulos a nova pagina.
+Mas não apareceu no menu.
+Busquei uma explicação para o caso mas ainda não encontrei.
+
+Fontes Alterados
+
+651
+
+841
+842
+843
+
+CONTPermissoespormodulos.aspx.cs
+
+[ ] Ver a consulta que preenche a arvore
+[ ] Executar ela no PL
+
+TVPermissoes

@@ -1,0 +1,155 @@
+23218
+
+O que foi feito
+
+
+Continuidade do desenvolvimento
+
+Como foi feito
+
+Trabalhei na adição e edição, na adição havia colocado uma inserção direta porque a Proc 
+apresentava erros mas agora Rento arrumou e passamos a utilizar ela.
+Também trabalhei na edição.
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+UI\Comunicacao\AGENAudiencias.aspx.cs
+FEPAM.COMUNICACAO.BLL\AudienciaDetalhe.cs
+FEPAM.COMUNICACAO.DAL\AudienciasDetalhes.cs
+
+
+
+=============================================================================
+
+
+
+[ ] No segundo registro tb
+    foi adicionado arquivo
+
+
+[ ] Arquivo foi inserido no segundo registro
+e não apareceu
+
+[x] Mostrar os dados do conteúdo com SP_AUCN_GET
+
+PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+Autt_id = 11
+
+AUTT_ID, 
+AUCN_ID, 
+TEXTO, 
+RAAT_ID, 
+MUNICIPIO, 
+RAZAO_SOCIAL, 
+CNPJ, 
+DATA_INCLUSAO, 
+OPERADOR_INCLUSAO, 
+DATA_ATUALIZACAO, 
+OPERADOR_ATUALIZACAO
+
+[ ] SVN
+[ ] Homologa
+FEPAM.COMUNICACAO.DAL
+
+OnItemUpdated="FormView1_ItemUpdated"
+
+btnConteudo
+
+"PCK_NET_COMUNICACAO.SP_AUCN_AUTT_GET
+vautt_id = 11
+
+UCButton5
+
+[ ] Mostrar o conteudo gravado
+[ ] Mostrar o arquivo enviado
+
+btnConteudo
+
+
+TabContainerAud.ActiveTabIndex = 3
+
+
+
+
+
+[x] Criar o ObjectDataSource, odsConteudo
+FormViewConteudo
+
+[ ] Ver se o retorno da consulta dos detalhes
+    vem a quantidade de conteúdos
+
+FEPAM.COMUNICACAO.BLL.AudienciaTitulo
+Lista
+
+CodTitulo = 11
+PCK_NET_COMUNICACAO.SP_AUDT_SRC
+nauttid
+
+
+odsListaGridDetalhe
+FEPAM.COMUNICACAO.DAL.AudienciasDetalhes
+Lista
+
+GridViewAudDetalhes
+
+Exclusão
+SP_AUCN_DEL
+
+UCButton5
+CommandName="Cancel"
+
+ID = 31
+
+btnNovo
+
+btnConteudo_Submit
+	Chama FormViewConteudo.ChangeMode(FormViewMode.Insert);
+
+ORA-01858: foi localizado um caractere não numérico onde se esperava um numérico
+ORA-06512: em "FEPAM.PCK_NET_COMUNICACAO", line 1874
+ORA-06512: em line 1
+
+
+
+UpdateMethod="Atualizar"
+
+[ ] Edição
+
+CommandName="Update"
+
+        Pesquisa = 0, 
+        Dados = 1 
+	Detalhes = 2 
+	Conteudo = 3
+
+TabContainerAud.ActiveTabIndex = (int)AbaTela.Detalhes;
+
+<asp:FormView ID="FormViewConteudo"
+<asp:ObjectDataSource ID="odsConteudo"
+
+[ ] Quando não tem conteúdo, o botão de conteúdo não deve aparecer
+
+btnNovo
+
+109 ->  btnNovo_Click
+331 -> btnNovo_Submit
+
+
+PCK_NET_COMUNICACAO.SP_AUCN_INS
+
+
+98479314000113
+
+
+vautt_id		31
+vtexto			Texto
+vraat			1.0
+vmunicipio		Viamão
+vRazaoSocial		Teste & Ltda & Cia
+vCNPJ			98479314000113
+vdata_inclusao		11/08/2021
+vOperador		ARNALDOTC
+vdata_atualizacao	11/08/2021
+
+
+número incorreto de tipos de argumentos na chamada para 'SP_AUCN_UPD'

@@ -1,0 +1,48 @@
+23223
+
+
+17:00 - 19:30
+
+O que foi feito
+
+
+Tra
+tei de verificar o motivo de que porque que a pagina não estava aparecendo.
+
+Como foi feito
+Mas durante os testes, notei que havia uma duplicidade nos dados desta pagina.
+Aconteceu porque foi sobreposta uma Proc que tinha resolvido este problema.
+Tenho os Backups das Proc, mas não irei resolver agora isso.
+Já que é uma tarefa de baixa prioridade.
+
+Fontes Alterados
+
+651
+
+841
+842
+843
+
+CONTPermissoespormodulos.aspx.cs
+
+[ ] Ver a consulta que preenche a arvore
+[ ] Executar ela no PL
+
+TVPermissoes
+
+PCK_NET_CONFIGURACOES
+
+SP_MODU_SRC
+
+PCK_NET_CONFIGURACOES.SP_MOFU_WT_DESC
+
+652
+
+Regsitros da Permissões por Modulos
+841	720
+842	721
+843	722
+
+Total 735
+
+objDs.Tables.Add(dtFuncionalidades);

@@ -1,0 +1,48 @@
+O que foi feito
+Continudade do desenvolvimento
+
+Como foi feito
+Solucionei um problema que estava impedindo uma adição.
+E alterei a forma da deleção solucionando o problema que estava impedindo
+Existem algumas pendências de analise, que queria ver com o Renato.
+
+Fontes Alterados
+UI\Comunicacao\AGENAudiencias.aspx
+UI\Comunicacao\AGENAudiencias.aspx.cs
+
+
+
+
+PCK_NET_COMUNICACAO
+SP_AUDT_DEL
+
+[ ] Colocar a mensagem de confirmação na exclusão
+[ ] Ver o ID que esta sendo passado para a Proc de deleção
+    [ ] Alterar o modo de acionamento do metodo
+
+[ ] Ver o caso da Proc SP_AUCN_AUTT_GET
+
+OnClientClick="return confirm('Tem certeza que deseja excluir este registro?');"
+
+SP_AUDT_DEL
+Delete
+
+O id é o ID da lista
+ver qual é a lista
+ods2AudTitulos
+FEPAM.COMUNICACAO.BLL.AudienciaTitulo
+Lista
+PCK_NET_COMUNICACAO.SP_AUDT_SRC autt_id = 11
+naudtid deve ser o ID 
+AUDT_ID = 17
+
+colspan
+
+ctl00_ConteudoPrincipal_TabContainerAud_TabPanel3
+FormView1
+Button3
+tblctrlbtnclick
+
+PRECISO DE UMA CONSULTA PARA RAMOS DE ATIVIDADE
+
+MUNICIPIO ESTA COM ENTRADA MANUAL, CONFIRMA

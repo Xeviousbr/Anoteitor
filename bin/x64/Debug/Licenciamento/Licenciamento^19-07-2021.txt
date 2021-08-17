@@ -1,0 +1,42 @@
+O que foi feito
+Investiquei a situação.
+
+
+Como foi feito
+Precisava debugar e não deu.
+Então verifiquei que existia um site no FTP que era uma cópia antiga deste site.
+Perguntei a Guerra se poderia utiliza-lo para homologação do Licenciamento, ele disse que sim.
+Coloquei o site e fiz testes.
+Ao final de contas a pagina que faz a exibição da informação fica em outro site, o CargasPerigosas.
+Ainda não concluí a analise do problema.
+
+Fontes Alterados
+
+============
+o erro acontece na outra pagina
+
+http://www.fepam.rs.gov.br/licenciamento/area3/detalheDocProc.asp?area=3&buscar=2&tipoBusca=processo&processo=0711390567175
+
+Botão IMPRIMIR LICENÇAS PLACAS
+só imprimir uma pagina
+
+http://www.fepam.rs.gov.br/licenciamento/area3/detalheDocProc.asp
+
+ver o link
+O LINK É COMPOSTO EM
+C:\2020Site\licenciamento\includes\lstProcesso.asp
+
+[ ] Colocar o site em Homologação
+
+
+
+licenciamento_antigo
+
+http://www.fepam.rs.gov.br/licenciamento_antigo
+
+http://www.fepam.rs.gov.br/licenciamento_antigo/area3/detalheDocProc.asp?area=3&buscar=2&tipoBusca=processo&processo=0711390567175
+
+http://ww3.fepam.rs.gov.br/cargasperigosas/anexoweb.aspx?doc_id=1149161&proc=437265
+
+pegar a função RetornaDocu_id_parecer do Fepam.DAL
+e colocar para ser executado localmente

@@ -1,0 +1,29 @@
+23479
+
+no cargas perigosas a conferência do valor pago não está em produção, 
+eu pensava que estava, tem como botar em produção? 
+
+AprovacaoSolicitacao.aspx
+AprovacaoSolicitacaoAlteracao.aspx
+
+CadLicencas.aspx.cs
+
+SolicitacoesPendentes.aspx
+
+
+FEPAM.CARGASPERIGOSAS.BLL
+FEPAM.CARGASPERIGOSAS.DAL
+
+Não atualizados
+-> CadLicencas.aspx.cs
+
+[ ] Verificar se os fontes são os mesmos
+NÃO SÃO
+
+
+http://www.fepam.rs.gov.br/sistemas/conferencia/instrucoes_inscricao_online.aspx
+
+http://www.fepam.rs.gov.br/conferencia-internacional-rhra/instrucoes_inscricao_online.asp
+
+Criar a DLL Fepam.Cargas.Dll
+em substituição a outra

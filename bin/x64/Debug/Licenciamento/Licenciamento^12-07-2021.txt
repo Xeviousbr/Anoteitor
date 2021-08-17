@@ -1,0 +1,40 @@
+O que foi feito
+Retirada da palavra AQUI que foi colocada para algum teste
+
+Como foi feito
+Não havia esta palavra na versão atualizada do SVN.
+Baixei a verão em produção e localizei o AQUI.
+Retirei a palavra, atualizei no SVN e em produção.
+Me parece que este AQUI foi colocado pelo Paulo em 02/06/21, chamado 21563
+E ao comparar os arquivos, vi que havia uma previsão para a Pandemia, que também não estava no SVN, mas estava em produção, eu mantive a previsão (DM_DATA_EXTENDIDA_PANDEMIA)
+
+Fontes Alterados
+C:\2020Site\licenciamento\includes\lstProcesso.todos1.asp
+
+http://www.fepam.rs.gov.br/licenciamento/area3/detalheDocProc.asp?area=3&buscar=2&tipoBusca=processo&processo=723150567204
+
+licenciamento
+area3
+
+detalheDocProc.asp
+
+?area=3&buscar=2&tipoBusca=processo&processo=723150567204
+
+C:\2020Site\licenciamento
+
+Pagina
+C:\2020Site\licenciamento\Area1\default.asp
+Aciona a pagina
+dependendo de certos IFS
+ao acionar a função "submitespc"
+
+que ocorre ao clicar em buscar
+
+Processo
+072315-0567/20-4
+
+C:\Users\ArnaldoTC\Documents\Bak\12-07\Licenciamento\Em Produção\includes\lstProcesso.todos1.asp
+
+lstProcesso.todos1.asp
+
+LICENCIAMENTO
