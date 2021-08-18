@@ -424,13 +424,9 @@ namespace Anoteitor
         {
             if (!IsDirty) return true;
             toolStripStatusLabel1.Text = "Salvando arquivo";
-            //if ((Filename == null) || new FileInfo(Filename).IsReadOnly) {
-            //    return SaveAs();
-            //}
             string PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
             string Atual = cIni.ReadString("Projetos", "Atual", "");
             string Pasta = PastaGeral + @"\" + Atual;
-            // string Local = Pasta + @"\" + Filename;
             if (Directory.Exists(Pasta) == false)
             {
                 Directory.CreateDirectory(Pasta);
@@ -439,6 +435,7 @@ namespace Anoteitor
             IsDirty = false;
             String HoraSalva = DateTime.Now.ToString(@"hh\:mm\:ss");
             toolStripStatusLabel1.Text = "Gravado às : " + HoraSalva;
+            this.AjustaCorFundo();
             return true;
         }
 
@@ -472,7 +469,6 @@ namespace Anoteitor
             if (!File.Exists(Filename))
             {
                 var FileExists = false;
-
                 var Extension = Path.GetExtension(Filename);
                 if (Extension == "")
                 {
@@ -484,28 +480,6 @@ namespace Anoteitor
                 {
                     controlContentTextBox.Text = "";
                     return;
-                    //                    #region Message
-
-                    //                    var Message = @"Cannot find the {Filename} file.
-
-                    //Do you want to create a new file?
-                    //".FormatUsingObject(new { Filename = Filename });
-
-                    //                    #endregion
-
-                    //                    var Result = MessageBox.Show(Message, "Anoteitor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-
-                    //                    switch (Result)
-                    //                    {
-                    //                        case DialogResult.Yes:
-                    //                            File.WriteAllText(Filename, "");
-                    //                            break;
-                    //                        case DialogResult.No:
-                    //                        case DialogResult.Cancel:
-                    //                            return;
-                    //                        default:
-                    //                            throw new Exception();
-                    //                    }
                 }
             }
 
@@ -527,6 +501,16 @@ namespace Anoteitor
             this.Filename = Filename;
             IsDirty = false;
             toolStripStatusLabel1.Text = "";
+            this.AjustaCorFundo();
+        }
+
+        private void AjustaCorFundo()
+        {
+            string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
+            if (Filename.IndexOf(Data) > 0)
+                controlContentTextBox.BackColor = SystemColors.Window;
+            else
+                controlContentTextBox.BackColor = SystemColors.GradientInactiveCaption;
         }
 
         private static string ReadAllText(string pFilename, Encoding encoding)
@@ -1135,13 +1119,17 @@ namespace Anoteitor
                         string nome = arquivo.Name;
                         DateTime DtCriacao = arquivo.CreationTime.Date;
                         string data = DtCriacao.ToShortDateString();
-                        this.cbArquivos.Items.Add(data);
-                        if (this.HojeVazio)
-                            if (DtCriacao > MaisRecente)
-                            {
-                                MaisRecente = DtCriacao;
-                                this.Escolhido = arquivo.FullName;
-                            }
+                        if (this.cbArquivos.Items.IndexOf(data)<0)
+                        {
+                            this.cbArquivos.Items.Add(data);
+                            if (this.HojeVazio)
+                                if (DtCriacao > MaisRecente)
+                                {
+                                    MaisRecente = DtCriacao;
+                                    this.Escolhido = arquivo.FullName;
+                                }
+
+                        }
                     }
                 }
                 catch (Exception ex)
