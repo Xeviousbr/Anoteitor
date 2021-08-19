@@ -1,0 +1,41 @@
+1) Trabalhei do debug da impressão de frotas.
+Descobri o que aconteceu com aquela Proc que existia no metodo e não existe mais.
+Ela ainda existe, mas se mudou de Proc, estava na 
+PCK_NET_EMERGENCIAAMBIENTAL e agora esta na PCK_NET_PROCESSOS
+
+Não há o meio de propagação das placas para a outra pagina.
+Mas parece que já houve o fonte que imprimia, mas todas as placas.
+Como deve ser essa mesma a forma de operação mais usual que os usuários faziam
+então isso pode nunca ter sido notado.
+Em todos os casos esse recurso não esta mais lá.
+
+
+2) Trabalhei tambem na tarefa das Audiências.
+Nos testes vi que não havia carregamento dos ramos de atividades.
+
+Pensei que a Proc estaria desatualizada e estava.
+
+Mas o Backup que tinha feito não resolveu.
+
+Renato precisa fazer a alteração que ele já havia feito.
+
+De retornar todos os registros passando o valor o no parâmetro.
+
+
+
+======================================================================
+
+Segunda
+
+Impressão da Frota
+Inicialmente irei adaptar a pagina AnexoWeb para enviar dados por Post.
+Para passar um array sem problema de algum limite, nos parametros.
+Depois adapar a pagina que recebe a informação pra isso.
+E fazer todos os metodos necessários.
+
+
+Caso sobre tempo, irei me dedicar as Audiências, não pude dar continuidade 
+na tarefa antes, porque era a parte de visualização dos dados e como foi sobreposto
+não tem aqueles dados, ai precisava da inserção aí houve o problema da Proc.
+
+Caso sobre tempo retornarei ás permissões por modulos.

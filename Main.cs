@@ -112,7 +112,7 @@ namespace Anoteitor
                     string Data = sData.Replace(@"/", "-");
                     cbArquivos.Items.Add(sData);
                     cbArquivos.Text = sData;
-                    this.NomeArq = Atual + "^" + Data + ".txt";
+                    this.NomeArq = this.Atual + "^" + Data + ".txt";
                     this.Text = this.NomeArq + " - Anoteitor";
                     this.DataSalva = DataAgora;
                 }
@@ -1012,7 +1012,7 @@ namespace Anoteitor
                 if (_NomeArq == null)
                 {
                     string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
-                    return Atual + "^" + Data + ".txt";
+                    return this.Atual + "^" + Data + ".txt";
                 }
                 else
                 {
@@ -1086,6 +1086,10 @@ namespace Anoteitor
             this.Carregado = false;
             controlContentTextBox.Clear();
             string Pasta = cIni.ReadString("Projetos", "Pasta", "");
+
+            string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
+            this.NomeArq = this.Atual + "^" + Data + ".txt";
+
             this.Filename = Pasta + @"\" + this.Atual + @"\" + this.NomeArq;
             this.Open(this.Filename);
             this.Text = this.NomeArq + " - Anoteitor";
@@ -1097,7 +1101,7 @@ namespace Anoteitor
 
         private void cbProjetos_DropDownClosed(object sender, EventArgs e)
         {
-            Atual = cbProjetos.Text;
+            this.Atual = cbProjetos.Text;
             this.CarregaArquivoDoProjeto();
             cIni.WriteString("Projetos", "Atual", cbProjetos.Text);
             this.MostraArquivosDoProjeto();
@@ -1106,7 +1110,7 @@ namespace Anoteitor
         private void MostraArquivosDoProjeto()
         {        
             if (this.mostrarSóDoDiaToolStripMenuItem.Checked==false) {
-                string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Atual;
+                string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + this.Atual;
                 this.Escolhido = "";
                 try
                 {
@@ -1119,17 +1123,19 @@ namespace Anoteitor
                         string nome = arquivo.Name;
                         DateTime DtCriacao = arquivo.CreationTime.Date;
                         string data = DtCriacao.ToShortDateString();
-                        if (this.cbArquivos.Items.IndexOf(data)<0)
-                        {
-                            this.cbArquivos.Items.Add(data);
-                            if (this.HojeVazio)
-                                if (DtCriacao > MaisRecente)
-                                {
-                                    MaisRecente = DtCriacao;
-                                    this.Escolhido = arquivo.FullName;
-                                }
+                        if (nome.IndexOf(this.Atual)>-1)
+                            if (this.cbArquivos.Items.IndexOf(data) < 0)
+                            {
+                                this.cbArquivos.Items.Add(data);
+                                if (this.HojeVazio)
+                                    if (DtCriacao > MaisRecente)
+                                    {
+                                        MaisRecente = DtCriacao;
+                                        this.Escolhido = arquivo.FullName;
+                                    }
 
-                        }
+                            }
+
                     }
                 }
                 catch (Exception ex)

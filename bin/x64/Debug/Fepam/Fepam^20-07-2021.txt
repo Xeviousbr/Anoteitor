@@ -1,0 +1,10 @@
+
+1) Atualizei aquele site, com os sites, com o endereço em homologação do licenciamento.
+
+2) 22948
+Nos testes que fiz sempre trazia um único registro.
+Pedi um novo caso de testes pro Guerra, mas aí passei a trabalhar em outra tarefa.
+
+3) 23040
+Deduzi que havia duas consultas diferentes trazendo dados diferentes, porque uma consideraria um INNER e outro um LEFT join na tabela Processos.
+Mas não é o caso, o SQL da consulta nas duas paginas é o mesmo e ainda é composto no mesmo fonte.

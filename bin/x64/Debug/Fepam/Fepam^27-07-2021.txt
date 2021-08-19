@@ -1,0 +1,25 @@
+Tem duas tarefas relacionadas ao PARECER 23215 e 23219
+
+1) 23221 Problema nas pesquisas
+      Enviei o SQL ao Guerra, para que me forneça o SQL correto para corrigir a tarefa
+
+2) 23215 Erro em gerar parecer
+      Coloquei para testar um caso
+      Mas dando um erro que não ocorre em produção
+      Numa consulta direta a uma function
+      Que no PL a consulta ocorre normalmente
+      Mas no C# resulta em erro "erro CARACTER INVÁLIDO"
+
+3) 23223 - Permissões
+      Sugiro atualizar em produção, porque a pagina pode ser melhorada
+      Mas já esta funcional
+
+4) 23216 Recuperação de senha
+      Se os campos não utilizados para a pesquisa devo passar uma string contendo 'null'
+      como devo fazer com os campos numericos?
+
+5) 
+23220 Erro ao cadastrar empreendimento.
+      Rodando localmente tanto em homologação quanto produção, não foi localizado o CNPJ
+      referido na tarefa, e até onde sei, precisaria achar esse CPNj 
+      para depois adicionar o empreendimento

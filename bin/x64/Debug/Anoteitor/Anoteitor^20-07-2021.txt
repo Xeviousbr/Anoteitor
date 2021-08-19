@@ -1,0 +1,22 @@
+[x] Quando muda de dia, pelo teclado, não atualiza o arquivo
+[ ] Ajustar a mensagem de saída, para mostrar melhor a o nome do arquivo
+[ ] Ao cruzar a meia noite, passar automaticamente para novo arquivo
+
+
+
+[ ] Criar um post
+   [x] Criado
+[ ] Mostrar o post no About
+[ ] Colocar download
+[x] git
+[ ] Colocar imagens
+[ ] Divulgar
+
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Passar configurações para a Settings

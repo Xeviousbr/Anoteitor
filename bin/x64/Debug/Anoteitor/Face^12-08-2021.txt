@@ -1,0 +1,45 @@
+
+[ ] Fazer a versão 64 Bits
+
+
+[ ] Mostrar os só alterados no dia
+    [ ] Loop pelos projetos
+    [ ] Loop pelos arquivos do projeto, em ordem
+    [ ] Examinar se tem do dia
+    [ ] Incluir no combo do dia
+    [ ] Colocar uma flag para mostrar só do dia
+    [ ] Atender a flag
+
+[ ] Aumentar os niveis de Undu
+
+[ ] Limitar visualizações
+[ ] Transferir os não visualizados para uma pasta BAK
+[ ] Adicionar item MAIS no combo
+[ ] Mostrar todos NÂO MOSTRADOS ao clicar no MAIS
+[ ] Ao clicar em MENOS voltar pra antes    
+
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Passar configurações para a Settingsx  
+
+
+[ ] Trocar de projetos para atividades
+[ ] SubDivisões de assuntos
+
+
+[ ] Escolher outra hora pra ser a passagem de um dia para o outro
+
+[ ] Prever se já ta aberto
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.exe
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.zip
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.msi
+
+toolStripStatusLabel1.Text

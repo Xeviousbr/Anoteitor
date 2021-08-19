@@ -1,0 +1,68 @@
+1) Localizei uma terceira consulta que esta retornando dados indevidamente.
+No site do licenciamento.
+E passei pra Karina dar uma olhada.
+
+2) Fiz testes quanto a homologação do CargasPerigosas.
+Inicialmente Guerra me falou para utilizar um site de testes.
+Na verdade, já havia testado este site, ele não servia 
+porque não tem o diretório virtual configurado no IIS.
+Então Guerra me falou que era só configurar o WebConfig.
+Mas por enquanto não fiz alguma pesquisa quanto a isso.
+Mas testei o SisAuto que estava funcionando no SisAutoH naquela pasta.
+E ele não funcionou.
+Também coloquei o CargasPerigosas no SisAutoH e funcionou.
+Mas depois retornei ao como estava antes.
+
+Como o Guerra tinha me dito que o Agenda tinha funcionado naquela pasta.
+Testei isso e o site Agenda não rodou na pasta.
+Inclusive é esse site que esta lá.
+Mas caso precisem do conteúdo Asp Classico que estava lá eu tenho backup.
+
+Mas aproveitando, pra mim um site ASP.NET rodar sem estar configurado no servidor
+é novidade.
+E se algum colega C# tem já a informaçao necessária, aproveita passa ela pra mim
+por Spike
+
+Ou colocar a dica no nosso documento publico de dicas pro C#
+http://www.dontpad.com/fepamdis
+
+3) Coloquei o Permissões por Modulos na produção.
+Mas não apareceu onde deveria e investiguei o problema.
+Até o momento não encontrei uma solução.
+
+4) Karina quer fazer um novo teste naquela Proc que ela alterou
+e que é utilizada já no sistema
+existe uma operação na área de EmergênciaAmbientel
+passei o passo a passo para o teste
+
+O teste com dados foi realizado
+Seria necessário um teste que o resultado aparecesse aquela mensagem de erro.
+Então os dados tem que ser alterados pra causar isso.
+
+Caso a falta de informação cause um erro.
+Devemos então testar com a versão anterior da Proc.
+
+Se nas duas derem erro, então a pagina de Solicitações em emergência ambiental
+ou melhor uma DLL relacinada a ela, é que deve ser tratada, já com a nova versão da Proc.
+
+E se a versão nova da Proc não poder ser utilizada naquela operação.
+Se mantem a proc como esta.
+Se deve criar então uma nova Proc com o conteúdo da versão nova.
+E vou utiliza-la no CargasPerigosas
+
+Só que vou ter que colocar naquela nova DLL que criei.
+Já que não temos os fontes atualizados daquelas DLLs.
+
+
+======================================================================
+
+
+Terça
+
+Tratar de compreender o motivo que a tela de perissões por modulos
+não esta aparecendo no menu.
+
+Depois lidar com a tarefa das placas
+
+Caso acabe conseguindo concluir ela rapidamente, vou então dar continuidade
+ na Audiências

@@ -1,0 +1,13 @@
+update empresa 
+set idEntrega = 1, tpEntrega = 0 ,VlrLimDesc = 50, PercLimDesc = 33.33 
+where idEmpresa = 1
+
+update empresa 
+set idEntrega = 1, tpEntrega = 0 ,VlrLimDesc = 50, PercLimDesc = 33.33 
+where idEmpresa = 1
+
+#rdrdEntrS
+
+Testar a venda
+[ ] Valor abaixo de 50 deve ter entrega de 15 reais
+[ ] valor acima de 50, o valor deve ser 10 reais

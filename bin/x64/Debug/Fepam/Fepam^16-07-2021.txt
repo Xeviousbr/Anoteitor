@@ -1,0 +1,12 @@
+
+1) Serviço-Sinaflor.
+Chequei o log, esta com erro tratado no registo obsrvado qeu é o último
+2) Audiências
+Resolvi um problema num insert
+E de uma exclusão
+Fui dar o restande do proceguimento mas existem algumas etapas faltando na analise
+que iria ver com o Renato
+3) Naquela ocorrência das placas, fiz testes parece que esta tudo funcionando.
+Ou preciso de mais explicações.
+Mas percebi que existem algumas impressões que é impressa uma pagina em branco, 
+queria saber se querem que resolva

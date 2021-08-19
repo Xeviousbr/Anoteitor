@@ -1,0 +1,6 @@
+
+[-] Fazer diagrama de sequencia de todas operações da criação do pedido
+[ ] Não criou o pedido
+    Pesquisar onde que é inserido o registro de pedido
+
+

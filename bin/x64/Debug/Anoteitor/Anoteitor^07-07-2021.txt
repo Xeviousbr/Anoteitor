@@ -1,0 +1,12 @@
+[x] Colocar a versão certa
+
+[ ] Colocar opção de criar novo arquivo como cópia do último
+
+[ ] Criar um post
+[ ] Mostrar o post no About
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido

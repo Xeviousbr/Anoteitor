@@ -1,0 +1,3 @@
+http://tele-tudo.com/operacoes?op=7&idPed=123
+
+Fazer uma venda e ver como ta a notificação

@@ -1,0 +1,3 @@
+http://tele-tudo.com/operacoes?op=7&idPed=2036
+
+{"Erro":0,"DescErro":"","Comprador":"Arnaldo Tadeu Chioquetta","FoneCli":"30725968","Ender":"Acesso D, 3753, Restinga","Forma":"Dinheiro","Troco":"0,00","qtd":1,"Coment":null,"Itens":[{"qtd":1},{"qtde":1,"nome":"Gravador de DVD"}]}

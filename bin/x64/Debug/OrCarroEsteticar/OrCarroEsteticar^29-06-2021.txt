@@ -1,0 +1,13 @@
+100 pila
+aí nesse valor eu faria o seguinte
+1) Colocaria o Logo na impressão
+2) Aumentaria a tela pra tamanho total da tela
+e ainda poderia fazer um ajuste na impressão
+ou seja, a impressão existe, mas tu poderia me indicar ajustes no Layout 
+caso achasse necessário
+
+Irei lá atualizar
+e instalar o AnyDesk
+
+quinta 8/6
+

@@ -1,0 +1,29 @@
+
+[x] Ao cruzar a meia noite, passar automaticamente para novo arquivo
+
+
+
+[ ] Criar um post
+   [x] Criado
+[ ] Mostrar o post no About
+[ ] Colocar download
+[x] git
+[ ] Colocar imagens
+[ ] Divulgar
+
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Passar configurações para a Settingsx
+
+this.Filename = Pasta + @"\" + this.Atual + @"\" + this.NomeArq;
+
+string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
+return Atual + "^" + Data + ".txt";
+
+this.NomeArq = "Busqueitor^22-07-2021.txt"
+this.NomeArq = "Busqueitor^22-07-2021.txt"

@@ -1,0 +1,20 @@
+login: BONIFACIO
+
+senha: MB2021
+
+Tpe = document.getElementById("txTpe"+nrLin).value;
+
+function Marca(nrLin) {
+
+txTpe1
+
+txTpen
+txTpEn
+
+RESOLVIDO O BUG NA VENDA
+TESTAR A VENDA NOVAMENTE
+
+[ ] Erro na linha 173 Entrega.php
+
+[ ] Loja Denis estava aberta pelo MbCarros (apareceu na Adm)
+mas a carruagem não aparecia os produtos do Denis

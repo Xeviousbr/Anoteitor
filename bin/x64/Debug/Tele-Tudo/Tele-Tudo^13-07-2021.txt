@@ -1,0 +1,17 @@
+Testar a venda
+[ ] Valor abaixo de 50 deve ter entrega de 15 reais
+[ ] valor acima de 50, o valor deve ser 10 reais
+
+tpEntrega
+
+idEntrega = 1
+tpEntrega = 1 = Distância
+EntregaFree = 1
+
+restinga
+hypica
+lami
+serrarisa
+ipanema
+e regiao
+

@@ -1,0 +1,24 @@
+[ ] Colocar para mudar de projeto no combo, pelo teclado
+[ ] Combo por ordem alfabética
+[ ] Informar que ta gravando, no status bar
+[ ] Mostrar quantidade de caracteres, total
+[ ] Mostrar a quantidade de caracteres, selecionados
+
+[ ] Quando passa pela meia noite
+deve gravar o arquivo já na data nova
+e atualizar no caption
+e o combo
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Colocar a versão certa
+[ ] Criar um post
+[ ] Mostrar o post no About
+
+
+VERIRIFICAR O ERRO DO TRAMPO
+QUE NÃO ENTRA, FICA SÓ MINIMIZADO, PARECE
+(na versão antiga, funciona)

@@ -1,0 +1,33 @@
+[x] Aumentar o tamanho do campo para mostrar "Sinaflor-Integração"
+
+[x] fazer só preecher no combo arquivos com o nome do projeto
+
+[-] Criei um novo projeto
+Apareceu no título o nome errado
+E não gravou
+!Não consegui reproduzir o problema
+
+[-] Estava trabalhando com um projeto
+    Criei outro projeto
+    E gravou na pasta nova o arquivo do projeto que tava em edição antes
+!Não consegui reproduzir o problema
+
+
+
+[x] Só esta trazendo o arquivo, quando se clica combo do arquivo 
+    e já deveria trazer já no combo do projeto
+[x] Colocar para mudar de projeto no combo, pelo teclado
+
+[ ] Combo por ordem alfabética
+[ ] Informar que ta gravando, no status bar
+[ ] Mostrar quantidade de caracteres, total
+[ ] Mostrar a quantidade de caracteres, selecionados
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Colocar a versão certa
+[ ] Criar um post
+[ ] Mostrar o post no About

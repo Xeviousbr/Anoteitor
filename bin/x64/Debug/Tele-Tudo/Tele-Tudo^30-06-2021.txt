@@ -1,0 +1,60 @@
+FUI ATUALIZAR O PREÇO DA BATERIA 50AMP E SUMIU
+
+FUI ATUALIZAR O PREÇO DA BATERIA 60AMP E SUMIU A FOTO
+
+
+50AMP
+produni = 480
+Curioso o Produto que tem o idUni = 480 é o de IdProduto = 480
+então há chances de ter erro nesta gravação
+
+Tem o produto
+"bateria 50amp na troca em dinheiro"
+
+===================================
+
+Denis hoje o vento destelhou uma telha aqui
+isso me atrapalhou todo, nas minhas tarefas aqui
+(ah e nem deu pra botar ainda)
+
+Vi que no caso 50AMP o produto esta lá
+mas com nome
+"bateria 50amp na troca em dinheiro"
+
+Não deve ser cadastrado assim
+Tem que ser o nome do produto no caso "Bateria 50AMP"
+e tem o campo "Descrição" aí sim, colocaria "na troca em dinheiro"
+
+Mas isso não explica realmente porque não trouxe a informação
+tenho ainda que verificar isso
+
+---
+
+Sobre o caso do 60AMP
+Não sei oq aconteceu, então vou fazer a operação para ver oq aconteceu
+
+mas no banco de dados, tem dois registros com o mesmo nome
+Nome: 
+"Bateria HELIAR"
+Descrição: Bateria 60AMP NA TROCA EM DINHEIRO
+
+O Ideal seria 
+Nome: 
+"Bateria HELIAR 60AMP"
+Descrição: "NA TROCA EM DINHEIRO"
+
+Outra coisa, tenho que fazer uma compra Fake com o Sr
+pra ter certeza que ta tudo funcionando
+
+então antes disso, não precisa deixar o site ligado
+
+então vou resolver esses dois bugs (ou um ou mais de dois, sei lá)
+e depois fazemos este teste de compra
+
+Mas AINDA seria pelo site
+
+continuo trabalhando na integração pelo MBCarros
+ta na beira tb
+
+Mas tipo, depois do teste e da integração estiver pronta
+tanto faz deixar a loja aberta pelo MbCarros ou pelo site (ou ainda pelo App)

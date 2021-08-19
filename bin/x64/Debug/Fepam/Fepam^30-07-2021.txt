@@ -1,0 +1,38 @@
+1) Fiz backup de algumas Packages que estao envolvidas nos meus chamados
+
+2) Testei a alteração que a Karina fez na Proc e deu certo.
+Depois pesquisei nos sistemas onde a Proc era usada.
+Apesar de ter muitas referências a ela em vários métodos.
+Na pratica só era utilizada em uma certa operação do Situação Cadstral
+do Emergência Ambiental.
+Testei a operação e não houve erros e trouxe dados corretamente.
+Então deduzo que a Proc possa ser atualizada em produção.
+
+3) Ajustei aquele site dos sites, colocando o SisAuto em homologaçao
+e retirando o CargasPerigosas
+Por falar nisso é tu ou eu que solicito o site Alexandre?
+Também ta faltando aquela tarefa das ações genéricas.
+
+4) Trabalhei naquela pesquisa do licenciamento
+Primeiro procurei por exemplos de Asp classico acionando alguma Proc 
+e não foi encontrado, então mantive o padrão, alterei direto no ASP.
+Coloquei pra testar e não deu certo.
+Há uma parte que antes indicava um empreendimento e agora indica dois.
+Mas a parte que lista ainda esta mostrando um só empreendimento.
+Então vou continuar a investigação do problema nesta pesquisa
+
+
+===================================
+
+Segunda
+
+Pretendo continuar o Debug no ASP para encontrar a próxima consulta 
+que não esta trazendo os dados corretamente, ou alguma critério
+na pagina que causa isso
+
+Depois pretendo colocar a tela de permissões em produção.
+
+Depois lidar com a tarefa das placas
+
+Caso acabe conseguindo concluir ela rapidamente, vou então dar continuidade
+ na Audiências

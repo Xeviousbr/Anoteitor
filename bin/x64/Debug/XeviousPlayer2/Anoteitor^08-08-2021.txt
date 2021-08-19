@@ -1,0 +1,12 @@
+Estou precisando colocar recursos de Drag in Drop (arrastar e soltar)
+em um projeto C# Forms
+
+A ideia é arrastar estes botões da esquerda para as lista desejada
+
+Y
+máximo  = 645
+Minimo	= 227
+
+Altura = 422
+
+422 / ( ( Y - 227 ) / 418 ) 

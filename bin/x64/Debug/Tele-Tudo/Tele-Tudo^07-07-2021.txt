@@ -1,0 +1,20 @@
+Pesquisar onde que é inserido o registro de pedido
+
+
+CriaPedido
+É Chamada em Pedido.php
+
+É chamada no Entrega->Create()
+e no Pedido->CriaPedido()
+
+https://tele-tudo.com/entrega?&q1=1&p1=551&Qtd=1&t=4&f=1&r=0&v=30.00&c=91793350
+chamou Entrega/create
+
+idPedido = 2019 tpEnt = 4 cep = 91793350
+VlrOrc = 1
+
+O Erro ocorreu dentro de clsEntrega->getVlrEntrega
+
+-----
+
+rdrdEntrS

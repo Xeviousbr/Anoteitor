@@ -1,0 +1,19 @@
+[x] Refazer o projeto
+
+[ ] Erro da gravação do primeiro arquivo de um novo projeto
+Quando tem um arquivo carregado
+Se cria um novo projeto
+E se escreve
+Acaba gravando na pasta certa mas com o nome do outro projeto no arquivo
+e no caption do form também fica com o nome errado
+
+[ ] Colocar para mudar de projeto no combo, pelo teclaro
+[ ] Combo por ordem alfabética
+[ ] Informar que ta gravando, no status bar
+[ ] Mostrar quantidade de caracteres, total
+[ ] Mostrar a quantidade de caracteres, selecionados
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido

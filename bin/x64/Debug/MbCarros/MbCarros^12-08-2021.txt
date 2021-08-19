@@ -1,0 +1,8 @@
+152033705
+
+541589390
+
+BONIFACIO
+MB2021
+
+regsvr32 caminho \\ wmp.dll

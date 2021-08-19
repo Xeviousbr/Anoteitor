@@ -1,0 +1,44 @@
+1) Eu havia colocado o CargarPerigosas Homologação no FTP.
+
+Depois te ter julgado que o SisAuto Homologação estava bom rodando na intranet.
+
+Mas não esta, a partir de uns testes do Renato.
+então coloquei o SisAuto Homolgação no FTP no site que criamos pra isso.
+E agora estamos sem site de homologação pro CargasPerigosas, homologação.
+Precisamos de um site(pasta configurada) pra colocar o CargasPerigosas.
+Sugiro CargasPerigosasH.
+
+
+2) A consulta que trazia a informação para trazer as permissões de acesso a internet
+do usuário, vinha dois registros.
+
+Guerra me ajudou na analise do problema, 
+mas não encontramos uma alternativa real de solução do problema.
+
+Ao final ele apagou um registro e passou a funcionar.
+
+3) Trabalhei nas Audiências na preparação dos dados do conteúdo.
+
+4) Com a ajuda da Karina, alteramos a Proc mas ainda não esta bom.
+Para essa consulta o resultado esperado é uma tabale com 0 registros.
+
+HOJE
+
+Pretendo tocar aquela tarefa do Login, mas preciso de uma nova alteração naquela Proc.
+
+Depois tocar a tarefa das consultas que vem resultados diferentes.
+Primeiro procurar um exemplo de uso de Proc no Asp Classico.
+Depois informar ao Guerra para que ela seja passada para uma Proc.
+Ou altero o SQL diretamente, conforme o caso.
+
+Depois a questão daquelas consulta que vem duas informações diferentes.
+Que da pra colocar numa Proc mas por enquanto não vi como se faz isso no
+ ASP classico.
+
+
+Depois pretendo colocar a tela de permissões em produção.
+
+Depois lidar com a tarefa das placas
+
+Caso acabe conseguindo concluir ela rapidamente, vou então dar continuidade
+ na Audiências

@@ -1,0 +1,3 @@
+Revisar composição do preço do teletudo
+é pra ser relativo ao valor da entrega
+mas parece que é relativo ao valor da venda, ou da soma dos dois

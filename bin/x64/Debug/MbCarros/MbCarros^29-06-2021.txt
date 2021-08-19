@@ -1,0 +1,9 @@
+http://dontpad.com/mbcarros
+
+[  ] Informar a visualização da venda ao site
+[  ] Colocar os demais dados da venda
+[  ] Tocar som
+[  ] Permitir troca do arquivo de som
+
+Depois do teste da venda da notificação
+pegar o retorno dos dados do pedido

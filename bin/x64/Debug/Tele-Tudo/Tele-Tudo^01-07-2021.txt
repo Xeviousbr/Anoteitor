@@ -1,0 +1,11 @@
+FUI ATUALIZAR O PREÇO DA BATERIA 50AMP E SUMIU
+60AMP
+
+BATERIA
+
+Carregador bateria 12v 5amp
+198.00
+
+Problema de sumir a imagem
+[ ] A imagem não ta aparecendo na tela de edição de produtos, na alteração
+[ ] Obter o $IdImg correto, para gravar corretamente em 

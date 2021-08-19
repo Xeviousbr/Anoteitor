@@ -1,0 +1,15 @@
+[ ] Colocar para mudar de projeto no combo, pelo teclado
+[ ] Combo por ordem alfabética
+[ ] Informar que ta gravando, no status bar
+[ ] Mostrar quantidade de caracteres, total
+[ ] Mostrar a quantidade de caracteres, selecionados
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Colocar a versão certa
+[ ] Criar um post
+[ ] Mostrar o post no About
+x

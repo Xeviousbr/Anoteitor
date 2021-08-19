@@ -1,0 +1,11 @@
+
+[ ] Fazer diagrama de sequencia de todas operações da criação do pedido
+[ ] Não criou o pedido
+
+[x] Erro na linha 173 Entrega.php
+
+select `pedido`.`User`, `produtos`.`Empresax_ID`, `empresa`.`idEntrega`, `cep`.`cep`, `cep`.`latitude` as `lat`, `cep`.`longitude` as `lon` from `pedido` inner join `pedidoItens` on `pedidoItens`.`idped` = `pedido`.`idPed` inner join `produtos` on `produtos`.`IdUni` = `pedidoItens`.`idprod` inner join `empresa` on `empresa`.`idEmpresa` = `produtos`.`Empresax_ID` inner join `endereco` on `endereco`.`ID` = `empresa`.`idEndereco` inner join `cep` on `cep`.`CEP` = `endereco`.`CEP` where `pedido`.`idPed` = 1996
+
+getVlrEntrega
+   ->getVlrEntrega2
+

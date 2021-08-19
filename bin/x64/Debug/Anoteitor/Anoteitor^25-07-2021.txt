@@ -1,0 +1,47 @@
+
+
+[x] Criar um post
+
+[x] Mostrar o post no About
+[ ] Colocar download
+[ ] Criar instalador
+[ ] Colocar downloa do instalador
+[x] git
+[x] Colocar imagens
+[ ] Divulgar
+
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Passar configurações para a Settingsx
+
+[ ] Limitar visualizações
+[ ] Transferir os não visualizados para uma pasta BAK
+[ ] Adicionar item MAIS no combo
+[ ] Mostrar todos NÂO MOSTRADOS ao clicar no MAIS
+[ ] Ao clicar em MENOS voltar pra antes    
+
+[ ] Mostrar os só alterados no dia
+
+[ ] Trocar de projetos para atividades
+[ ] SubDivisões de assuntos
+
+[ ] Escolher outra hora pra ser a passagem de um dia para o outro
+
+this.Filename = Pasta + @"\" + this.Atual + @"\" + this.NomeArq;
+
+string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
+return Atual + "^" + Data + ".txt";
+
+this.NomeArq = "Busqueitor^22-07-2021.txt"
+this.NomeArq = "Busqueitor^22-07-2021.txt"
+
+/public_html/resources/assets/download
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.exe
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.zip

@@ -1,0 +1,16 @@
+[ ] Colocar tempo em segundos para a gravação automática
+
+[ ] Subir pro GIT
+
+[ ] Criar um post
+[ ] Mostrar o post no About
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+Passar configurações para a Settings
+
+condition ? consequent : alternative

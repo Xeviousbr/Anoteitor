@@ -1,0 +1,29 @@
+1) 23220 Encerrado por enquanto
+Parece que há uma confusão operacional e precisamos
+ de mais informações do usuário
+
+2) Recuperação de senha
+Karina arrumou a Proc PCK_NET_CADASTROS.SP_PESS_SRC2 e agora esta retornando dados.
+Mas para o caso em questão há agora outra Proc que de acordo com o retorno dela
+informa para fazer um cadastro em vez de enviar o email de revalidação de senha.
+É a PCK_NET_CADASTROS.SP_ACPI_SRC ela recebe como parametro o valor 16706
+no campo nacinid
+Retorna um registro mas no campo Acpr_id tem o valor 99 e precisaria ser 7
+para poder enviar o email
+
+3) Pesquisas
+
+Passei os SQLs para a Karina o correto e o errado e ela forneceu uma solução para o que não esta funcionado.
+Agora que sabemos a solução temos que ver ainda se vamos colcoar numa Proc ou manter como consulta SQL.
+
+4) Login
+Existe uma Proc que esta com retorno inadequado
+PCK_NET_CADASTROS.SP_RESP_SRC com os parametros
+ntipaid = 9
+npessid = 237220
+Da erro de sintaxe ao executar pelo PL/SQL
+e mostra a mensagem 
+"ORA-20001:Sem responsáveis técnicos retornados na pesquisa.'
+
+Solução proposta, ajustar a Proc para retornar dados corretamente
+que neste caso seria um retorno nulo

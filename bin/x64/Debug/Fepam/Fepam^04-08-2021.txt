@@ -1,0 +1,35 @@
+1) Sobre as pesquisas que retornam dados diferentes.
+Descobrimos que o empreendimento faltante na segunda listagem.
+Na verdade não deveria aparecer na primeira.
+Sugeri uma alteração no SQL para resolver isso ao Guerra.
+E estou no aguardo de uma resposta
+
+2) Me dediquei a compreensão da impressão das frotas.
+mas ainda tenho que levantar mais informações.
+
+3) Investiguei um caso de uma Exeption, 
+ao que me parece que aconteceu ao clicar num certo menu
+mas refiz a operação, inclusive com o usuário do caso e não percebi algum erro.
+
+Ontem conversamos um pouco sobre a questão da documentação, 
+acho que vale a pena começarmos algo.
+Mas sem muita prioridade, 
+irmos adicionando a informação na medida que as vamos encontrando.
+
+
+
+======================================================================
+
+Quinta
+
+Irei dar continuidade a compreensão do funcionamento atual da impressão da frota.
+
+Caso sobre tempo, irei me dedicar as Audiências, ao ponto de deixar pronto 
+a parte do conteúdo.
+
+Caso sobre tempo retornarei ás permissões por modulos.
+Primeiro restaurando uma Proc que acabou sendo sobreposta.
+Depois continuando no trabalho de compreensão do motivo 
+de que porque essa pagina não apareceu no menu.
+
+É que me preocupo, se isso não poderia acontecer com outras paginas.

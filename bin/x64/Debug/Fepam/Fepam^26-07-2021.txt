@@ -1,0 +1,22 @@
+1) Sobre a recuperação de senha, é utilizado o campo ncpf daquela Proc que te informei.
+Valor inteiro longo.
+
+
+
+2) Recurso lembrar a senha do CargasPerigosas
+O problema vem da Proc, mas não é utilizado o campo que deduzimos antes.
+
+3) Impressão de frota, é acinado um processamento num site do Cargas Perigosas 
+mas o relatório fica em outro site o "AnexoSeamb" que me dediquei a adaptar para funcionar local
+mas esse processo ainda não ta finalizado
+
+4) Audiências, alterei uma objeto de interface que tinha trocado nessa semana mesmo a pedido.
+Mas ele não esta funcionando devido a uma alteração necessária numa Proc, 
+já passei a informação ao Renato.
+
+
+5) Sobre o problema da geração da licença na aprovação.
+É um parte do cargas perigosas que já adaptei antes pra rodar localmente.
+Mas acabou dando problema dessa vez, ainda tenho que ver se crio um outro projeto 
+alternativo pra continuar o traalho.
+O saco é que esse problema acaba atraplhando também as outras tarefas do Cargas Perigosas

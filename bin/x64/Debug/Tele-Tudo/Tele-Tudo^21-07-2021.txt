@@ -1,0 +1,54 @@
+
+[ ] Não ta considerando se a loja esta on-line, no carrossel e pesquisa
+   [ ] Não veio nenhuma loja como aberta
+
+EM SELECIONA LOJAS
+TEM UMA CONSULTA QUE NÃO TRAZENDO O REGISTRO O DENIS
+POR CAUSA DP JOIN COM CEP
+COM LEFT DA CERTO
+em DadosEnvolvidos de Entrega, coloquei o LEFT também
+
+[ ] Verificar que problema tem nesse CEP
+[ ] Não criou o pedido
+
+ErrorException in Entrega.php line 122:
+Trying to get property 'EntregaFree' of non-object (View: /home2/teletu76/public_html/resources/views/entrega/create.blade.php)
+
+
+
+http://tele-tudo.com/operacoes?op=4&idForn=47
+
+select logra1.*
+from `empresa` 
+inner join `endereco` on `endereco`.`ID` = `empresa`.`idEndereco` 
+inner join `logra1` on `logra1`.`ID` = `endereco`.`Logradouro_ID` 
+where `empresa`.`idEmpresa` = 47
+
+SELECT *
+FROM (
+	SELECT empresa.idEmpresa
+		,empresa.tpEntrega
+		,empresa.DistMax
+		,empresa.idEntrega
+		,fn_distance(- 30.1471014, - 51.1517929, latitude, longitude) distancia
+		,dtON
+		,SUBTIME(Now(), '00:02:30') DtX
+	FROM empresa
+	INNER JOIN endereco ON endereco.ID = empresa.idEndereco
+	LEFT JOIN cep ON cep.cep = endereco.CEP
+	WHERE idEmpresa = 47 
+		AND Ativo = 1
+	) X
+WHERE DtON > DtX
+ORDER BY dtON DESC
+
+O CEP DO ENDEREÇO NÃO ESTA NA BASE DE DADOS
+[ ] ver porque aceitou
+ [ ] ou porque não ajustou
+
+IdPessoa = 398
+idEndereco = 174
+LogradouroID = 55
+Lami 639
+
+91780120

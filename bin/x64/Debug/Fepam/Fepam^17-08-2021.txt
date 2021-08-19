@@ -1,0 +1,33 @@
+https://meet.google.com/ifw-piqe-wwu
+
+1) Trabalhei nas Audiências.
+Adaptei o upload dos arquivos á Proc que traz o caminho dos arquivos que o Renato criou.
+
+2) Fiz implementações das trocas de informações referente a tarefa da frotas e testes.
+
+3) Corrigi um erro no CargasPerigosas Homologação que Werner viu referente a tarefa dos avisos.
+
+4) Trabalhei na importação do SisAuto
+Testei o funcionamento na homologação da Intranet mas não serve.
+Essa importação vai ter que ser testada no site da Procegs
+
+
+
+
+
+
+======================================================================
+
+Quarta
+
+Revisar Prioridades
+
+Prioridades
+1) CargasPerigosas, testes do Werner
+
+2) Frota
+3) Importação do SisAuto
+4) Audiências
+5) Permissões
+
+

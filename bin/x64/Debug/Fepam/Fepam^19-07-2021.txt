@@ -1,0 +1,5 @@
+
+1) Me dediquei a encontrar informações no Sinaflor.
+2) Lidei com o caso do Licenciamento, não alcancei a informação necessária ainda.
+Mas a pagina que aciona a impressão do PDF esta no site do CargasPerigosas.
+Deve ser porque ela é em asp.net e a princípio não rodaria no mesmo site que é ASP.

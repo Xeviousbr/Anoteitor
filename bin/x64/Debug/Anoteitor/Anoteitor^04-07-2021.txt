@@ -1,0 +1,14 @@
+[ ] Informar que ta gravando, no status bar
+[ ] Mostrar quantidade de caracteres, total
+[ ] Mostrar a quantidade de caracteres, selecionados
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Colocar opção de criar novo arquivo como cópia do último
+
+[ ] Colocar a versão certa
+[ ] Criar um post
+[ ] Mostrar o post no About

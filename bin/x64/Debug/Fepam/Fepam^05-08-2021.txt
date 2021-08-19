@@ -1,0 +1,30 @@
+1) Precisei utilizar um projeto auxiliar e ir adicionando nele os recursos 
+que precisava, metodos dos fontes originais.
+Para poder debugar.
+Mas a forma como estou obtendo os metodos são os que já estão no Fepam.net, 
+que foi o projeto de base que usei para criar este projeto de auxiliar.
+Aí observei um erro numa consulta.
+E vi que era porque o metodo acionava uma Proc que não existe mais 
+PCK_NET_EMERGENCIAAMBIENTAL.SP_SOSE_GET.
+Este fonte com esta Proc inexistente, esta presente no S3I, 
+mas não é utilizado no site.
+
+
+Sobre a questão documentação
+Acho que o passo inicial seria saber onde esta essa wiki
+
+
+
+
+======================================================================
+
+Sexta
+
+Impressão da Frota
+Amanhã continuarei o trabalho começando por localizar a Proc certa 
+para este metodo.
+
+Caso sobre tempo, irei me dedicar as Audiências, ao ponto de deixar pronto 
+a parte do conteúdo.
+
+Caso sobre tempo retornarei ás permissões por modulos.

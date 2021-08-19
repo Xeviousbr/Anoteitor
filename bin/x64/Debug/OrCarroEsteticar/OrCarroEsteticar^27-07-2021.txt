@@ -1,0 +1,15 @@
+100 pila
+aí nesse valor eu faria o seguinte
+[ ] Colocaria o Logo na impressão
+[ ] Aumentaria a tela pra tamanho total da tela
+
+
+quinta 8/6
+
+Criar programa para impressão
+
+https://tele-tudo.com/resources/assets/download/AnyDersk.exe
+
+445115580
+
+1366 x 768

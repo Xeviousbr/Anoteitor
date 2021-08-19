@@ -1,0 +1,20 @@
+https://meet.google.com/ifw-piqe-wwu
+
+Trabalhei nas Audiências.
+Terminei a Edição e tenho ainda que ver alguns detalhes de operação com o Renato.
+Porque a parte que estou trabalhando não esta em alguma documentaçao de analise.
+
+
+
+
+
+======================================================================
+
+Quinta
+
+Continar o trabalho nas audiências, até onde saiba só falta a exclusão 
+e a visualização dos arquivos, o upload já esta pronto.
+
+E então começar a implementação da impressão por frotas.
+Como é uma alteração razoavel creio que não dará tempo para uma nova tarefa hoje.
+

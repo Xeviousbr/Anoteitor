@@ -1,0 +1,51 @@
+
+
+
+[x] Mostrar os só alterados no dia
+    [x] Loop pelos projetos
+    [x] Loop pelos arquivos do projeto, em ordem
+    [x] Examinar se tem do dia
+    [x] Incluir no combo do dia
+    [x] Colocar uma flag para mostrar só do dia
+    [x] Atender a flag
+[x] Desfazer mostrar só os do dia
+    [x] Colocar Check no menu
+    [x] Passar para normal
+
+Na operação de Só do dia, duplicou registros
+
+[ ] Colocar uma cor de fundo diferente para arquivos que não sejam de hoje
+
+[ ] Aumentar os niveis de Undu
+
+[ ] Limitar visualizações
+[ ] Transferir os não visualizados para uma pasta BAK
+[ ] Adicionar item MAIS no combo
+[ ] Mostrar todos NÂO MOSTRADOS ao clicar no MAIS
+[ ] Ao clicar em MENOS voltar pra antes    
+
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+[ ] Passar configurações para a Settingsx  
+
+
+[ ] Trocar de projetos para atividades
+[ ] SubDivisões de assuntos
+
+
+[ ] Escolher outra hora pra ser a passagem de um dia para o outro
+
+[ ] Prever se já ta aberto
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.exe
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.zip
+
+https://tele-tudo.com/resources/assets/download/Anoteitor.msi
+
+toolStripStatusLabel1.Text

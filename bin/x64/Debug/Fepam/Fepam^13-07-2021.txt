@@ -1,0 +1,4 @@
+1) Trabalhei no sentido de compreender o funcionamento da Proc 
+2) Lidei com uns ajustes visuais
+3) Fui examinar um caso de uma Proc de exclusão que dava erro de chave estrangeira.
+E não compreendi, porque é uma tabela de tipo detalhe

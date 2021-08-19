@@ -1,0 +1,19 @@
+
+[x] Colocar opção de criar novo arquivo como cópia do último
+
+[ ] Mostrar a atualização de caracteres, apenas de segundo em segundo
+
+[ ] Colocar tempo em segundos para a gravação automática
+
+[ ] Criar um post
+[ ] Mostrar o post no About
+
+
+[ ] Colocar cores
+as cores devem ser só para marcar status
+Vermelho - Erro
+Azul - Erro Resolvido
+
+637619791019161976
+637619791261311570
+          29731489

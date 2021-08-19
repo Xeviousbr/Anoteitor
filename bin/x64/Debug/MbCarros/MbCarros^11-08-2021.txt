@@ -1,0 +1,23 @@
+152033705
+
+541589390
+
+BONIFACIO
+MB2021
+
+{"Erro":0,
+"DescErro":"",
+"Comprador":"Arnaldo Tadeu Chioquetta",
+"FoneCli":"30725968",
+"Ender":"Acesso D, 3753, Restinga",
+"Forma":"Dinheiro",
+"Troco":"0,00",
+"qtd":1,
+"Coment":null,
+"Itens":[{
+   "qtd":1},{
+   "qtde":1,
+   "nome":"PNEU"}]}
+
+
+http://tele-tudo.com/operacoes?op=10&idPed=2104

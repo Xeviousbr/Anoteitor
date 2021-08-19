@@ -1,0 +1,5 @@
+Não importou 
+
+Marketing Digital
+
+Só esta importando registros, que tenham o nome da categoria, na primeira coluna

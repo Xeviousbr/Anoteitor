@@ -1,0 +1,37 @@
+https://meet.google.com/ifw-piqe-wwu
+
+1) Trabalhei nas Audiências.
+Estou agora lidando com as operações de arquivos e de deleção de arquivos e conteúdos.
+Renato criou uma DLL para trazer o caminho de acordo com o banco de dados.
+
+2) Comecei a implementar a alteração do envio da informação da pagina de seleção para
+a pagina que confecciona o relatório.
+
+3) Wermer me informou que uma alteração não estava em produção.
+Foi uma que coloquei em produção mas deu problema.
+E o problema foi que os fontes não estavam atualizados então faltavam metodos e dava erro.
+Utilizei algumas operações de descompilação das DLLs mas não deram um resultado compatível.
+Então criei uma nova DLL e coloquei os metodos alterados nela.
+Mas neste meio tempo encontrei mais um backup de fontes, neste caso um que estava num dos servidores.
+Comparei os fontes e estes também não são os atualizados.
+Então tenho que continuar com esta DLL nova.
+Só que alterei o nome de CargasPerigosas só para Cargas, porque já existe uma DLL 
+com o nome de CargasPerigosas, que é utilizada no AnexoSeamb
+
+
+
+
+
+
+======================================================================
+
+Segunda
+
+Colocar o site do CargasPerigosas em Homologação no servidor da Procergs e avisar Werner.
+
+Continar o trabalho nas audiências, até onde saiba só falta a exclusão 
+e a visualização dos arquivos, o upload já esta pronto.
+
+E então continuar a implementação do envio por Post para a pagina que cria o relatório.
+
+

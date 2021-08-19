@@ -1,0 +1,4 @@
+operacoes?op=6&idAviso=
+
+getItem('idPed');
+setItem('idPed'
