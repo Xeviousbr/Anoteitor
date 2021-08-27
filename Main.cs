@@ -7,12 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-// TODO: In order to mimic Notepad exactly the status bar should be hidden if Word Wrap is turned off and the option should be disabled. Setting should be restored if Word Wrap is turned back off.
-
-// https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects
-
-// https://dividirsilabas.blogspot.com
-
 namespace Anoteitor
 {
     public partial class Main : Form
@@ -33,6 +27,8 @@ namespace Anoteitor
         private string Atual;
         private string Escolhido = "";
         private string cbArquivosOld = "";
+
+        private int QtMinutos = 0;
 
         private FindDialog _FindDialog;
         private ReplaceDialog _ReplaceDialog;
@@ -86,6 +82,8 @@ namespace Anoteitor
             this.Segundos = cIni.ReadInt("Projetos", "Segundos", 2);
             this.Carregado = true;
             this.DataSalva = DateTime.Now.Day;
+            this.timer2.Enabled = cIni.ReadBool("Projetos", "MedeTempos", false);
+            this.temposToolStripMenuItem.Visible = this.timer2.Enabled;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -352,8 +350,7 @@ namespace Anoteitor
             cIni.WriteInt("Config", "Y", Bounds.Y);
             cIni.WriteInt("Config", "W", Bounds.Width);
             cIni.WriteInt("Config", "H", Bounds.Height);
-            //Settings.WindowPosition = Bounds;
-            //Settings.Save();
+            cIni.WriteInt(Atual, "Tempo", QtMinutos);
         }
 
         private void menuitemFileHeaderAndFooter_Click(object sender, EventArgs e)
@@ -436,6 +433,7 @@ namespace Anoteitor
             String HoraSalva = DateTime.Now.ToString(@"hh\:mm\:ss");
             toolStripStatusLabel1.Text = "Gravado às : " + HoraSalva;
             this.AjustaCorFundo();
+            cIni.WriteInt(Atual, "Tempo", QtMinutos);
             return true;
         }
 
@@ -502,9 +500,12 @@ namespace Anoteitor
             IsDirty = false;
             toolStripStatusLabel1.Text = "";
             this.AjustaCorFundo();
+
+            this.QtMinutos = cIni.ReadInt(Atual, "Tempo", 0);
+
         }
 
-        private void AjustaCorFundo()
+    private void AjustaCorFundo()
         {
             string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
             if (Filename.IndexOf(Data) > 0)
@@ -1066,11 +1067,11 @@ namespace Anoteitor
         private void PreencheCombo(string Atual)
         {
             cbProjetos.Items.Clear();
-            int Qtd = cIni.ReadInt("Projetos", "Qtd", 0);
+            int Qtd = this.cIni.ReadInt("Projetos", "Qtd", 0);
             for (int i = 0; i < Qtd; i++)
             {
                 string nmProjeto = "Pro" + (i + 1).ToString();
-                string Nome = cIni.ReadString("NmProjetos", nmProjeto, "");
+                string Nome = this.cIni.ReadString("NmProjetos", nmProjeto, "");
                 if (Nome.Length>0)
                 {
                     cbProjetos.Items.Add(Nome);
@@ -1266,7 +1267,23 @@ namespace Anoteitor
                 }
             }
         }
-        
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            this.QtMinutos++;
+            int horas = this.QtMinutos / 60;
+            int min = this.QtMinutos - (horas * 60);
+            string Tempo = horas.ToString("00") + "  :  " + min.ToString("00");
+            lbTempDecorr.Text = Tempo;
+        }
+
+        private void temposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tempos fTempos = new Tempos();
+            fTempos.Show();
+        }
+
         #endregion
+
     }
 }

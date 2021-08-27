@@ -18,3 +18,4 @@ D:\Prog\Anoteitor\obj\x64\Debug\Anoteitor.csproj.GenerateResource.cache
 D:\Prog\Anoteitor\obj\x64\Debug\Anoteitor.csproj.CoreCompileInputs.cache
 D:\Prog\Anoteitor\obj\x64\Debug\Anoteitor.exe
 D:\Prog\Anoteitor\obj\x64\Debug\Anoteitor.pdb
+D:\Prog\Anoteitor\obj\x64\Debug\Anoteitor.Tempos.resources

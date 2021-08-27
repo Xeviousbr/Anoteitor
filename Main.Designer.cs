@@ -64,6 +64,7 @@
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarSóDoDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.temposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -73,7 +74,9 @@
             this.controlStatusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.controlCaretPositionLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbTempDecorr = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menubarMain.SuspendLayout();
             this.controlStatusBar.SuspendLayout();
             this.SuspendLayout();
@@ -358,7 +361,8 @@
             this.projetoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoToolStripMenuItem,
             this.configurarToolStripMenuItem,
-            this.mostrarSóDoDiaToolStripMenuItem});
+            this.mostrarSóDoDiaToolStripMenuItem,
+            this.temposToolStripMenuItem});
             this.projetoToolStripMenuItem.Name = "projetoToolStripMenuItem";
             this.projetoToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.projetoToolStripMenuItem.Text = "Projeto";
@@ -383,6 +387,13 @@
             this.mostrarSóDoDiaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.mostrarSóDoDiaToolStripMenuItem.Text = "Mostrar só do dia";
             this.mostrarSóDoDiaToolStripMenuItem.Click += new System.EventHandler(this.mostrarSóDoDiaToolStripMenuItem_Click);
+            // 
+            // temposToolStripMenuItem
+            // 
+            this.temposToolStripMenuItem.Name = "temposToolStripMenuItem";
+            this.temposToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.temposToolStripMenuItem.Text = "Tempos";
+            this.temposToolStripMenuItem.Click += new System.EventHandler(this.temposToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -436,7 +447,8 @@
             // 
             this.controlStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.controlCaretPositionLabel});
+            this.controlCaretPositionLabel,
+            this.lbTempDecorr});
             this.controlStatusBar.Location = new System.Drawing.Point(0, 371);
             this.controlStatusBar.Name = "controlStatusBar";
             this.controlStatusBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -457,10 +469,21 @@
             this.controlCaretPositionLabel.Size = new System.Drawing.Size(219, 17);
             this.controlCaretPositionLabel.Text = "Ln {LineNumber}, Col {ColumnNumber}";
             // 
+            // lbTempDecorr
+            // 
+            this.lbTempDecorr.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lbTempDecorr.Name = "lbTempDecorr";
+            this.lbTempDecorr.Size = new System.Drawing.Size(0, 17);
+            // 
             // timer1
             // 
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 60000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Main
             // 
@@ -534,6 +557,9 @@
         private System.Windows.Forms.ToolStripComboBox cbArquivos;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem mostrarSóDoDiaToolStripMenuItem;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.ToolStripStatusLabel lbTempDecorr;
+        private System.Windows.Forms.ToolStripMenuItem temposToolStripMenuItem;
     }
 }
 

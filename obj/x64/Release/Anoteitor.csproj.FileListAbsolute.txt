@@ -16,3 +16,4 @@ D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.csproj.GenerateResource.cache
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.csproj.CoreCompileInputs.cache
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.exe
 D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.csprojAssemblyReference.cache
+D:\Prog\Anoteitor\obj\x64\Release\Anoteitor.Tempos.resources

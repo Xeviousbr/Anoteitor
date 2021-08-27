@@ -37,6 +37,7 @@
             this.ckUmDiaOutro = new System.Windows.Forms.CheckBox();
             this.txSegundos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.ckMedeTempos = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -113,12 +114,23 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Segundos";
             // 
+            // ckMedeTempos
+            // 
+            this.ckMedeTempos.AutoSize = true;
+            this.ckMedeTempos.Location = new System.Drawing.Point(186, 77);
+            this.ckMedeTempos.Name = "ckMedeTempos";
+            this.ckMedeTempos.Size = new System.Drawing.Size(178, 17);
+            this.ckMedeTempos.TabIndex = 8;
+            this.ckMedeTempos.Text = "Mostra tempos de uso por tarefa";
+            this.ckMedeTempos.UseVisualStyleBackColor = true;
+            // 
             // ConfigProjeto
             // 
             this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 101);
+            this.ClientSize = new System.Drawing.Size(420, 100);
+            this.Controls.Add(this.ckMedeTempos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txSegundos);
             this.Controls.Add(this.ckUmDiaOutro);
@@ -150,5 +162,6 @@
         private System.Windows.Forms.CheckBox ckUmDiaOutro;
         private System.Windows.Forms.TextBox txSegundos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ckMedeTempos;
     }
 }

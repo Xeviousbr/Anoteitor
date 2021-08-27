@@ -148,6 +148,12 @@
     <Compile Include="SaveChangesPrompt.Designer.cs">
       <DependentUpon>SaveChangesPrompt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tempos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tempos.Designer.cs">
+      <DependentUpon>Tempos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaveChangesPrompt.resx">
       <DependentUpon>SaveChangesPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tempos.resx">
+      <DependentUpon>Tempos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

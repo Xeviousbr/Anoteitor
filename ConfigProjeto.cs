@@ -23,14 +23,13 @@ namespace Anoteitor
             txSegundos.Enabled = ckSalvar.Checked;
             ckUmDiaOutro.Checked = cIni.ReadBool("Projetos", "CopiaOutroDia", false);
             txSegundos.Text = cIni.ReadInt("Projetos", "Segundos", 2).ToString();
+            ckMedeTempos.Checked = cIni.ReadBool("Projetos", "MedeTempos", false);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0)
-            {
                 MessageBox.Show(this, "É necessário informar o caminho do projeto", "Anoteitor");
-            }
             else
             {
                 string Pasta = textBox1.Text;
@@ -41,6 +40,7 @@ namespace Anoteitor
                 int.TryParse(txSegundos.Text, out Segundos);
                 Segundos = Segundos > 0 ? Segundos : 2;
                 cIni.WriteInt("Projetos", "Segundos", Segundos);
+                cIni.WriteBool("Projetos", "MedeTempos", ckMedeTempos.Checked);
                 this.DialogResult = DialogResult.OK;
                 Close();
             }
