@@ -432,8 +432,7 @@ namespace Anoteitor
             IsDirty = false;
             String HoraSalva = DateTime.Now.ToString(@"hh\:mm\:ss");
             toolStripStatusLabel1.Text = "Gravado às : " + HoraSalva;
-            this.AjustaCorFundo();
-            cIni.WriteInt(Atual, "Tempo", QtMinutos);
+            this.AjustaCorFundo();            
             return true;
         }
 
@@ -1275,6 +1274,7 @@ namespace Anoteitor
             int min = this.QtMinutos - (horas * 60);
             string Tempo = horas.ToString("00") + "  :  " + min.ToString("00");
             lbTempDecorr.Text = Tempo;
+            cIni.WriteInt(Atual, "Tempo", QtMinutos);
         }
 
         private void temposToolStripMenuItem_Click(object sender, EventArgs e)
