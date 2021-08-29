@@ -499,9 +499,8 @@ namespace Anoteitor
             IsDirty = false;
             toolStripStatusLabel1.Text = "";
             this.AjustaCorFundo();
-
             this.QtMinutos = cIni.ReadInt(Atual, "Tempo", 0);
-
+            this.MotraCaracteres();
         }
 
     private void AjustaCorFundo()
@@ -875,10 +874,18 @@ namespace Anoteitor
                 }
                 else
                     controlCaretPositionLabel.Visible = false;
-                this.QtdCarac = controlContentTextBox.Text.Length;
-                toolStripStatusLabel1.Text = this.QtdCarac.ToString() + " Caracteres";
+                this.MotraCaracteres();
                 this.Tick = x;
             }
+        }
+
+        private void MotraCaracteres()
+        {
+            this.QtdCarac = controlContentTextBox.Text.Length;
+            if (this.QtdCarac > 0)
+                toolStripStatusLabel1.Text = this.QtdCarac.ToString() + " Caracteres";
+            else
+                toolStripStatusLabel1.Text = "";
         }
 
         private int LineIndex
