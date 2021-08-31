@@ -73,7 +73,6 @@
             this.cbArquivos = new System.Windows.Forms.ToolStripComboBox();
             this.controlStatusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.controlCaretPositionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbTempDecorr = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -447,7 +446,6 @@
             // 
             this.controlStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.controlCaretPositionLabel,
             this.lbTempDecorr});
             this.controlStatusBar.Location = new System.Drawing.Point(0, 371);
             this.controlStatusBar.Name = "controlStatusBar";
@@ -460,14 +458,6 @@
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 0);
-            // 
-            // controlCaretPositionLabel
-            // 
-            this.controlCaretPositionLabel.AutoSize = false;
-            this.controlCaretPositionLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.controlCaretPositionLabel.Name = "controlCaretPositionLabel";
-            this.controlCaretPositionLabel.Size = new System.Drawing.Size(219, 17);
-            this.controlCaretPositionLabel.Text = "Ln {LineNumber}, Col {ColumnNumber}";
             // 
             // lbTempDecorr
             // 
@@ -547,7 +537,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuitemEditDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.StatusStrip controlStatusBar;
-        private System.Windows.Forms.ToolStripStatusLabel controlCaretPositionLabel;
         private System.Windows.Forms.ToolStripMenuItem menuitemFileHeaderAndFooter;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem projetoToolStripMenuItem;

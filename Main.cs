@@ -859,7 +859,7 @@ namespace Anoteitor
             long inter = x - this.Tick;
             if (inter > 10000000)
             {
-                if (this.QtdCarac < 1000)
+                /* if (this.QtdCarac < 1000)
                 {
                     if (controlCaretPositionLabel.Tag == null)
                     {
@@ -873,7 +873,7 @@ namespace Anoteitor
                     controlCaretPositionLabel.Visible = true;
                 }
                 else
-                    controlCaretPositionLabel.Visible = false;
+                    controlCaretPositionLabel.Visible = false; */
                 this.MotraCaracteres();
                 this.Tick = x;
             }
