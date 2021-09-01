@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Anoteitor {
+namespace Anoteitor
+{
     public partial class ReplaceDialog : Form {
         private Main _Main;
+
+        public string SelText { get; internal set; }
+
         public ReplaceDialog(Main pMain) {
             InitializeComponent();
             _Main = pMain;
@@ -30,6 +29,7 @@ namespace Anoteitor {
         }
 
         private void ReplaceDialog_Load(object sender, EventArgs e) {
+            this.controlFindWhatTextBox.Text = this.SelText;
             UpdateButtons();
         }
 

@@ -323,24 +323,15 @@ namespace Anoteitor
         private void menuitemEditReplace_Click(object sender, EventArgs e)
         {
             if (Content.Length == 0) return;
-
             if (_ReplaceDialog == null)
-            {
                 _ReplaceDialog = new ReplaceDialog(this);
-            }
-
+            _ReplaceDialog.SelText = controlContentTextBox.SelectedText;
             _ReplaceDialog.Left = this.Left + 56;
             _ReplaceDialog.Top = this.Top + 113;
-
             if (!_ReplaceDialog.Visible)
-            {
                 _ReplaceDialog.Show(this);
-            }
             else
-            {
                 _ReplaceDialog.Show();
-            }
-
             _ReplaceDialog.Triggered();
         }
 
