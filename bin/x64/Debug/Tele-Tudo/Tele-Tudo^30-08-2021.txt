@@ -1,0 +1,18 @@
+
+[x] Imagem depois de ter selecionado o produto
+
+
+[x] ERRO NO CÁLCULO DA TELE-ENTREGA ao final
+ No orçamento mostrou 11 (certo) e ao final mostrou 13
+
+[ ] Numa segunda venda consecutiva, o orçamento foi parar em 16
+
+SELECT Miguxos.Identificação, Miguxos.Nome, Miguxos.Prop
+FROM Miguxos
+WHERE Miguxos.Prop=0
+ORDER BY Miguxos.Identificação;
+
+SELECT Miguxos.Identificação, Miguxos.Nome, Miguxos.Prop
+FROM Miguxos
+WHERE (((Miguxos.[Prop])=0) OR ((Miguxos.[Pais])=1))
+ORDER BY Miguxos.Identificação;

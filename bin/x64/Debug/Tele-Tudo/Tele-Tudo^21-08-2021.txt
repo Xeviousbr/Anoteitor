@@ -1,0 +1,12 @@
+[-] Mudança no Layout
+ [x] Colocar a imagem do Android e do Whats para baixo
+
+[ ] Sundar deve entregar o Logo
+ [x] Falar pra ele que pode fazer o logo espíchado
+
+https://tele-tudo.com/resources/assets/img/LOGOP.png
+
+
+
+
+./Tele Tudo - Produtos_files/en.js.download

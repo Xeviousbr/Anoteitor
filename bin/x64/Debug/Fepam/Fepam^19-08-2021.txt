@@ -1,0 +1,34 @@
+https://meet.google.com/ifw-piqe-wwu
+
+1) Trabalhei na publicação em homologação referente a tarefa da crítica do CargasPerigosas.
+Antes Werner tinha visto uns erros, mas eram relativos a outra tarefa.
+É que tinha utilizado os fontes em homologação que estavam mais a frente 
+em relação a tarefa da crítica.
+Nessa alteração da crítica não é necessário a nova DLL.
+
+2) Trabalhei na Importação do SisAuto
+Fiz toda implementação, incluindo os metodos nas DLLs e estou lidando com um problema da interface
+
+
+
+
+
+
+
+======================================================================
+
+Quarta
+
+Revisar Prioridades
+
+Prioridades
+1) CargasPerigosas, testes do Werner
+2) Importação do SisAuto
+
+3) Frota
+
+4) Audiências
+5) Permissões
+
+Git tem um sistema Wiki atrelado as tarefas
+que se pode ir criando uma documentação a medida que se termina as tarefas

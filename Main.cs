@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -1084,10 +1085,8 @@ namespace Anoteitor
             this.Carregado = false;
             controlContentTextBox.Clear();
             string Pasta = cIni.ReadString("Projetos", "Pasta", "");
-
             string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
             this.NomeArq = this.Atual + "^" + Data + ".txt";
-
             this.Filename = Pasta + @"\" + this.Atual + @"\" + this.NomeArq;
             this.Open(this.Filename);
             this.Text = this.NomeArq + " - Anoteitor";
@@ -1106,25 +1105,30 @@ namespace Anoteitor
         }
 
         private void MostraArquivosDoProjeto()
-        {        
+        {
+            bool AdicionarOMais = false;
             if (this.mostrarSóDoDiaToolStripMenuItem.Checked==false) {
                 string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + this.Atual;
+                int LimArqs = cIni.ReadInt("Projetos", "LimArqs", 31);
                 this.Escolhido = "";
+                int QtdArqs = 0;
+                List<string> ArqsAdds = new List<string>();
                 try
                 {
                     cbArquivos.Items.Clear();
                     DateTime MaisRecente = DateTime.Parse("01/01/2000");
                     DirectoryInfo info = new DirectoryInfo(Pasta);
-                    FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                    FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray(); 
                     foreach (FileInfo arquivo in arquivos)
                     {
                         string nome = arquivo.Name;
                         DateTime DtCriacao = arquivo.CreationTime.Date;
                         string data = DtCriacao.ToShortDateString();
-                        if (nome.IndexOf(this.Atual)>-1)
+                        if (nome.IndexOf(this.Atual) > -1)
                             if (this.cbArquivos.Items.IndexOf(data) < 0)
                             {
-                                this.cbArquivos.Items.Add(data);
+                                ArqsAdds.Add(data);
+                                QtdArqs++;
                                 if (this.HojeVazio)
                                     if (DtCriacao > MaisRecente)
                                     {
@@ -1133,7 +1137,7 @@ namespace Anoteitor
                                     }
 
                             }
-
+                        AdicionarOMais = true;
                     }
                 }
                 catch (Exception ex)
@@ -1153,6 +1157,10 @@ namespace Anoteitor
 
                 }
                 cbArquivos.Visible = true;
+                int Ini = QtdArqs - LimArqs;
+                if (Ini < 0) Ini = 0;
+                for (int i = Ini; i < QtdArqs; i++)
+                    cbArquivos.Items.Add(ArqsAdds[i]);
                 string Data = DateTime.Now.ToShortDateString();
                 int Pos = cbArquivos.Items.IndexOf(Data);
                 if (Pos > -1)
@@ -1163,6 +1171,8 @@ namespace Anoteitor
                     cbArquivos.Text = Data;
                 }
             }
+            if (AdicionarOMais)
+                this.cbArquivos.Items.Add("TUDO");
             if (Escolhido.Length > 0)
             {
                 this.timer1.Interval = 100;
@@ -1174,13 +1184,32 @@ namespace Anoteitor
         {
             if (this.Carregado)
                 if (cbArquivos.Text.Length > 0)
-                    if (cbArquivos.Text != this.cbArquivosOld)
+                    if (cbArquivos.Text== "TUDO")
                     {
-                        string Pasta = cIni.ReadString("Projetos", "Pasta", "");
-                        this.NomeArq = Atual + "^" + cbArquivos.Text.Replace("/", "-") + ".txt";
-                        this.Filename = Pasta + @"\" + Atual + @"\" + this.NomeArq;
-                        this.Open(this.Filename);
-                        this.cbArquivosOld = cbArquivos.Text;
+                        string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + this.Atual;
+                        cbArquivos.Items.Clear();
+                        DirectoryInfo info = new DirectoryInfo(Pasta);
+                        FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                        foreach (FileInfo arquivo in arquivos)
+                        {
+                            string nome = arquivo.Name;
+                            DateTime DtCriacao = arquivo.CreationTime.Date;
+                            string data = DtCriacao.ToShortDateString();
+                            if (nome.IndexOf(this.Atual) > -1)
+                                cbArquivos.Items.Add(data);
+                        }
+                        cbArquivos.Text = this.cbArquivosOld;
+                    }
+                    else
+                    {
+                        if (cbArquivos.Text != this.cbArquivosOld)
+                        {
+                            string Pasta = cIni.ReadString("Projetos", "Pasta", "");
+                            this.NomeArq = Atual + "^" + cbArquivos.Text.Replace("/", "-") + ".txt";
+                            this.Filename = Pasta + @"\" + Atual + @"\" + this.NomeArq;
+                            this.Open(this.Filename);
+                            this.cbArquivosOld = cbArquivos.Text;
+                        }
                     }
         }
 
@@ -1270,7 +1299,10 @@ namespace Anoteitor
             this.QtMinutos++;
             int horas = this.QtMinutos / 60;
             int min = this.QtMinutos - (horas * 60);
-            string Tempo = horas.ToString("00") + "  :  " + min.ToString("00");
+
+            string Tempo = min.ToString("00") + "  :  " + horas.ToString("00");
+            // string Tempo = horas.ToString("00") + "  :  " + min.ToString("00");
+
             lbTempDecorr.Text = Tempo;
             cIni.WriteInt(Atual, "Tempo", QtMinutos);
         }

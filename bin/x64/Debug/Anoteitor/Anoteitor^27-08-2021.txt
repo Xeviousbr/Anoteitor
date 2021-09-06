@@ -1,5 +1,25 @@
+[ ] Mostrar a quantidade de teclas quando abre o arquivo
 
-[x] Alterei o projeto e em cima ficou o nome do projeto anterior
+
+
+[ ] Contar tempo de cada projeto
+ [x] Configuração em projetos
+ [x] Mostrar tempo no status
+  [x] Colocar Timer
+  [x] Setar conforme INI
+  [x] Mostrar
+ [x] Gravar tempo no ini ao fechar
+ [x] Continuar tempo
+ [ ] Mostrar tempos dos projetos
+  [x] Criar tela
+  [x] Colocar list
+  [x] Colocar as informações
+ [x] Zerar
+ [ ] Gravar o tempo a cada minuto
+ [ ] Deixar de gravar o tempo na gravação
+
+Melhorar o Replace
+Não ta trazendo o selecionado
 
 
 [ ] Aumentar os niveis de Undu
@@ -34,4 +54,4 @@ https://tele-tudo.com/resources/assets/download/Anoteitor.zip
 
 https://tele-tudo.com/resources/assets/download/Anoteitor.msi
 
-toolStripStatusLabel1.Text
+ckMedeTempos

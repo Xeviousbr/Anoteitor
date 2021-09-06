@@ -24,6 +24,7 @@ namespace Anoteitor
             ckUmDiaOutro.Checked = cIni.ReadBool("Projetos", "CopiaOutroDia", false);
             txSegundos.Text = cIni.ReadInt("Projetos", "Segundos", 2).ToString();
             ckMedeTempos.Checked = cIni.ReadBool("Projetos", "MedeTempos", false);
+            txLimCombo.Text = cIni.ReadInt("Projetos", "LimArqs", 31).ToString();            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,14 +34,18 @@ namespace Anoteitor
             else
             {
                 string Pasta = textBox1.Text;
+                int Segundos = 0;
+                int LimCombo = 0;
+                int.TryParse(txLimCombo.Text, out LimCombo);
+                int.TryParse(txSegundos.Text, out Segundos);
+                LimCombo = LimCombo < 3 ? 2 : LimCombo;
+                Segundos = Segundos > 0 ? Segundos : 2;
                 cIni.WriteBool("Projetos", "SalvarAut", SalvarAuto);
                 cIni.WriteString("Projetos", "Pasta", Pasta);
-                cIni.WriteBool("Projetos", "CopiaOutroDia", this.CopiaOutroDia);
-                int Segundos = 0;
-                int.TryParse(txSegundos.Text, out Segundos);
-                Segundos = Segundos > 0 ? Segundos : 2;
+                cIni.WriteBool("Projetos", "CopiaOutroDia", this.CopiaOutroDia);                
                 cIni.WriteInt("Projetos", "Segundos", Segundos);
                 cIni.WriteBool("Projetos", "MedeTempos", ckMedeTempos.Checked);
+                cIni.WriteInt("Projetos", "LimArqs", LimCombo);
                 this.DialogResult = DialogResult.OK;
                 Close();
             }
@@ -64,6 +69,16 @@ namespace Anoteitor
         {
             SalvarAuto = ckSalvar.Checked;
             txSegundos.Enabled = SalvarAuto;
+        }
+
+        private void txSegundos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

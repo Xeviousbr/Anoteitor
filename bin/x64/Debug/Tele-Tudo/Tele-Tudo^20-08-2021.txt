@@ -1,0 +1,23 @@
+[-] Mudança no Layout
+ [x] Colocar a imagem do Android e do Whats para baixo
+
+[ ] Sundar deve entregar o Logo
+ [x] Falar pra ele que pode fazer o logo espíchado
+
+o valor do calculo da Tele-Entrega esta certo
+COM EXESSÃO
+de quando o valor cobrado pelo fornecedor, pela entrega, no bairro é 0,00
+
+[x] Colocar como RedlyOndlçy na gravação
+[x] Testar a gravação com valor
+[x] Testar o calculo do nosso valor com valor por bairro = 0 
+
+https://tele-tudo.com/public/confirma
+pedido\index.blade.php
+
+app\Entrega.php
+	getNossaCobranca($idPedido)
+
+
+
+

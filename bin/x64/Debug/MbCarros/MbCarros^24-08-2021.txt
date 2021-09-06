@@ -1,0 +1,5 @@
+na tela TeleTudoVenda.frm - Timer
+ [ ] Colocar a leitura da informação se ta confirmao (op-11)
+ [ ] Se tiver, fecha a tela de venda (não toca mais)
+
+regsvr32 c:\Windows\System32\wmp.dll

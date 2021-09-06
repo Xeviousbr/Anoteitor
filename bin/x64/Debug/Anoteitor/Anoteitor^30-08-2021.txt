@@ -1,5 +1,9 @@
 
-[x] Alterei o projeto e em cima ficou o nome do projeto anterior
+[x] Mostrar a quantidade de teclas quando abre o arquivo
+[ ] Tirar a mostragem da localização da tecla
+
+Melhorar o Replace
+Não ta trazendo o selecionado
 
 
 [ ] Aumentar os niveis de Undu
@@ -34,4 +38,4 @@ https://tele-tudo.com/resources/assets/download/Anoteitor.zip
 
 https://tele-tudo.com/resources/assets/download/Anoteitor.msi
 
-toolStripStatusLabel1.Text
+ckMedeTempos

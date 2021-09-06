@@ -1,6 +1,15 @@
 
 [x] Alterei o projeto e em cima ficou o nome do projeto anterior
 
+[ ] Contar tempo de cada projeto
+ [ ] Configuração em projetos
+ [ ] Mostrar tempo no status
+ [ ] Gravar tempo no ini ao fechar
+ [ ] Continuar tempo
+ [ ] Mostrar tempos dos projetos
+ [ ] Arrendondamento de 5 em 5 minutos
+ [ ] Gravar no momento de mostrar, em caso de estiver marcado o arrendondamento
+
 
 [ ] Aumentar os niveis de Undu
 
@@ -34,4 +43,4 @@ https://tele-tudo.com/resources/assets/download/Anoteitor.zip
 
 https://tele-tudo.com/resources/assets/download/Anoteitor.msi
 
-toolStripStatusLabel1.Text
+ckMedeTempos

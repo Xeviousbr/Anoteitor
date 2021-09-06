@@ -1,12 +1,16 @@
 
-[x] Alterei o projeto e em cima ficou o nome do projeto anterior
 
 
-[ ] Aumentar os niveis de Undu
+[x] Melhorar o Replace
+Não ta trazendo o selecionado
+
 
 [ ] Limitar visualizações
-[ ] Transferir os não visualizados para uma pasta BAK
+ [ ] Alterar interface
+ [ ] Gravar no INI
+
 [ ] Adicionar item MAIS no combo
+ [ ] Detectar se precisa
 [ ] Mostrar todos NÂO MOSTRADOS ao clicar no MAIS
 [ ] Ao clicar em MENOS voltar pra antes    
 
@@ -28,10 +32,20 @@ Azul - Erro Resolvido
 
 [ ] Prever se já ta aberto
 
+[ ] Medir os tempos de carregamento e colocar no INI os tempos
+
+[ ] Conseguir um componente alternativo para o System.Windows.Forms.TextBox
+com mais recursos de Undo, ou pode implementar mais Undus
+
 https://tele-tudo.com/resources/assets/download/Anoteitor.exe
 
 https://tele-tudo.com/resources/assets/download/Anoteitor.zip
 
 https://tele-tudo.com/resources/assets/download/Anoteitor.msi
 
-toolStripStatusLabel1.Text
+ckMedeTempos
+
+_FindDialog.SelText = controlContentTextBox.SelectedText;
+
+this.fileToolStripMenuItem.Text = QtdArqs.ToString();
+D:\Prog\Anoteitor\bin\x64\Debug

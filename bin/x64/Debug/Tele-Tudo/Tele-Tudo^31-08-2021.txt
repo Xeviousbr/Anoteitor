@@ -1,0 +1,20 @@
+
+[x] Imagem depois de ter selecionado o produto
+
+
+[x] ERRO NO CÁLCULO DA TELE-ENTREGA ao final
+ No orçamento mostrou 11 (certo) e ao final mostrou 13
+
+[ ] Numa segunda venda consecutiva, o orçamento foi parar em 16
+
+Ver tempos on-line do fornecedor
+[x] Olhar a operação de gravar on-line
+[x] Deduzir necessidade em termos de modelagem de dados
+[x] Criar gravação da operação
+[ ] Visualizar a informação
+
+
+            // Campos a Inserit
+            // idForn
+            // TpAcesso
+            // Hora

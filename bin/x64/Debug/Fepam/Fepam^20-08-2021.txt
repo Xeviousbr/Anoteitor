@@ -1,0 +1,35 @@
+https://meet.google.com/ifw-piqe-wwu
+
+1) Trabalhei no CargassPerigosas, fui ver o problema do erro da criação do relatório que o Werner 
+tinha encontrado. O problema é relacionado a falta de permissões da pasta.
+E não temos o recurso de setar permissões, liberado pelo servidor do FTP da Procergs.
+Então solicitei a Guerra para que ele peça á Procergs o ajuste de permissões desta pasta.
+
+Sobre o SVN, essa alteração envolve 2 fontes que não constam atualizações do Paulo.
+Inclusive o arquivo solicitacoespendentes não estava no SVN.
+A tarefa que terminei agora não envolve DLLs a que envolve é a outra, 
+a dos documentos a serem excluídos da criação, que também não esta em produção.
+
+2) Trabalhei na importação do SisAuto.
+Há necessidade de se alterar uma Proc, porque não há como passarmos uma variavel com tipo Date
+para uma Proc, utilizando o FEPAM.DAL, então é necessário alterar para VarChar
+
+
+
+
+
+
+
+
+======================================================================
+
+Prioridades
+
+Prioridades
+1) CargasPerigosas, testes do Werner
+2) Importação do SisAuto
+
+3) Frota
+
+4) Audiências
+5) Permissões

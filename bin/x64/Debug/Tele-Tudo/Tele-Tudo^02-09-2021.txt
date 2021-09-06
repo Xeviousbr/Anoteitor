@@ -1,0 +1,40 @@
+
+[x] Imagem depois de ter selecionado o produto
+
+
+[x] ERRO NO CÁLCULO DA TELE-ENTREGA ao final
+ No orçamento mostrou 11 (certo) e ao final mostrou 13
+
+[ ] Mapa não esta aparecendo 
+
+[ ] Numa segunda venda consecutiva, o orçamento foi parar em 16
+
+Ver tempos on-line do fornecedor
+[x] Olhar a operação de gravar on-line
+[x] Deduzir necessidade em termos de modelagem de dados
+[x] Criar gravação da operação
+[ ] Visualizar a informação
+
+
+Autopeças por Tele-entrega, para a região de Belém Novo e Restinga.
+https://tele-tudo.com/bonifac
+
+Qualquer um pode fazer uma loja virtual, gratis e vende por tele-entrega, sem custo, 
+use esse convite para ter a sua => https://tele-tudo.com/public/convite?id=1
+
+
+
+https://tele-tudo.com/download/
+TeleTudoLoja.apk
+
+
+https://tele-tudo.com/bonifac
+
+Delete From FornOn WHERE idForn =1 or idForn = 47
+
+SELECT * FROM FornOn WHERE idForn <>1 AND idForn <> 47
+
+BONIFACIO
+MB2021 
+
+[x][x][x]

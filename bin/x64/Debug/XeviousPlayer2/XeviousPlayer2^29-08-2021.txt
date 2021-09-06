@@ -1,0 +1,7 @@
+Estou precisando colocar recursos de Drag in Drop (arrastar e soltar)
+em um projeto C# Forms
+
+A ideia é arrastar estes botões da esquerda para as lista desejada
+
+[x] Mostrar o horário
+[ ] Permitir mover para cima e para baixo da mesma lista, Mouse

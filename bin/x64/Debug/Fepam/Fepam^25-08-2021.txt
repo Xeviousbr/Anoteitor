@@ -1,0 +1,36 @@
+https://meet.google.com/ifw-piqe-wwu
+
+1) Trabalhei na importação do SisAuto.
+Depois de retirarmos alguns requisitos definidos pelo Renato e que não eram necessários.
+Havia uma Aba que insistia em ficar sempre visivel, decidimos que não seria necessário essa aba.
+Colocando numa outra e então a tarefa foi concluída.
+
+2) CargasPerigosas
+Werner fez um teste e apresentou erro ao criar um parecer.
+Então descobri que esse site de homologação que havia criado, estava faltando umas pastas temporárias.
+Criei elas e agora é necessário testar novamente.
+
+
+
+
+
+
+
+
+======================================================================
+
+Queria pedir pro Paulo, retirar do SVN uma pasta de Backup e outra uma pasta de publicação.
+Do Fepam.net
+Foi adicionado pelo colega Mauro e na pratica só atrapalham.
+
+
+Prioridades
+
+Prioridades
+1) CargasPerigosas, testes do Werner
+2) Importação do SisAuto
+
+3) Frota
+
+4) Audiências
+5) Permissões

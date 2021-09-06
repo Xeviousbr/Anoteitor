@@ -1,6 +1,10 @@
 
-[x] Alterei o projeto e em cima ficou o nome do projeto anterior
+[x] Colocar uma cor de fundo diferente para arquivos que não sejam de hoje
 
+[ ] Alterei o projeto e em cima ficou o nome do projeto anterior
+
+[ ] Impedir de gravar usando nome de 'Ativo' errado
+    se acontecer adaptar para o certo
 
 [ ] Aumentar os niveis de Undu
 

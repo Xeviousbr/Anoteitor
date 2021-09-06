@@ -38,6 +38,8 @@
             this.txSegundos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ckMedeTempos = new System.Windows.Forms.CheckBox();
+            this.txLimCombo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -100,36 +102,57 @@
             // 
             // txSegundos
             // 
-            this.txSegundos.Location = new System.Drawing.Point(155, 49);
+            this.txSegundos.Location = new System.Drawing.Point(197, 49);
             this.txSegundos.Name = "txSegundos";
             this.txSegundos.Size = new System.Drawing.Size(29, 20);
             this.txSegundos.TabIndex = 6;
+            this.txSegundos.TextChanged += new System.EventHandler(this.txSegundos_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 52);
+            this.label2.Location = new System.Drawing.Point(232, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Segundos";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // ckMedeTempos
             // 
             this.ckMedeTempos.AutoSize = true;
-            this.ckMedeTempos.Location = new System.Drawing.Point(186, 77);
+            this.ckMedeTempos.Location = new System.Drawing.Point(15, 100);
             this.ckMedeTempos.Name = "ckMedeTempos";
             this.ckMedeTempos.Size = new System.Drawing.Size(178, 17);
             this.ckMedeTempos.TabIndex = 8;
             this.ckMedeTempos.Text = "Mostra tempos de uso por tarefa";
             this.ckMedeTempos.UseVisualStyleBackColor = true;
             // 
+            // txLimCombo
+            // 
+            this.txLimCombo.Location = new System.Drawing.Point(197, 77);
+            this.txLimCombo.Name = "txLimCombo";
+            this.txLimCombo.Size = new System.Drawing.Size(29, 20);
+            this.txLimCombo.TabIndex = 9;
+            this.txLimCombo.Text = "31";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(232, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Limite do combo Arquivos";
+            // 
             // ConfigProjeto
             // 
             this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 100);
+            this.ClientSize = new System.Drawing.Size(420, 124);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txLimCombo);
             this.Controls.Add(this.ckMedeTempos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txSegundos);
@@ -163,5 +186,7 @@
         private System.Windows.Forms.TextBox txSegundos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox ckMedeTempos;
+        private System.Windows.Forms.TextBox txLimCombo;
+        private System.Windows.Forms.Label label3;
     }
 }

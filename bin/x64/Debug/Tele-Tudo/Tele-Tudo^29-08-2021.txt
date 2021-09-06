@@ -1,0 +1,15 @@
+[-] Mudança no Layout
+ [x] Colocar a imagem do Android e do Whats para baixo
+
+[ ] Adaptação do logo para o celular
+ [x] Espaçozinho antes do Logo
+ [ ] Colocar os botões e o Carrinho mais pro canto
+
+
+[ ] ERRO NO CÁLCULO DA TELE-ENTREGA ao final
+ No orçamento mostrou 11 (certo) e ao final mostrou 13
+
+[ ] Numa segunda venda consecutiva, o orçamento foi parar em 16
+
+
+https://tele-tudo.com/operacoes?op=11&idPed=2171

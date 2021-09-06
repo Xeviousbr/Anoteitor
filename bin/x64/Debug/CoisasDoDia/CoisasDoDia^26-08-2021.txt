@@ -1,0 +1,3 @@
+[x] Avisar ao Gabriel
+[x] Avisar ao Denis
+[x] Avisar ao Sundar

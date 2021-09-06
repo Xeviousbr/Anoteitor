@@ -1,0 +1,5 @@
+Fazer a adição
+
+[ ] Combo para subgrupo
+[ ] Quando digitar o grupo, deve popular o combo de sub-categorias
+ ver como fiz nos endereços

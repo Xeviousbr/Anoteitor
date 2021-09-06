@@ -1,0 +1,33 @@
+https://meet.google.com/ifw-piqe-wwu
+
+1) Trabalhei no CargassPerigosas
+Alexandre me informou que o site para a tarefa é o da Intranet.
+
+
+2) Trabalhei na importação do SisAuto.
+Trabalhei preparando o debug para testar a alteração da Proc feita pelo Renado
+
+
+Queria pedir pro Paulo, retirar do SVN uma pasta de Backup e outra uma pasta de publicação.
+Do Fepam.net
+Foi adicionado pelo colega Mauro e na pratica só atrapalham.
+
+
+
+
+
+
+
+
+======================================================================
+
+Prioridades
+
+Prioridades
+1) CargasPerigosas, testes do Werner
+2) Importação do SisAuto
+
+3) Frota
+
+4) Audiências
+5) Permissões

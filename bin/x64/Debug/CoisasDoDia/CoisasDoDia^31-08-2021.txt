@@ -1,0 +1,5 @@
+
+[ ] Denis
+ [ ] Pegar o banco de dados
+ [ ] Ver que tipo de impressão que ele usou
+[ ] Conversar com a maninha
