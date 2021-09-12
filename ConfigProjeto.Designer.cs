@@ -49,7 +49,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Defina a pasta base para os projetos";
+            this.label1.Text = "Defina a pasta base para os Atividades";
             // 
             // textBox1
             // 
@@ -167,7 +167,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Definições dos projetos";
+            this.Text = "Definições dos Atividades";
             this.Load += new System.EventHandler(this.ConfigProjeto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

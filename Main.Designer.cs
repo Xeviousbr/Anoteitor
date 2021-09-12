@@ -363,34 +363,34 @@
             this.mostrarSóDoDiaToolStripMenuItem,
             this.temposToolStripMenuItem});
             this.projetoToolStripMenuItem.Name = "projetoToolStripMenuItem";
-            this.projetoToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
-            this.projetoToolStripMenuItem.Text = "Projeto";
+            this.projetoToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.projetoToolStripMenuItem.Text = "Atividades";
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // configurarToolStripMenuItem
             // 
             this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
-            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.configurarToolStripMenuItem.Text = "Configurar";
             this.configurarToolStripMenuItem.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
             // 
             // mostrarSóDoDiaToolStripMenuItem
             // 
             this.mostrarSóDoDiaToolStripMenuItem.Name = "mostrarSóDoDiaToolStripMenuItem";
-            this.mostrarSóDoDiaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.mostrarSóDoDiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mostrarSóDoDiaToolStripMenuItem.Text = "Mostrar só do dia";
             this.mostrarSóDoDiaToolStripMenuItem.Click += new System.EventHandler(this.mostrarSóDoDiaToolStripMenuItem_Click);
             // 
             // temposToolStripMenuItem
             // 
             this.temposToolStripMenuItem.Name = "temposToolStripMenuItem";
-            this.temposToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.temposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.temposToolStripMenuItem.Text = "Tempos";
             this.temposToolStripMenuItem.Click += new System.EventHandler(this.temposToolStripMenuItem_Click);
             // 

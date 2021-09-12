@@ -1002,7 +1002,7 @@ namespace Anoteitor
 
         #endregion
 
-        #region Projetos
+        #region Atividades
 
         public string NomeArq
         {

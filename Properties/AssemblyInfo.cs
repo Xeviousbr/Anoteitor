@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Anoteitor")]
-[assembly: AssemblyDescription("Bloco de notas voltado para projetos baseado no Notepad Clone de Luis Perez")]
+[assembly: AssemblyDescription("Bloco de notas voltado para Atividades baseado no Notepad Clone de Luis Perez")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Arnaldo Tadeu Chioquetta")]
 [assembly: AssemblyProduct("Anoteitor")]
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.3.1")]
+[assembly: AssemblyFileVersion("1.0.3.2")]

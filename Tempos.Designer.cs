@@ -43,7 +43,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tempos gastos nos projetos";
+            this.label1.Text = "Tempos gastos nos Atividades";
             // 
             // btZerar
             // 
