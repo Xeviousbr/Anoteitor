@@ -148,6 +148,12 @@
     <Compile Include="SaveChangesPrompt.Designer.cs">
       <DependentUpon>SaveChangesPrompt.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubAtividade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubAtividade.Designer.cs">
+      <DependentUpon>SubAtividade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tempos.cs">
       <SubType>Form</SubType>
     </Compile>

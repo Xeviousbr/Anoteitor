@@ -12,6 +12,7 @@ namespace Anoteitor
 {
     public partial class Main : Form
     {
+        private string TitAplicativo = "Anoteitor";
         private bool _LastMatchCase;
         private bool _LastSearchDown;
         private bool SalvarAutom = false;
@@ -21,7 +22,7 @@ namespace Anoteitor
         private int Segundos = 2;
         private long Tick = 0;
         private bool _IsDirty;
-        private bool Carregado = false;
+        private bool _Carregado = false;
         private string _LastSearchText;
         private string _Filename;
         private string _NomeArq;
@@ -35,7 +36,24 @@ namespace Anoteitor
         private ReplaceDialog _ReplaceDialog;
         private Encoding _encoding = Encoding.ASCII;
         private PageSettings _PageSettings;
-        private INI cIni;        
+        private INI cIni;
+
+        private string SUbAtual = "";
+        private string cbArquivosSUbOld = "";
+
+        public string PastaGeral = "";
+
+        private bool Carregado
+        {
+            get
+            {
+                return _Carregado;
+            }
+            set
+            {
+                _Carregado = value;
+            }
+        }
 
         private class ContentPosition
         {
@@ -46,6 +64,9 @@ namespace Anoteitor
         public Main()
         {
             InitializeComponent();
+#if DEBUG
+            this.TitAplicativo += " Em Debug";
+#endif
             cIni = new INI();
             int X = cIni.ReadInt("Config", "X", 0);
             Rectangle ret;
@@ -53,7 +74,8 @@ namespace Anoteitor
             {
                 ret = new Rectangle(465, 185, 745, 500);
                 StartPosition = FormStartPosition.CenterScreen;
-            } else 
+            }
+            else
             {
                 int Y = cIni.ReadInt("Config", "Y", 0);
                 int W = cIni.ReadInt("Config", "W", 0);
@@ -71,20 +93,21 @@ namespace Anoteitor
             CurrentFont = Settings.CurrentFont;
             UpdateStatusBar();
             controlContentTextBox.BringToFront(); // in order to docking to respond correctly to the status bar being turned off and on            
-            Atual = cIni.ReadString("Projetos", "Atual", "");
-            this.PreencheCombo(Atual);
-            if (Atual.Length > 0)
+            this.PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
+            this.Atual = cIni.ReadString("Projetos", "Atual", "");
+            this.PreencheCombo(this.Atual);
+            if (this.Atual.Length > 0)
             {
-                this.CarregaArquivoDoProjeto();
+                this.CarregaArquivoDoProjeto(false);
                 this.MostraArquivosDoProjeto();
             }
             this.SalvarAutom = cIni.ReadBool("Projetos", "SalvarAut", false);
-            this.cbProjetos.Text = Atual;
+            this.cbProjetos.Text = this.Atual;
             this.Segundos = cIni.ReadInt("Projetos", "Segundos", 2);
-            this.Carregado = true;
             this.DataSalva = DateTime.Now.Day;
             this.timer2.Enabled = cIni.ReadBool("Projetos", "MedeTempos", false);
             this.temposToolStripMenuItem.Visible = this.timer2.Enabled;
+            this.Carregado = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -112,7 +135,7 @@ namespace Anoteitor
                     cbArquivos.Items.Add(sData);
                     cbArquivos.Text = sData;
                     this.NomeArq = this.Atual + "^" + Data + ".txt";
-                    this.Text = this.NomeArq + " - Anoteitor";
+                    this.Text = this.NomeArq + " - " + this.TitAplicativo;
                     this.DataSalva = DataAgora;
                 }
                 this.Save();
@@ -171,7 +194,7 @@ namespace Anoteitor
             var PrintDocument = new PrintDocument();
             PrintDocument.DefaultPageSettings = PageSettings;
             PrintDocument.PrinterSettings = Settings.MoreSettings.PrinterSettings;
-            PrintDocument.DocumentName = DocumentName + " - Anoteitor";
+            PrintDocument.DocumentName = DocumentName + " - " + this.TitAplicativo;
 
             var RemainingContentToPrint = Content;
             var PageIndex = 0;
@@ -282,11 +305,6 @@ namespace Anoteitor
             new About().ShowDialog(this);
         }
 
-        //private void menuitemViewStatusBar_Click(object sender, EventArgs e)
-        //{
-        //    // IsStatusBarVisible = !IsStatusBarVisible;
-        //}
-
         private void menuitemEdit_DropDownOpening(object sender, EventArgs e)
         {
             menuitemEditCut.Enabled =
@@ -312,7 +330,7 @@ namespace Anoteitor
 
             if (!FindAndSelect(_LastSearchText, _LastMatchCase, _LastSearchDown))
             {
-                MessageBox.Show(this, CONST.CannotFindMessage.FormatUsingObject(new { SearchText = _LastSearchText }), "Anoteitor");
+                MessageBox.Show(this, CONST.CannotFindMessage.FormatUsingObject(new { SearchText = _LastSearchText }), this.TitAplicativo);
             }
         }
 
@@ -381,6 +399,25 @@ namespace Anoteitor
             CurrentFont = FontDialog.Font;
         }
 
+        private void novaSubAtividadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SubAtividade cSubAtiv = new SubAtividade(Atual);
+            cSubAtiv.ShowDialog();
+            if (cSubAtiv.DialogResult == DialogResult.OK)
+            {
+                string Nome = cSubAtiv.Nome();
+                string sData = DateTime.Now.ToShortDateString();
+                string Data = sData.Replace(@"/", "-");
+                this.NomeArq = this.Atual + "^" + Nome + "^" + Data + ".txt";
+                this.Text = this.NomeArq + " - " + this.TitAplicativo;
+                toolStripStatusLabel1.Text = this.NomeArq;
+                this.SUbAtual = Nome;
+                int QtdSub = cSubAtiv.getQtdSub();
+                this.MotraArqSub(QtdSub);
+                controlContentTextBox.BackColor = SystemColors.Window;
+            }
+        }
+
         #endregion
 
         #region  Manipulação de Arquivos
@@ -413,18 +450,20 @@ namespace Anoteitor
         {
             if (!IsDirty) return true;
             toolStripStatusLabel1.Text = "Salvando arquivo";
-            string PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
+            // string PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
             string Atual = cIni.ReadString("Projetos", "Atual", "");
-            string Pasta = PastaGeral + @"\" + Atual;
+            string SubAtiv = "";
+            if (cbSubprojeto.Visible)
+                if (cbSubprojeto.Text != "GERAL")
+                    SubAtiv = @"\" + cbSubprojeto.Text;
+            string Pasta = this.PastaGeral + @"\" + Atual + SubAtiv;
             if (Directory.Exists(Pasta) == false)
-            {
                 Directory.CreateDirectory(Pasta);
-            }
             File.WriteAllText(Filename, Content);
             IsDirty = false;
             String HoraSalva = DateTime.Now.ToString(@"hh\:mm\:ss");
             toolStripStatusLabel1.Text = "Gravado às : " + HoraSalva;
-            this.AjustaCorFundo();            
+            this.AjustaCorFundo();
             return true;
         }
 
@@ -455,8 +494,11 @@ namespace Anoteitor
         {
             var Filename = pFilename;
 
+            Console.WriteLine("Abrindo " + Filename);
+
             if (!File.Exists(Filename))
             {
+                Console.WriteLine("Não existe o arquivo");
                 var FileExists = false;
                 var Extension = Path.GetExtension(Filename);
                 if (Extension == "")
@@ -495,10 +537,10 @@ namespace Anoteitor
             this.MotraCaracteres();
         }
 
-    private void AjustaCorFundo()
+        private void AjustaCorFundo()
         {
             string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
-            if (Filename.IndexOf(Data) > 0)
+            if (this.Filename.IndexOf(Data) > 0)
                 controlContentTextBox.BackColor = SystemColors.Window;
             else
                 controlContentTextBox.BackColor = SystemColors.GradientInactiveCaption;
@@ -533,7 +575,6 @@ namespace Anoteitor
             {
                 this.Tag = base.Text;
             }
-
             base.Text = ((string)this.Tag).FormatUsingObject(new { DocumentName });
         }
 
@@ -1032,20 +1073,21 @@ namespace Anoteitor
             {
                 this.SalvarAutom = cIni.ReadBool("Projetos", "SalvarAut", false);
                 this.timer1.Interval = this.Segundos * 1000;
+                this.PastaGeral = FormConfigProjeto.PastaGeral;
             }
 
         }
 
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string Pasta = cIni.ReadString("Projetos", "Pasta", "");
-            if (Pasta == "")
+            // string Pasta = cIni.ReadString("Projetos", "Pasta", "");
+            if (this.PastaGeral == "")
             {
-                MessageBox.Show(this, "É necessário configurar primeiro", "Anoteitor");
+                MessageBox.Show(this, "É necessário configurar primeiro", this.TitAplicativo);
                 ConfigProjeto FormConfigProjeto = new ConfigProjeto();
                 FormConfigProjeto.ShowDialog();
-                Pasta = cIni.ReadString("Projetos", "Pasta", "");
-                if (Pasta == "") { return; }
+                // Pasta = cIni.ReadString("Projetos", "Pasta", "");
+                if (this.PastaGeral == "") { return; }
             }
             Projeto cPro = new Projeto();
             cPro.ShowDialog();
@@ -1059,7 +1101,7 @@ namespace Anoteitor
                     cbProjetos.SelectedIndex = pos;
                 }
             }
-            this.CarregaArquivoDoProjeto();
+            this.CarregaArquivoDoProjeto(true);
         }
 
         private void PreencheCombo(string Atual)
@@ -1070,7 +1112,7 @@ namespace Anoteitor
             {
                 string nmProjeto = "Pro" + (i + 1).ToString();
                 string Nome = this.cIni.ReadString("NmProjetos", nmProjeto, "");
-                if (Nome.Length>0)
+                if (Nome.Length > 0)
                 {
                     cbProjetos.Items.Add(Nome);
                     if (Nome == Atual)
@@ -1079,53 +1121,142 @@ namespace Anoteitor
             }
         }
 
-        private void CarregaArquivoDoProjeto()
+        private void VeSeTemSub(string EssaAtivi)
+        {
+            int QtdSub = this.cIni.ReadInt(EssaAtivi, "QtdSub", 0);
+            if (QtdSub > 0)
+            {
+                this.MotraArqSub(QtdSub);
+            }
+            else
+                cbSubprojeto.Visible = false;
+        }
+
+        private void MotraArqSub(int QtdSub)
+        {
+            cbSubprojeto.Visible = true;
+            cbSubprojeto.Items.Clear();
+
+            string DtHoje = DateTime.Now.ToShortDateString();
+            string PastaAtual = this.PastaGeral + @"\" + this.Atual;
+            bool AdicGeral = true;
+            if (this.mostrarSóDoDiaToolStripMenuItem.Checked)
+                AdicGeral = this.TemArqHoje(PastaAtual, ref DtHoje);
+            if (AdicGeral)
+                cbSubprojeto.Items.Add("GERAL");
+
+            this.SUbAtual = cIni.ReadString(this.Atual, "SubAtual", "");
+            for (int i = 0; i < QtdSub; i++)
+            {
+                string nmSubAtiv = "Sub" + (i + 1).ToString();
+                string Nome = this.cIni.ReadString(this.Atual, nmSubAtiv, "");
+                if (Nome.Length > 0)
+                {
+                    bool Adic = true;
+                    if (this.mostrarSóDoDiaToolStripMenuItem.Checked)
+                    {
+                        string PastaSub = PastaAtual + @"\" + Nome;
+                        Adic = this.TemArqHoje(PastaSub, ref DtHoje);
+                    }
+                    if (Adic)
+                    {
+                        cbSubprojeto.Items.Add(Nome);
+                        if (Nome == this.SUbAtual)
+                            cbSubprojeto.SelectedIndex = i + 1;
+                    }
+                }
+            }
+            if (this.SUbAtual == "GERAL")
+                cbSubprojeto.SelectedIndex = 0;
+        }
+
+        private bool TemArqHoje(string Pasta, ref string DtHoje)
+        {
+            bool OK = false;
+            DirectoryInfo info = new DirectoryInfo(Pasta);
+            FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+            foreach (FileInfo arquivo in arquivos)
+            {
+                string nome = arquivo.Name;
+                DateTime DtCriacao = this.GetDataPeloNome(nome);
+                string data = DtCriacao.ToShortDateString();
+                if (DtHoje == data)
+                    OK = true;
+                break;
+            }
+            return OK;
+        }
+
+        private void CarregaArquivoDoProjeto(bool MarcarCarregado)
         {
             this.HojeVazio = false;
             this.Carregado = false;
             controlContentTextBox.Clear();
-            string Pasta = cIni.ReadString("Projetos", "Pasta", "");
             string Data = DateTime.Now.ToShortDateString().Replace(@"/", "-");
-            this.NomeArq = this.Atual + "^" + Data + ".txt";
-            this.Filename = Pasta + @"\" + this.Atual + @"\" + this.NomeArq;
+            this.Filename = NomeDoArquivo(Data);
             this.Open(this.Filename);
-            this.Text = this.NomeArq + " - Anoteitor";
+            this.Text = this.NomeArq + " - " + this.TitAplicativo;
             if (controlContentTextBox.Text.Length == 0)
                 if (cIni.ReadBool("Projetos", "CopiaOutroDia", false))
                     this.HojeVazio = true;
-            this.Carregado = true;
+            this.Carregado = MarcarCarregado;
         }
 
         private void cbProjetos_DropDownClosed(object sender, EventArgs e)
         {
+            Console.WriteLine("cbProjetos_DropDownClosed");
             this.Atual = cbProjetos.Text;
-            this.CarregaArquivoDoProjeto();
             cIni.WriteString("Projetos", "Atual", cbProjetos.Text);
+            this.CarregaArquivoDoProjeto(true);
             this.MostraArquivosDoProjeto();
         }
 
         private void MostraArquivosDoProjeto()
         {
+            // string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + this.Atual;
+            int QtdSub = this.cIni.ReadInt(this.Atual, "QtdSub", 0);
+            string PastaSub = "";
+            if (QtdSub > 0)
+            {
+                string SubStual = cIni.ReadString(this.Atual, "SubAtual", "");
+                if (SubStual != "GERAL")
+                    PastaSub = @"\" + SubStual;
+                this.MotraArqSub(QtdSub);
+            }
+            this.PreparaComboArquivo(this.PastaGeral + PastaSub);
+        }
+
+        private DateTime GetDataPeloNome(string Nome)
+        {
+            int TamNome = Nome.Length;
+            string sData = Nome.Substring(TamNome - 14, 10);
+            int Dia = Convert.ToInt16(sData.Substring(0, 2));
+            int Mes = Convert.ToInt16(sData.Substring(3, 2));
+            int ANo = Convert.ToInt16(sData.Substring(6, 4)); ;
+            return new DateTime(ANo, Mes, Dia);
+        }
+
+        private void PreparaComboArquivo(string Pasta)
+        {
             bool AdicionarOMais = false;
-            if (this.mostrarSóDoDiaToolStripMenuItem.Checked==false) {
-                string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + this.Atual;
+            if (this.mostrarSóDoDiaToolStripMenuItem.Checked == false)
+            {
                 int LimArqs = cIni.ReadInt("Projetos", "LimArqs", 31);
                 this.Escolhido = "";
                 int QtdArqs = 0;
                 List<string> ArqsAdds = new List<string>();
                 try
                 {
-                    cbArquivos.Items.Clear();
                     DateTime MaisRecente = DateTime.Parse("01/01/2000");
                     DirectoryInfo info = new DirectoryInfo(Pasta);
-                    FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray(); 
+                    FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
                     foreach (FileInfo arquivo in arquivos)
                     {
                         string nome = arquivo.Name;
-                        DateTime DtCriacao = arquivo.CreationTime.Date;
+                        DateTime DtCriacao = this.GetDataPeloNome(nome);
                         string data = DtCriacao.ToShortDateString();
                         if (nome.IndexOf(this.Atual) > -1)
-                            if (this.cbArquivos.Items.IndexOf(data) < 0)
+                            if (ArqsAdds.IndexOf(data) < 0)
                             {
                                 ArqsAdds.Add(data);
                                 QtdArqs++;
@@ -1137,7 +1268,6 @@ namespace Anoteitor
                                     }
 
                             }
-                        AdicionarOMais = true;
                     }
                 }
                 catch (Exception ex)
@@ -1158,7 +1288,11 @@ namespace Anoteitor
                 }
                 cbArquivos.Visible = true;
                 int Ini = QtdArqs - LimArqs;
-                if (Ini < 0) Ini = 0;
+                if (Ini < 0)
+                    Ini = 0;
+                else
+                    AdicionarOMais = true;
+                cbArquivos.Items.Clear();
                 for (int i = Ini; i < QtdArqs; i++)
                     cbArquivos.Items.Add(ArqsAdds[i]);
                 string Data = DateTime.Now.ToShortDateString();
@@ -1173,7 +1307,7 @@ namespace Anoteitor
             }
             if (AdicionarOMais)
                 this.cbArquivos.Items.Add("TUDO");
-            if (Escolhido.Length > 0)
+            if (this.Escolhido.Length > 0)
             {
                 this.timer1.Interval = 100;
                 this.timer1.Enabled = true;
@@ -1184,33 +1318,55 @@ namespace Anoteitor
         {
             if (this.Carregado)
                 if (cbArquivos.Text.Length > 0)
-                    if (cbArquivos.Text== "TUDO")
+                {
+                    if (cbArquivos.Text == "TUDO")
                     {
-                        string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + this.Atual;
+                        string Pasta = this.PastaGeral + @"\" + this.Atual;
                         cbArquivos.Items.Clear();
                         DirectoryInfo info = new DirectoryInfo(Pasta);
                         FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
                         foreach (FileInfo arquivo in arquivos)
                         {
                             string nome = arquivo.Name;
-                            DateTime DtCriacao = arquivo.CreationTime.Date;
+
+                            DateTime DtCriacao = this.GetDataPeloNome(nome);
+                            // DateTime DtCriacao = arquivo.CreationTime.Date;
+
                             string data = DtCriacao.ToShortDateString();
                             if (nome.IndexOf(this.Atual) > -1)
-                                cbArquivos.Items.Add(data);
+                                if (cbArquivos.Items.IndexOf(data) == -1)
+                                    cbArquivos.Items.Add(data);
                         }
                         cbArquivos.Text = this.cbArquivosOld;
                     }
                     else
-                    {
                         if (cbArquivos.Text != this.cbArquivosOld)
-                        {
-                            string Pasta = cIni.ReadString("Projetos", "Pasta", "");
-                            this.NomeArq = Atual + "^" + cbArquivos.Text.Replace("/", "-") + ".txt";
-                            this.Filename = Pasta + @"\" + Atual + @"\" + this.NomeArq;
-                            this.Open(this.Filename);
-                            this.cbArquivosOld = cbArquivos.Text;
-                        }
+                    {
+                        this.Filename = NomeDoArquivo(cbArquivos.Text);
+                        this.Open(this.Filename);
+                        this.cbArquivosOld = cbArquivos.Text;
                     }
+                    VeSeTemSub(Atual);
+                }
+        }
+
+        private string NomeDoArquivo(string Data)
+        {
+            string nmSUb = "";
+            string dirSub = "";
+            this.SUbAtual = cIni.ReadString(this.Atual, "SubAtual", "");
+            if (this.SUbAtual.Length > 0)
+            {
+                if (this.SUbAtual != "GERAL")
+                {
+                    nmSUb = this.SUbAtual + "^";
+                    dirSub = @"\" + this.SUbAtual;
+                }
+            }
+            string Pasta = this.PastaGeral + @"\" + this.Atual + dirSub;
+            string sData = Data.Replace(@"/", "-");
+            string NomeArq = this.Atual + "^" + nmSUb + sData;
+            return Pasta + @"\" + NomeArq + ".txt";
         }
 
         private void cbArquivos_DropDownClosed(object sender, EventArgs e)
@@ -1225,6 +1381,7 @@ namespace Anoteitor
 
         private void cbProjetos_KeyUp(object sender, KeyEventArgs e)
         {
+            Console.WriteLine("cbProjetos_KeyUp");
             if ((e.KeyCode == Keys.Down) || (e.KeyCode == Keys.Up))
             {
                 Atual = cbProjetos.Text;
@@ -1244,43 +1401,74 @@ namespace Anoteitor
                 this.mostrarSóDoDiaToolStripMenuItem.Checked = false;
                 cbArquivos.Enabled = true;
                 this.PreencheCombo(Atual);
-            } else
+            }
+            else
             {
                 string DtHoje = DateTime.Now.ToShortDateString();
                 cbProjetos.Items.Clear();
+                cbSubprojeto.Items.Clear();
                 int Qtd = cIni.ReadInt("Projetos", "Qtd", 0);
                 int a = 0;
                 for (int i = 0; i < Qtd; i++)
                 {
                     string nmProjeto = "Pro" + (i + 1).ToString();
-                    string Nome = cIni.ReadString("NmProjetos", nmProjeto, "");
-                    if (Nome.Length > 0)
+                    string NomeAtiv = cIni.ReadString("NmProjetos", nmProjeto, "");
+                    if (NomeAtiv.Length > 0)
                     {
-                        string Pasta = cIni.ReadString("Projetos", "Pasta", "") + @"\" + Nome;
+                        Console.WriteLine(NomeAtiv);
+                        string Pasta = this.PastaGeral + @"\" + NomeAtiv;
                         DirectoryInfo info = new DirectoryInfo(Pasta);
                         if (info.Exists)
                         {
-                            FileInfo[] arquivos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
-                            string UltAdic = "";
-                            foreach (FileInfo arquivo in arquivos)
+                            try
                             {
-                                string sCriacao = arquivo.CreationTime.Date.ToShortDateString();
-                                if (DtHoje == sCriacao)
-                                    if (UltAdic!= Nome)
+                                FileInfo arquivo = info.GetFiles().OrderByDescending(p => p.CreationTime).First();
+                                string UltAdic = "";
+                                string nome = arquivo.Name;
+                                Console.WriteLine(nome);
+                                DateTime DtCriacao = this.GetDataPeloNome(nome);
+                                string sCriacao = DtCriacao.ToShortDateString();
+                                if (!this.VeSeTemHoje(DtHoje, sCriacao, NomeAtiv, ref UltAdic, ref a))
+                                {
+                                    int QtdSub = this.cIni.ReadInt(NomeAtiv, "QtdSub", 0);
+                                    if (QtdSub > 0)
                                     {
-                                        UltAdic = Nome;
-                                        cbProjetos.Items.Add(Nome);
-                                        if (Nome == Atual)
-                                            cbProjetos.SelectedIndex = a;
-                                        a++;
+                                        for (int j = 1; j < QtdSub; j++)
+                                        {
+                                            string Sub = "Sub" + j.ToString();
+                                            string NomeSub = cIni.ReadString(NomeAtiv, Sub, "");
+                                            Console.WriteLine("    " + NomeSub);
+                                            string SubPasta = Pasta + @"\" + NomeSub;
+                                            DirectoryInfo infSub = new DirectoryInfo(SubPasta);
+                                            try
+                                            {
+                                                FileInfo arqSub = infSub.GetFiles().OrderByDescending(p => p.CreationTime).First();
+                                                if (arqSub.Length > 0)
+                                                {
+                                                    string nomeArqSub = arqSub.Name;
+                                                    DateTime DtCriacaoSub = this.GetDataPeloNome(nomeArqSub);
+                                                    string sCriacaoSub = DtCriacaoSub.ToShortDateString();
+                                                    this.VeSeTemHoje(DtHoje, sCriacaoSub, NomeAtiv, ref UltAdic, ref a);
+                                                }
+                                            }
+                                            catch (Exception exception)
+                                            {
+                                                Console.WriteLine("Diretório Vazio");
+                                            }
+                                        }
                                     }
+                                }
+                            }
+                            catch (Exception exception)
+                            {
+                                Console.WriteLine("Diretório sem arquivos mas com diretórios");
                             }
                         }
                     }
                 }
                 if (a == 0)
                 {
-                    MessageBox.Show(this, "Não há arquivos gravador no dia", "Anoteitor");
+                    MessageBox.Show(this, "Não há arquivos gravador no dia", this.TitAplicativo);
                     this.PreencheCombo(Atual);
                 }
                 else
@@ -1292,6 +1480,23 @@ namespace Anoteitor
                     this.mostrarSóDoDiaToolStripMenuItem.Checked = true;
                 }
             }
+        }
+
+        private bool VeSeTemHoje(string DtHoje, string sCriacaoSub, string NomeAtiv, ref string UltAdic, ref int a)
+        {
+            bool ret = false;
+            if (DtHoje == sCriacaoSub)
+            {
+                UltAdic = NomeAtiv;
+                cbProjetos.Items.Add(NomeAtiv);
+                if (NomeAtiv == Atual)
+                {
+                    cbProjetos.SelectedIndex = a;
+                    ret = true;
+                }
+                a++;
+            }
+            return ret;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -1311,6 +1516,28 @@ namespace Anoteitor
         {
             Tempos fTempos = new Tempos();
             fTempos.Show();
+        }
+
+        private void cbSubprojeto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("cbSubprojeto_SelectedIndexChanged");
+            if (this.Carregado)
+                if (cbSubprojeto.Text != this.cbArquivosSUbOld)
+                {
+                    string sData = DateTime.Now.ToShortDateString();
+                    string Data = sData.Replace(@"/", "-");
+                    this.SUbAtual = cbSubprojeto.Text;
+                    cIni.WriteString(this.Atual, "SubAtual", this.SUbAtual);
+                    this.Filename = NomeDoArquivo(Data);
+                    this.Open(this.Filename);
+                    this.cbArquivosSUbOld = this.SUbAtual;
+                    //string Pasta = cIni.ReadString("Projetos", "Pasta", "");
+                    string PastaSubAtual = (this.SUbAtual == "GERAL" ? "" : @"\" + this.SUbAtual);
+                    string PastaSub = this.PastaGeral + @"\" + this.Atual + PastaSubAtual;
+                    if (cIni.ReadBool("Projetos", "CopiaOutroDia", false))
+                        this.HojeVazio = true;
+                    this.PreparaComboArquivo(PastaSub);
+                }
         }
 
         #endregion

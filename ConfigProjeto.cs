@@ -8,6 +8,7 @@ namespace Anoteitor
         private INI cIni;
         private bool CopiaOutroDia = false;
         private bool SalvarAuto = true;
+        public string PastaGeral = "";
 
         public ConfigProjeto()
         {
@@ -17,8 +18,8 @@ namespace Anoteitor
         private void ConfigProjeto_Load(object sender, EventArgs e)
         {
             cIni = new INI();
-            string Pasta = cIni.ReadString("Projetos", "Pasta", "");
-            textBox1.Text = Pasta;
+            this.PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
+            textBox1.Text = this.PastaGeral;
             ckSalvar.Checked = cIni.ReadBool("Projetos", "SalvarAut", false);
             txSegundos.Enabled = ckSalvar.Checked;
             ckUmDiaOutro.Checked = cIni.ReadBool("Projetos", "CopiaOutroDia", false);
@@ -33,7 +34,7 @@ namespace Anoteitor
                 MessageBox.Show(this, "É necessário informar o caminho do projeto", "Anoteitor");
             else
             {
-                string Pasta = textBox1.Text;
+                this.PastaGeral = textBox1.Text;
                 int Segundos = 0;
                 int LimCombo = 0;
                 int.TryParse(txLimCombo.Text, out LimCombo);
@@ -41,7 +42,7 @@ namespace Anoteitor
                 LimCombo = LimCombo < 3 ? 2 : LimCombo;
                 Segundos = Segundos > 0 ? Segundos : 2;
                 cIni.WriteBool("Projetos", "SalvarAut", SalvarAuto);
-                cIni.WriteString("Projetos", "Pasta", Pasta);
+                cIni.WriteString("Projetos", "Pasta", this.PastaGeral);
                 cIni.WriteBool("Projetos", "CopiaOutroDia", this.CopiaOutroDia);                
                 cIni.WriteInt("Projetos", "Segundos", Segundos);
                 cIni.WriteBool("Projetos", "MedeTempos", ckMedeTempos.Checked);

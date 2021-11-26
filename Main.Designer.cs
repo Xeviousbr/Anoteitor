@@ -62,6 +62,7 @@
             this.menuitemFormatFont = new System.Windows.Forms.ToolStripMenuItem();
             this.projetoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaSubAtividadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarSóDoDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.temposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +71,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuitemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.cbProjetos = new System.Windows.Forms.ToolStripComboBox();
+            this.cbSubprojeto = new System.Windows.Forms.ToolStripComboBox();
             this.cbArquivos = new System.Windows.Forms.ToolStripComboBox();
             this.controlStatusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -112,6 +114,7 @@
             this.projetoToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.cbProjetos,
+            this.cbSubprojeto,
             this.cbArquivos});
             this.menubarMain.Location = new System.Drawing.Point(0, 0);
             this.menubarMain.Name = "menubarMain";
@@ -343,7 +346,7 @@
             // menuitemFormatWordWrap
             // 
             this.menuitemFormatWordWrap.Name = "menuitemFormatWordWrap";
-            this.menuitemFormatWordWrap.Size = new System.Drawing.Size(134, 22);
+            this.menuitemFormatWordWrap.Size = new System.Drawing.Size(180, 22);
             this.menuitemFormatWordWrap.Text = "&Word Wrap";
             this.menuitemFormatWordWrap.CheckedChanged += new System.EventHandler(this.menuitemFormatWordWrap_CheckedChanged);
             this.menuitemFormatWordWrap.Click += new System.EventHandler(this.menuitemFormatWordWrap_Click);
@@ -351,7 +354,7 @@
             // menuitemFormatFont
             // 
             this.menuitemFormatFont.Name = "menuitemFormatFont";
-            this.menuitemFormatFont.Size = new System.Drawing.Size(134, 22);
+            this.menuitemFormatFont.Size = new System.Drawing.Size(180, 22);
             this.menuitemFormatFont.Text = "Fonte";
             this.menuitemFormatFont.Click += new System.EventHandler(this.menuitemFormatFont_Click);
             // 
@@ -359,6 +362,7 @@
             // 
             this.projetoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoToolStripMenuItem,
+            this.novaSubAtividadeToolStripMenuItem,
             this.configurarToolStripMenuItem,
             this.mostrarSóDoDiaToolStripMenuItem,
             this.temposToolStripMenuItem});
@@ -372,6 +376,13 @@
             this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoToolStripMenuItem.Text = "Nova";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
+            // 
+            // novaSubAtividadeToolStripMenuItem
+            // 
+            this.novaSubAtividadeToolStripMenuItem.Name = "novaSubAtividadeToolStripMenuItem";
+            this.novaSubAtividadeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novaSubAtividadeToolStripMenuItem.Text = "Nova SubAtividade";
+            this.novaSubAtividadeToolStripMenuItem.Click += new System.EventHandler(this.novaSubAtividadeToolStripMenuItem_Click);
             // 
             // configurarToolStripMenuItem
             // 
@@ -431,6 +442,13 @@
             this.cbProjetos.DropDownClosed += new System.EventHandler(this.cbProjetos_DropDownClosed);
             this.cbProjetos.SelectedIndexChanged += new System.EventHandler(this.cbProjetos_SelectedIndexChanged);
             this.cbProjetos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbProjetos_KeyUp);
+            // 
+            // cbSubprojeto
+            // 
+            this.cbSubprojeto.Name = "cbSubprojeto";
+            this.cbSubprojeto.Size = new System.Drawing.Size(121, 24);
+            this.cbSubprojeto.Visible = false;
+            this.cbSubprojeto.SelectedIndexChanged += new System.EventHandler(this.cbSubprojeto_SelectedIndexChanged);
             // 
             // cbArquivos
             // 
@@ -549,6 +567,8 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.ToolStripStatusLabel lbTempDecorr;
         private System.Windows.Forms.ToolStripMenuItem temposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novaSubAtividadeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox cbSubprojeto;
     }
 }
 
