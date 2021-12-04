@@ -67,7 +67,9 @@ namespace Anoteitor
 #if DEBUG
             this.TitAplicativo += " Em Debug";
 #endif
-            cIni = new INI();
+            // cIni = new INI();
+            cIni = new INI(@"I:\Anoteitor\Anoteitor.ini");
+
             int X = cIni.ReadInt("Config", "X", 0);
             Rectangle ret;
             if (X == 0)
@@ -92,9 +94,11 @@ namespace Anoteitor
             menuitemFormatWordWrap.Checked = controlContentTextBox.WordWrap;
             CurrentFont = Settings.CurrentFont;
             UpdateStatusBar();
-            controlContentTextBox.BringToFront(); // in order to docking to respond correctly to the status bar being turned off and on            
+            controlContentTextBox.BringToFront(); // in order to docking to respond correctly to the status bar being turned off and on
+
             this.PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
             this.Atual = cIni.ReadString("Projetos", "Atual", "");
+
             this.PreencheCombo(this.Atual);
             if (this.Atual.Length > 0)
             {
@@ -142,7 +146,7 @@ namespace Anoteitor
             }
         }
 
-        #region Menus
+#region Menus
 
         private void menuitemFormatWordWrap_Click(object sender, EventArgs e)
         {
@@ -418,9 +422,9 @@ namespace Anoteitor
             }
         }
 
-        #endregion
+#endregion
 
-        #region  Manipulação de Arquivos
+#region  Manipulação de Arquivos
 
         public string Filename
         {
@@ -450,7 +454,6 @@ namespace Anoteitor
         {
             if (!IsDirty) return true;
             toolStripStatusLabel1.Text = "Salvando arquivo";
-            // string PastaGeral = cIni.ReadString("Projetos", "Pasta", "");
             string Atual = cIni.ReadString("Projetos", "Atual", "");
             string SubAtiv = "";
             if (cbSubprojeto.Visible)
@@ -514,7 +517,7 @@ namespace Anoteitor
                 }
             }
 
-            #region Determine Encoding
+#region Determine Encoding
 
             if (encoding == null)
             { // generally this means it was not opened by a user using the open file dialog
@@ -525,7 +528,7 @@ namespace Anoteitor
                 }
             }
 
-            #endregion
+#endregion
             string sTemp = ReadAllText(Filename, encoding);
             Content = sTemp;
             SelectionStart = 0;
@@ -599,9 +602,9 @@ namespace Anoteitor
             return true;
         }
 
-        #endregion
+#endregion
 
-        #region Edição
+#region Edição
 
         public string Content
         {
@@ -984,9 +987,9 @@ namespace Anoteitor
             }
         }
 
-        #endregion
+#endregion
 
-        #region Busca
+#region Busca
 
         public bool FindAndSelect(string pSearchText, bool pMatchCase, bool pSearchDown)
         {
@@ -1041,9 +1044,9 @@ namespace Anoteitor
             _FindDialog.Triggered();
         }
 
-        #endregion
+#endregion
 
-        #region Atividades
+#region Atividades
 
         public string NomeArq
         {
@@ -1223,7 +1226,7 @@ namespace Anoteitor
                     PastaSub = @"\" + SubStual;
                 this.MotraArqSub(QtdSub);
             }
-            this.PreparaComboArquivo(this.PastaGeral + PastaSub);
+            this.PreparaComboArquivo(this.PastaGeral + @"\" + this.Atual + PastaSub);
         }
 
         private DateTime GetDataPeloNome(string Nome)
@@ -1540,7 +1543,7 @@ namespace Anoteitor
                 }
         }
 
-        #endregion
+#endregion
 
     }
 }
