@@ -66,9 +66,10 @@ namespace Anoteitor
             InitializeComponent();
 #if DEBUG
             this.TitAplicativo += " Em Debug";
-#endif
-            // cIni = new INI();
             cIni = new INI(@"I:\Anoteitor\Anoteitor.ini");
+#else
+            cIni = new INI();
+#endif
 
             int X = cIni.ReadInt("Config", "X", 0);
             Rectangle ret;
@@ -1232,7 +1233,7 @@ namespace Anoteitor
         private DateTime GetDataPeloNome(string Nome)
         {
             int TamNome = Nome.Length;
-            string sData = Nome.Substring(TamNome - 14, 10);
+            string sData = Nome.Substring(TamNome - 14, 10);            
             int Dia = Convert.ToInt16(sData.Substring(0, 2));
             int Mes = Convert.ToInt16(sData.Substring(3, 2));
             int ANo = Convert.ToInt16(sData.Substring(6, 4)); ;
@@ -1247,7 +1248,7 @@ namespace Anoteitor
                 int LimArqs = cIni.ReadInt("Projetos", "LimArqs", 31);
                 this.Escolhido = "";
                 int QtdArqs = 0;
-                List<string> ArqsAdds = new List<string>();
+                List<DateTime> ArqsAdds = new List<DateTime>();
                 try
                 {
                     DateTime MaisRecente = DateTime.Parse("01/01/2000");
@@ -1256,17 +1257,16 @@ namespace Anoteitor
                     foreach (FileInfo arquivo in arquivos)
                     {
                         string nome = arquivo.Name;
-                        DateTime DtCriacao = this.GetDataPeloNome(nome);
-                        string data = DtCriacao.ToShortDateString();
+                        DateTime data = this.GetDataPeloNome(nome);
                         if (nome.IndexOf(this.Atual) > -1)
-                            if (ArqsAdds.IndexOf(data) < 0)
+                            if (ArqsAdds.Contains(data)==false)
                             {
                                 ArqsAdds.Add(data);
                                 QtdArqs++;
                                 if (this.HojeVazio)
-                                    if (DtCriacao > MaisRecente)
+                                    if (data > MaisRecente)
                                     {
-                                        MaisRecente = DtCriacao;
+                                        MaisRecente = data;
                                         this.Escolhido = arquivo.FullName;
                                     }
 
@@ -1296,6 +1296,7 @@ namespace Anoteitor
                 else
                     AdicionarOMais = true;
                 cbArquivos.Items.Clear();
+                ArqsAdds.Sort();
                 for (int i = Ini; i < QtdArqs; i++)
                     cbArquivos.Items.Add(ArqsAdds[i]);
                 string Data = DateTime.Now.ToShortDateString();
@@ -1331,10 +1332,7 @@ namespace Anoteitor
                         foreach (FileInfo arquivo in arquivos)
                         {
                             string nome = arquivo.Name;
-
                             DateTime DtCriacao = this.GetDataPeloNome(nome);
-                            // DateTime DtCriacao = arquivo.CreationTime.Date;
-
                             string data = DtCriacao.ToShortDateString();
                             if (nome.IndexOf(this.Atual) > -1)
                                 if (cbArquivos.Items.IndexOf(data) == -1)
