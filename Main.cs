@@ -29,6 +29,7 @@ namespace Anoteitor
         private string Atual;
         private string Escolhido = "";
         private string cbArquivosOld = "";
+        private string NomeLog = "";
 
         private int QtMinutos = 0;
 
@@ -63,7 +64,7 @@ namespace Anoteitor
 
         public Main()
         {
-            InitializeComponent();
+            InitializeComponent();            
 #if DEBUG
             this.TitAplicativo += " Em Debug";
             cIni = new INI(@"I:\Anoteitor\Anoteitor.ini");
@@ -91,6 +92,9 @@ namespace Anoteitor
 
         private void Main_Load(object sender, EventArgs e)
         {
+            NomeLog = Path.ChangeExtension(Application.ExecutablePath, ".log");
+            this.Loga("");
+            this.Loga("INICIO");
             UpdateTitle();
             menuitemFormatWordWrap.Checked = controlContentTextBox.WordWrap;
             CurrentFont = Settings.CurrentFont;
@@ -147,7 +151,12 @@ namespace Anoteitor
             }
         }
 
-#region Menus
+        private void Loga(string texto)
+        {            
+            File.AppendAllText(this.NomeLog, DateTime.Now.ToString() + " " + texto + Environment.NewLine);
+        }
+
+        #region Menus
 
         private void menuitemFormatWordWrap_Click(object sender, EventArgs e)
         {
@@ -1128,6 +1137,8 @@ namespace Anoteitor
         private void VeSeTemSub(string EssaAtivi)
         {
             int QtdSub = this.cIni.ReadInt(EssaAtivi, "QtdSub", 0);
+            this.Loga("Lendo do Ini a quantidade de SubAtividades da Atividade " + EssaAtivi);
+            this.Loga("QtdSub = "+ QtdSub.ToString());
             if (QtdSub > 0)
             {
                 this.MotraArqSub(QtdSub);
@@ -1150,6 +1161,7 @@ namespace Anoteitor
                 cbSubprojeto.Items.Add("GERAL");
 
             this.SUbAtual = cIni.ReadString(this.Atual, "SubAtual", "");
+            this.Loga("SUbAtual = " + this.SUbAtual);
             for (int i = 0; i < QtdSub; i++)
             {
                 string nmSubAtiv = "Sub" + (i + 1).ToString();
@@ -1320,9 +1332,14 @@ namespace Anoteitor
 
         private void AtuArqASerMostrado()
         {
+            this.Loga("AtuArqASerMostrado");
+            this.Loga("Carregado = " + this.Carregado.ToString());
             if (this.Carregado)
+            {
+                this.Loga("cbArquivos.Text = " + cbArquivos.Text);
                 if (cbArquivos.Text.Length > 0)
                 {
+                    this.Loga("cbArquivos.Text = " + cbArquivos.Text);
                     if (cbArquivos.Text == "TUDO")
                     {
                         string Pasta = this.PastaGeral + @"\" + this.Atual;
@@ -1349,6 +1366,7 @@ namespace Anoteitor
                     }
                     VeSeTemSub(Atual);
                 }
+            }
         }
 
         private string NomeDoArquivo(string Data)
