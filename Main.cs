@@ -1298,7 +1298,7 @@ namespace Anoteitor
                 cbArquivos.Items.Clear();
                 ArqsAdds.Sort();
                 for (int i = Ini; i < QtdArqs; i++)
-                    cbArquivos.Items.Add(ArqsAdds[i]);
+                    cbArquivos.Items.Add(ArqsAdds[i].ToShortDateString());
                 string Data = DateTime.Now.ToShortDateString();
                 int Pos = cbArquivos.Items.IndexOf(Data);
                 if (Pos > -1)
