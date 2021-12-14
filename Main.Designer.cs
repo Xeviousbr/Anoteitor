@@ -445,6 +445,7 @@
             // 
             // cbSubprojeto
             // 
+            this.cbSubprojeto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubprojeto.Name = "cbSubprojeto";
             this.cbSubprojeto.Size = new System.Drawing.Size(121, 24);
             this.cbSubprojeto.Visible = false;

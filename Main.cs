@@ -67,7 +67,7 @@ namespace Anoteitor
             InitializeComponent();            
 #if DEBUG
             this.TitAplicativo += " Em Debug";
-            cIni = new INI(@"I:\Anoteitor\Anoteitor.ini");
+            cIni = new INI(@"H:\Anoteitor\Anoteitor.ini");
 #else
             cIni = new INI();
 #endif
@@ -152,7 +152,8 @@ namespace Anoteitor
         }
 
         private void Loga(string texto)
-        {            
+        {
+            Console.WriteLine(texto);
             File.AppendAllText(this.NomeLog, DateTime.Now.ToString() + " " + texto + Environment.NewLine);
         }
 
@@ -1434,59 +1435,72 @@ namespace Anoteitor
                     string NomeAtiv = cIni.ReadString("NmProjetos", nmProjeto, "");
                     if (NomeAtiv.Length > 0)
                     {
+                        this.Loga(NomeAtiv);
                         Console.WriteLine(NomeAtiv);
                         string Pasta = this.PastaGeral + @"\" + NomeAtiv;
                         DirectoryInfo info = new DirectoryInfo(Pasta);
                         if (info.Exists)
                         {
+                            FileInfo arquivo = null;
                             try
                             {
-                                FileInfo arquivo = info.GetFiles().OrderByDescending(p => p.CreationTime).First();
-                                string UltAdic = "";
-                                string nome = arquivo.Name;
-                                Console.WriteLine(nome);
-                                DateTime DtCriacao = this.GetDataPeloNome(nome);
-                                string sCriacao = DtCriacao.ToShortDateString();
-                                if (!this.VeSeTemHoje(DtHoje, sCriacao, NomeAtiv, ref UltAdic, ref a))
+                                arquivo = info.GetFiles().OrderByDescending(p => p.CreationTime).First();
+                            }
+                            catch (Exception)
+                            {
+                                this.Loga("Pasta Vazia");
+                            } 
+                            if (arquivo!=null)
+                            {
+                                try
                                 {
-                                    int QtdSub = this.cIni.ReadInt(NomeAtiv, "QtdSub", 0);
-                                    if (QtdSub > 0)
+                                    string UltAdic = "";
+                                    string nome = arquivo.Name;
+                                    this.Loga(nome);
+                                    DateTime DtCriacao = this.GetDataPeloNome(nome);
+                                    string sCriacao = DtCriacao.ToShortDateString();
+                                    if (!this.VeSeTemHoje(DtHoje, sCriacao, NomeAtiv, ref UltAdic, ref a))
                                     {
-                                        for (int j = 1; j < QtdSub; j++)
+                                        int QtdSub = this.cIni.ReadInt(NomeAtiv, "QtdSub", 0);
+                                        if (QtdSub > 0)
                                         {
-                                            string Sub = "Sub" + j.ToString();
-                                            string NomeSub = cIni.ReadString(NomeAtiv, Sub, "");
-                                            Console.WriteLine("    " + NomeSub);
-                                            string SubPasta = Pasta + @"\" + NomeSub;
-                                            DirectoryInfo infSub = new DirectoryInfo(SubPasta);
-                                            try
+                                            for (int j = 1; j < QtdSub; j++)
                                             {
-                                                FileInfo arqSub = infSub.GetFiles().OrderByDescending(p => p.CreationTime).First();
-                                                if (arqSub.Length > 0)
+                                                string Sub = "Sub" + j.ToString();
+                                                string NomeSub = cIni.ReadString(NomeAtiv, Sub, "");
+                                                this.Loga("    " + NomeSub); 
+                                                string SubPasta = Pasta + @"\" + NomeSub;
+                                                DirectoryInfo infSub = new DirectoryInfo(SubPasta);
+                                                try
                                                 {
-                                                    string nomeArqSub = arqSub.Name;
-                                                    DateTime DtCriacaoSub = this.GetDataPeloNome(nomeArqSub);
-                                                    string sCriacaoSub = DtCriacaoSub.ToShortDateString();
-                                                    this.VeSeTemHoje(DtHoje, sCriacaoSub, NomeAtiv, ref UltAdic, ref a);
+                                                    FileInfo arqSub = infSub.GetFiles().OrderByDescending(p => p.CreationTime).First();
+                                                    if (arqSub.Length > 0)
+                                                    {
+                                                        string nomeArqSub = arqSub.Name;
+                                                        DateTime DtCriacaoSub = this.GetDataPeloNome(nomeArqSub);
+                                                        string sCriacaoSub = DtCriacaoSub.ToShortDateString();
+                                                        this.VeSeTemHoje(DtHoje, sCriacaoSub, NomeAtiv, ref UltAdic, ref a);
+                                                    }
                                                 }
-                                            }
-                                            catch (Exception exception)
-                                            {
-                                                Console.WriteLine("Diretório Vazio");
+                                                catch (Exception exception)
+                                                {
+                                                    this.Loga("Diretório Vazio");
+                                                }
                                             }
                                         }
                                     }
                                 }
-                            }
-                            catch (Exception exception)
-                            {
-                                Console.WriteLine("Diretório sem arquivos mas com diretórios");
+                                catch (Exception exception)
+                                {
+                                    this.Loga("Diretório sem arquivos mas com diretórios");
+                                }
                             }
                         }
                     }
                 }
                 if (a == 0)
                 {
+                    this.Loga("Não há arquivos gravador no dia");
                     MessageBox.Show(this, "Não há arquivos gravador no dia", this.TitAplicativo);
                     this.PreencheCombo(Atual);
                 }
