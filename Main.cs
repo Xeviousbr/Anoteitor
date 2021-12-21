@@ -1436,7 +1436,6 @@ namespace Anoteitor
                     if (NomeAtiv.Length > 0)
                     {
                         this.Loga(NomeAtiv);
-                        Console.WriteLine(NomeAtiv);
                         string Pasta = this.PastaGeral + @"\" + NomeAtiv;
                         DirectoryInfo info = new DirectoryInfo(Pasta);
                         if (info.Exists)
@@ -1464,9 +1463,9 @@ namespace Anoteitor
                                         int QtdSub = this.cIni.ReadInt(NomeAtiv, "QtdSub", 0);
                                         if (QtdSub > 0)
                                         {
-                                            for (int j = 1; j < QtdSub; j++)
+                                            for (int j = 0; j < QtdSub; j++)
                                             {
-                                                string Sub = "Sub" + j.ToString();
+                                                string Sub = "Sub" + (j+1).ToString();
                                                 string NomeSub = cIni.ReadString(NomeAtiv, Sub, "");
                                                 this.Loga("    " + NomeSub); 
                                                 string SubPasta = Pasta + @"\" + NomeSub;
@@ -1500,7 +1499,7 @@ namespace Anoteitor
                 }
                 if (a == 0)
                 {
-                    this.Loga("Não há arquivos gravador no dia");
+                    this.Loga("Não há arquivos gravados no dia");
                     MessageBox.Show(this, "Não há arquivos gravador no dia", this.TitAplicativo);
                     this.PreencheCombo(Atual);
                 }
